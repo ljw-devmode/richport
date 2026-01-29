@@ -1,0 +1,62 @@
+CREATE TABLE services (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    service_name VARCHAR(100) NOT NULL COMMENT '서비스명',
+    name VARCHAR(50) NOT NULL COMMENT '대표자명',
+    email VARCHAR(100) NOT NULL COMMENT '이메일',
+    phone VARCHAR(20) NOT NULL COMMENT '핸드폰 번호',
+    biz_type ENUM('개인사업자', '법인사업자', '기타') DEFAULT '개인사업자' COMMENT '비즈니스 유형',
+    biz_num VARCHAR(20) COMMENT '사업자 등록번호',
+    service_category TINYINT UNSIGNED DEFAULT 0 COMMENT '서비스 카테고리 (필터용)',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '신청일'
+);
+
+ALTER TABLE services
+ADD COLUMN homepage VARCHAR(255) COMMENT '회사 웹사이트',
+ADD COLUMN test_lang VARCHAR(50) COMMENT '시험 언어',
+ADD COLUMN memo TEXT COMMENT '사용자 메모',
+ADD COLUMN admin_note TEXT COMMENT '관리자 메모',
+ADD COLUMN status VARCHAR(20) DEFAULT '대기' COMMENT '처리 상태',
+ADD COLUMN updated_at DATETIME DEFAULT NULL COMMENT '수정일';
+
+CREATE TABLE `libraries` (
+  `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT '고유 ID',
+  `title` VARCHAR(255) NOT NULL COMMENT '자료 제목',
+  `content` TEXT DEFAULT NULL COMMENT '자료 내용',
+  `writer` VARCHAR(100) DEFAULT NULL COMMENT '등록자명',
+  `file_path` VARCHAR(255) DEFAULT NULL COMMENT '첨부파일 경로',
+  `published_at` DATETIME DEFAULT NULL COMMENT '등록일',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '생성일',
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='자료실 테이블';
+
+CREATE TABLE library_files (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    library_id BIGINT UNSIGNED NOT NULL,
+    original_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL,
+    CONSTRAINT fk_library_files_library_id
+        FOREIGN KEY (library_id)
+        REFERENCES libraries(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE `inquiries` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '고유 ID',
+    `category` TINYINT UNSIGNED NOT NULL COMMENT '카테고리 (1~6)',
+    `country` VARCHAR(50) DEFAULT NULL COMMENT '국가',
+    `payment_scale` VARCHAR(100) DEFAULT NULL COMMENT '월 결제 규모',
+    `name` VARCHAR(100) NOT NULL COMMENT '이름',
+    `email` VARCHAR(100) NOT NULL COMMENT '이메일',
+    `phone` VARCHAR(50) NOT NULL COMMENT '휴대폰 번호',
+    `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일',
+    `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='문의하기 목록';
+
+ALTER TABLE inquiries
+CHANGE COLUMN category category VARCHAR(100) NOT NULL COMMENT '카테고리';
+
+ALTER TABLE inquiries
+ADD COLUMN memo TEXT COMMENT '문의내용';
