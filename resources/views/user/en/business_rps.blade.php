@@ -6,8 +6,7 @@
         <div class="section rps_con01">
             <div class="sub_inner">
                 <h4 class="effects">RPS Solar Power Generation Business</h4>
-                <p class="effects delay_1">A revenue-generating power project </p>
-                <p class="effects delay_2">where all generated electricity is sold rather than self-consumed</p>
+                <p class="effects delay_1">A revenue-generating power project where all generated electricity is sold rather than self-consumed</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
         </div>
@@ -23,7 +22,7 @@
                     <li class="effect delay_2">
                         <div class="txt">
                             <i>01</i>
-                            <p>Renewable Electricity Sales<span>SMP Sales</span></p>
+                            <p>Renewable Electricity<br/>Sales<span>SMP Sales</span></p>
                         </div>
                         <div class="path">
                             <div class="box"><span>Generation</span>Solar Power Plant</div>
@@ -33,7 +32,7 @@
                     <li class="effect delay_3">
                         <div class="txt">
                             <i>02</i>
-                            <p>Renewable Energy Certificate Sales</b><span>REC Sales</span></p>
+                            <p>Renewable Energy<br/>Certificate Sales</b><span>REC Sales</span></p>
                         </div>
                         <div class="path">
                             <div class="box"><span>Generation</span>REC Certificate</div>
@@ -58,7 +57,7 @@
                     <li class="effect delay_2">
                         <img src="{{ asset('user_assets/img/sub/business/rps_con03_icon_1.svg') }}" alt="">
                         <h5><b>Profitability</b></h5>
-                        <p>SMP + REC <b>A stable dual-revenue structure for 20 years</b></p>
+                        <p>SMP + REC A stable dual-revenue structure for 20 years</p>
                     </li>
                     <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/rps_con03_icon_2.svg') }}" alt="">
@@ -73,7 +72,7 @@
                     <li class="effect delay_5">
                         <img src="{{ asset('user_assets/img/sub/business/rps_con03_icon_4.svg') }}" alt="">
                         <h5><b>Growth Potential</b></h5>
-                        <p>Renewable energy expansion <b>More than 30% by 2030</b></p>
+                        <p>Renewable energy expansion More than 30% by 2030</p>
                     </li>
                 </ul>
                 <div class="txt effect delay_6">A next-generation energy investment solution that delivers stable returns and growth</div>
@@ -110,7 +109,7 @@
                                     <input type="radio" id="cal_2" name="cal"><label for="cal_2">Land</label>
                                 </div>
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>pyeong (㎡)</b>
                                 </div>
                             </div>

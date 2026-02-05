@@ -108,7 +108,7 @@
                             <p>평수를 입력하고 '효과 확인하기' 를 눌러보세요</p>
                             <div class="flex_type">
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>평</b>
                                 </div>
                                 <button onclick="calculatorBtnLease(this)"><span>효과 확인하기</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -273,7 +273,7 @@
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>용량</dt>
-	                                            <dd>{{number_format($item->volume)}}kW / 년</dd>
+	                                            <dd>{{number_format($item->volume)}}kW</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>지역</dt>

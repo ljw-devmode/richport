@@ -27,7 +27,7 @@
 											@endif
 		                                </div>
 		                                <div class="tit">{{$item->writed_at}}</div>
-		                                <div class="tit">{{$item->subject}}</div>
+		                                <div class="tit">{{$item->subject_cn}}</div>
 	                            	<!-- /a -->
                             	</li>
                         	@endforeach
@@ -79,23 +79,23 @@
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/1. 영화금속 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">客户访谈┃为 600 户供电！电影金属的 RE100 实践</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=BLT1IR_Us7o" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/2. 화성 파카코리아 드론.png') }}" alt=""></div>
                                 <div class="tit">华城液压设备工厂 1.3MW 无人机影像</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=W4JUV0ABSwk" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/3. 모나크CC 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">客户访谈┃Monarch CC 2.2MW 太阳能：意想不到的影响？</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://youtu.be/9MK7QRRRiik?si=EpPd315PkfcvfWW7" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/4. 청주 한청판지 드론.png') }}" alt=""></div>
                                 <div class="tit">清州造纸厂 2.3MW 无人机影像</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=0FhNgL_ZABU" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/5. 아이소매트릭.png') }}" alt=""></div>
                                 <div class="tit">Your Energy Asset Partner</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=Ke6JeaoKOls" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/6. 평택 매일유업 드론.png') }}" alt=""></div>
                                 <div class="tit">平泽每日乳业 250kW 屋顶太阳能竣工</div>
                             </a></li>
@@ -222,7 +222,7 @@
                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                 success: function (res) {
                     if (res.status !== 'success') {
-                        alert(res.message || '불러오기 실패');
+                        alert(res.message || 'load error');
                         return;
                     }
 

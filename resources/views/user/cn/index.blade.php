@@ -147,15 +147,15 @@
 	                        <div class="inner">
 	                            <div class="txt_box in_scroll">
 	                                <div class="top">
-	                                    <div class="tit"><b>{{number_format($item->volume)}}kW</b><h4>{{$item->station_name}}</h4></div>
+	                                    <div class="tit"><b>{{number_format($item->volume)}}kW</b><h4>{{$item->station_name_cn}}</h4></div>
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>地区</dt>
-	                                            <dd>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</dd>
+	                                            <dd>{{ $item->regions->name_cn ?? '' }} {{ $item->cities->name_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>类型</dt>
-	                                            <dd>{{ $item->formTypes->subject ?? '' }}</dd>
+	                                            <dd>{{ $item->formTypes->subject_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>完成日期</dt>
@@ -235,7 +235,7 @@
         <div class="section main_con05">
             <div class="tit">
                 <h4>太阳能到智慧化</h4>
-                <p>지속가능한 내일을 완성하는 기술</p>
+                <p>构建可持续未来的技术</p>
             </div>
             <ul>
                 <li><a href="javascript:;"><h4>环境</h4><p>以环保新能源打造可持续未来</p></a></li>

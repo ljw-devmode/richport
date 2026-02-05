@@ -18,7 +18,7 @@ html {
 /* ====================================
     공통
 ==================================== */
-body {font-size:16px; color:var(--text-primary); font-family: "Pretendard", sans-serif; word-break:break-all; }
+body {font-size:16px; color:var(--text-primary); font-family: "Noto Sans SC", sans-serif; word-break:break-word; }
 
 .inner {padding:0 40px; }
 @media all and (max-width:767px){
@@ -234,7 +234,7 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 .calculator_box .right_box .bot p {padding:clamp(10px,1.5vh,18px) 2vh; font-size:clamp(16px,1.6vh,20px); color:#000; font-weight:600; text-align:left; background-color:#f6f3f0; border-radius:5px; }
 .calculator_box .right_box .bot p + p {margin-top:10px; }
 .calculator_box .right_box .bot p.txt {font-weight:400; line-height:1.4; }
-.calculator_box .right_box .bot p strong {padding:4px 10px; color:#fff; font-weight:600; background-color:var(--color-primary); border-radius:10px; }
+.calculator_box .right_box .bot p strong {font-weight:600; }
 .calculator_box .right_box .bot .table_box {padding:clamp(10px,1.5vh,18px) 2vh; margin-bottom:clamp(10px,1.5vh,18px); background-color:#f6f3f0; border-radius:5px; }
 .calculator_box .right_box .bot .table_box .tit {display:flex; align-items:center; justify-content:space-between; }
 .calculator_box .right_box .bot .table_box .tit strong {font-size:clamp(16px,2vh,24px); color:#000; font-weight:600; }
@@ -264,10 +264,11 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
     .calculator_box .right_box.type02 .cal_box {max-width:80%; }
     .calculator_box .right_box.type02 .bot p {font-size:12px; }
 
-    .calculator_box .right_box .top {padding:0 40px; }
     .calculator_box .right_box .top h4 {font-size:clamp(30px,4vh,40px); }
     .calculator_box .right_box .top p {font-size:clamp(16px,1.8vh,18px); }
-    .calculator_box .right_box .top .input_area {gap:5px; }
+    .calculator_box .right_box .top .input_area {gap:5px; flex-direction: column; }
+    .calculator_box .right_box .top .input_area .input_box {width: 100%; }
+    .calculator_box .right_box .top .radio_box {width:100%; }
     .calculator_box .right_box .top .radio_box input + label {font-size:clamp(16px,1.8vh,18px); }
     .calculator_box .right_box .top .input_box b {font-size:clamp(16px,1.8vh,18px); }
     .calculator_box .right_box .top button {font-size:clamp(18px,2.2vh,22px); }
@@ -294,10 +295,8 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 
     .calculator_box .right_box .cal_box {width:90%; max-width:90%; padding:40px 0 20px; }
     .calculator_box .right_box.active .cal_box {padding:40px 0 20px; }
-    .calculator_box .right_box .top {padding:0 30px; }
     .calculator_box .right_box .top h4 {font-size:clamp(28px,3vh,30px); }
     .calculator_box .right_box .top p {font-size:clamp(15px,1.6vh,16px); }
-    .calculator_box .right_box.active .top {padding:0 30px; }
 
     .calculator_box .right_box.type02 .cal_box {width:90%; max-width:90%; padding:60px 0 20px; }
 
@@ -568,7 +567,7 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 .portfolio_con .port_slide ul li .txt_box .info dl dt {font-size:20px; color:#272727; font-weight:800; }
 .portfolio_con .port_slide ul li .txt_box .info dl dd {margin-top:10px; font-size:30px; color:#484848; font-weight:600; }
 .portfolio_con .port_slide ul li .txt_box .btn {display:flex; align-items:center; justify-content:flex-start; gap:10px; }
-.portfolio_con .port_slide ul li .txt_box .btn a {display:flex; align-items:center; gap:10px; width:auto; height:50px; padding:0 50px 0 20px; font-size:18px; color:#fff; font-weight:600; background:#272727 url('../img/main/main_con02_arrow.svg') no-repeat 90% center; border-radius:40px; }
+.portfolio_con .port_slide ul li .txt_box .btn a {display:flex; align-items:center; gap:5px; width:auto; height:50px; padding:0 50px 0 20px; font-size:18px; color:#fff; font-weight:600; background:#272727 url('../img/main/main_con02_arrow.svg') no-repeat 95% center; border-radius:40px; }
 .portfolio_con .port_slide ul li .txt_box .pager {display:flex; align-items:center; justify-content:center; gap:15px; margin-top:clamp(10px,3.5vh,50px); }
 .portfolio_con .port_slide ul li .txt_box .pager span {width:14px; height:14px; background-color:#cecccc; border-radius:50%; cursor:pointer; }
 .portfolio_con .port_slide ul li .txt_box .pager span.active {background-color:var(--color-primary); }
@@ -585,7 +584,7 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 
 @media all and (max-width:767px){
     .portfolio_con .port_slide .tit_box {z-index:20; position:absolute; left:0; top:0; width:100%; padding:80px 0 ; background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 85%); }
-    .portfolio_con .port_slide .tit_box h3 {display:block; font-size:50px; text-align:center; color:#fff; font-weight:800; }
+    .portfolio_con .port_slide .tit_box h3 {display:block; font-size:38px; text-align:center; color:#fff; font-weight:800; }
     .portfolio_con .port_slide ul li .bg_img.pc_img {display:none; }
     .portfolio_con .port_slide ul li .bg_img.fold_img {display:block; }
     .portfolio_con .port_slide ul li .bg_img.mo_img {display:none; }
@@ -595,14 +594,14 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
     .portfolio_con .port_slide ul li .txt_box .tit b ,
     .portfolio_con .port_slide ul li .txt_box .tit h4 {font-size:30px; }
     .portfolio_con .port_slide ul li .txt_box .tit h4 {text-overflow:unset; white-space:unset; overflow:unset; }
-    .portfolio_con .port_slide ul li .txt_box .tit h5 {width:100%; font-size:30px; }
+    .portfolio_con .port_slide ul li .txt_box .tit h5 {font-size:30px; }
     .portfolio_con .port_slide ul li .txt_box .tit strong {font-size:30px; }
     .portfolio_con .port_slide ul li .txt_box .tit span {font-size:24px; }
     .portfolio_con .port_slide ul li .txt_box .info {display:flex; align-items:flex-start; gap:clamp(10px,5vw,50px); flex-wrap:wrap; margin-top:20px; }
     .portfolio_con .port_slide ul li .txt_box .info dl + dl {margin-top:0; }
     .portfolio_con .port_slide ul li .txt_box .info dl dt {font-size:16px; font-weight:800; }
     .portfolio_con .port_slide ul li .txt_box .info dl dd {margin-top:4px; font-size:20px; font-weight:600; }
-    .portfolio_con .port_slide ul li .txt_box .btn a {height:44px; padding:0 40px 0 10px; font-size:16px; }
+    .portfolio_con .port_slide ul li .txt_box .btn a {height:44px; padding:0 35px 0 10px; font-size:16px; }
     .portfolio_con .port_slide ul li .txt_box .pager {gap:14px; margin-top:20px; }
     .portfolio_con .port_slide ul li .txt_box .pager span {width:12px; height:12px; }
     .portfolio_con .port_slide .arrow {top:calc(50% - 20px); width:40px; height:40px; }

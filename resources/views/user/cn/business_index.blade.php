@@ -25,7 +25,7 @@
                     </li>
                     <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_2.svg') }}" alt="">
-                        <h5><b>完美防水, 责任施工</h5>
+                        <h5>完美防水, 责任施工</h5>
                         <p>采用专利工法, 彻底杜绝漏水隐患</p>
                     </li>
                     <li class="effect delay_4">
@@ -35,12 +35,12 @@
                     </li>
                     <li class="effect delay_5">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_4.svg') }}" alt="">
-                        <h5 style="letter-spacing: -2px;">自有工厂直接生产</b></h5>
+                        <h5>自有工厂直接生产</b></h5>
                         <p>无需担心腐蚀, 坚固耐用有保障</p>
                     </li>
                     <li class="effect delay_6">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_5.svg') }}" alt="">
-                        <h5 style="letter-spacing: -1px;">专业运维管理团队</h5>
+                        <h5>专业运维管理团队</h5>
                         <p>全方位售后管理, 保障收</p>
                     </li>
                 </ul>
@@ -58,7 +58,7 @@
                 <ul>
                     <li class="effect delay_2">
                         <p>屋顶租赁每 1kW</p>
-                        <h5><b>4</b>万韩元<i>起</i></h5>
+                        <h5><b>4</b>万韩元起</h5>
                         <span>行业最高水平优惠</span>
                     </li>
                     <li class="effect delay_3">

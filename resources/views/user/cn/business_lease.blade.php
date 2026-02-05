@@ -30,11 +30,11 @@
                             </div>
                             <div class="arrow">
                                 <img src="{{ asset('user_assets/img/sub/business/lease_con02_arrow.svg') }}" alt="">
-                                <span>20 年租赁, 固定电价/span>
+                                <span>20年租赁, 固定电价</span>
                             </div>
                             <div>
                                 <b>降低电费</b>
-                                <p>220 年稳定成本管理</p>
+                                <p>20年稳定成本管理</p>
                             </div>
                         </div>
                     </li>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="arrow">
                                 <img src="{{ asset('user_assets/img/sub/business/lease_con02_arrow.svg') }}" alt="">
-                                <span>ESG,, 碳边境税</span>
+                                <span>ESG, 碳边境税</span>
                             </div>
                             <div>
                                 <b>达成 RE100</b>
@@ -107,7 +107,7 @@
                             <p>输入面积并点击“查看效果”</p>
                             <div class="flex_type">
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>平方米</b>
                                 </div>
                                 <button onclick="calculatorBtnLease(this)"><span>查看效果</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -268,19 +268,19 @@
 	                        <div class="inner">
 	                            <div class="txt_box in_scroll">
 	                                <div class="top">
-	                                    <div class="tit"><h5>{{$item->station_name}}</h5><strong>{{$item->price}}</strong><span>（20 年预计节省额）</span></div>
+	                                    <div class="tit"><h5>{{$item->station_name_cn}}</h5><strong>{{$item->price_cn}}</strong><span>(20 年预计节省额)</span></div>
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>发电容量</dt>
-	                                            <dd>{{number_format($item->volume)}}kW / 年</dd>
+	                                            <dd>{{number_format($item->volume)}}kW</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>地区</dt>
-	                                            <dd>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</dd>
+	                                            <dd>{{ $item->regions->name_cn ?? '' }} {{ $item->cities->name_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>类型</dt>
-	                                            <dd>{{ $item->formTypes->subject ?? '' }}</dd>
+	                                            <dd>{{ $item->formTypes->subject_cn ?? '' }}</dd>
 	                                        </dl>
 	                                    </div>
 	                                </div>

@@ -27,7 +27,7 @@
 
             <div class="portfolio_box">
                 <div class="w1700">
-                	<form method="GET" action="/portfolio">
+                	<form method="GET" action="/ko/portfolio">
 	                    <div class="portfolio_form" data-aos="fade-up">
 	                        <div class="category">
 	                        	<input type="radio" id="form_idx_all" name="form_idx"  value="" {{ request('form_idx') === null || request('form_idx') === '' ? 'checked' : '' }}><label for="form_idx_all">전체보기</label>

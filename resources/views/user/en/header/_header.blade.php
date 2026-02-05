@@ -47,7 +47,7 @@
         <div class="depth1">
             <p>Business</p>
             <ul class="depth2">
-                <li>
+                <li class="liwidth">
                     <a href="javascript:;">Renewable Energy</a>
                     <ul class="depth3">
                         <li><a href="/en/business/index">Why SOLARTEQ</a></li>
@@ -56,7 +56,7 @@
                         <li><a href="/en/business/lease">RE100 Leasing</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="liwidth">
                     <a href="javascript:;">Smart Factory</a>
                     <ul class="depth3">
                         <li><a href="javascript:alert('Coming Soon')">AUTOMATION</a></li>
@@ -73,7 +73,7 @@
             <ul class="depth2">
                 <li><a href="/en/portfolio">Portfolio</a></li>
                 <li><a href="/en/news">Company News</a></li>
-                <li><a href="/en/culture">Corporate Culture</a></li>
+                <li><a href="/en/culture">Company Culture</a></li>
             </ul>
         </div>
     </div>

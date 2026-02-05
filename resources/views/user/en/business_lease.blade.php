@@ -5,10 +5,8 @@
         <!-- 리스 -->
         <div class="section lease_con01">
             <div class="sub_inner">
-                <b class="effects">RE100 LEASE</b>
-                <h4 class="effects delay_1">RE100 Leasing</h4>
-                <p class="effects delay_2">A program that lets you use renewable energy </p>
-                <p class="effects delay_3">in a leasing model  <span><i>for 20 years</i></span></p>
+                <h4 class="effects">RE100 Leasing</h4>
+                <p class="effects delay_1">A program that lets you use renewable energy in a leasing model for 20 years</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
         </div>
@@ -108,7 +106,7 @@
                             <p>Enter the area and click “Check Impact”</p>
                             <div class="flex_type">
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>pyeong (㎡)</b>
                                 </div>
                                 <button onclick="calculatorBtnLease(this)"><span>Check Impact</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -273,7 +271,7 @@
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>Power Generation Capacity</dt>
-	                                            <dd>{{number_format($item->volume_en)}}kW / Years</dd>
+	                                            <dd>{{number_format($item->volume_en)}}kW</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>Region</dt>

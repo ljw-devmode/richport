@@ -212,10 +212,6 @@
 						<p class="shrink-0 w-32 font-medium ">제목(cn) <span class="text-danger">*</span></p>
 						<input type="text" id="modify_subject_cn" name="modify_subject_cn" class="form-control" placeholder="">
 					</div>
-					<div class="flex items-center gap-2">
-						<p class="shrink-0 w-32 font-medium ">제목 <span class="text-danger">*</span></p>
-						<input type="text" id="modify_subject" name="modify_subject" class="form-control" placeholder="">
-					</div>
 					<div class="flex items-center gap-10 mt-3">
 						<div class="flex-1 flex items-center gap-2">
                             <p class="shrink-0 w-32 font-medium">구분 <span class="text-danger">*</span></p>

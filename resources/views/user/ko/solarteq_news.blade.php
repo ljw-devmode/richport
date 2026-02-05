@@ -79,23 +79,23 @@
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/1. 영화금속 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">고객만족 인터뷰┃600가구 전력 생산! 영화금속이 RE100을 준비하는 현실적 방법</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=BLT1IR_Us7o" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/2. 화성 파카코리아 드론.png') }}" alt=""></div>
                                 <div class="tit">화성 유압기기 제조공장 1.3MW 태양광 발전소 드론 영상</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=W4JUV0ABSwk" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/3. 모나크CC 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">고객만족 인터뷰┃모나크CC, 고객 편의를 위해 설치한 2.2MW 태양광, 예상 못 한 효과가?</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://youtu.be/9MK7QRRRiik?si=EpPd315PkfcvfWW7" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/4. 청주 한청판지 드론.png') }}" alt=""></div>
                                 <div class="tit">스마트 생태공장 구축사업 준공! 청주 제지공장 2.3MW급 드론영상</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=0FhNgL_ZABU" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/5. 아이소매트릭.png') }}" alt=""></div>
                                 <div class="tit">SOLARTEQ┃당신의 에너지 자산 파트너 (아이소매트릭)</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=Ke6JeaoKOls" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/6. 평택 매일유업 드론.png') }}" alt=""></div>
                                 <div class="tit">평택 매일유업 250kW 지붕형 태양광발전소 준공! 유제품 공장 태양광 설치 완료</div>
                             </a></li>

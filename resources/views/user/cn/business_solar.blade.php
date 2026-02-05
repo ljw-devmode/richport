@@ -40,7 +40,7 @@
                         </li>
                         <li class="effect delay_2">
                             <i><img src="{{ asset('user_assets/img/sub/business/solar_icon_3.svg') }}" alt="">以 100 kW 为基准</i>
-                            <p>8 <b>千万韩元</b></p>
+                            <p><b>8</b>千万韩元</p>
                             <span>20 年预计总收益</span>
                         </li>
                         <li class="effect delay_3">
@@ -75,7 +75,7 @@
                             <h4>您的屋顶租赁收益</h4>
                             <p>输入面积并点击“计算收益”</p>
                             <div class="input_box">
-                                <input type="text">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                 <b>平方米</b>
                             </div>
                             <button onclick="calculatorBtnSolar(this)"><span>计算</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -154,15 +154,15 @@
 	                        <div class="inner">
 	                            <div class="txt_box in_scroll">
 	                                <div class="top">
-	                                    <div class="tit"><h5>{{$item->station_name}}</h5><strong>{{$item->price}}</strong><span>约 00 亿韩元</span></div>
+	                                    <div class="tit"><h5>{{$item->station_name_cn}}</h5><strong>{{$item->price_cn}}</strong><span></span></div>
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>地区</dt>
-	                                            <dd>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</dd>
+	                                            <dd>{{ $item->regions->name_cn ?? '' }} {{ $item->cities->name_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>类型</dt>
-	                                            <dd>{{ $item->formTypes->subject ?? '' }}</dd>
+	                                            <dd>{{ $item->formTypes->subject_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        @if($item->completion_date)
 	                                        <dl>

@@ -147,7 +147,7 @@
 	                        <div class="inner">
 	                            <div class="txt_box in_scroll">
 	                                <div class="top">
-	                                    <div class="tit"><b>{{number_format($item->volume_en)}}kW</b><h4>{{$item->station_name_en}}</h4></div>
+	                                    <div class="tit"><b>{{number_format($item->volume)}}kW</b><h4>{{$item->station_name_en}}</h4></div>
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>Region</dt>

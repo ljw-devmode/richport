@@ -14,7 +14,7 @@
                 
                 <div class="sub_tit">
                     <span data-aos="fade-up">发展历程</span>
-                    <h3 data-aos="fade-up" data-aos-delay="150">公司沿革/h3>
+                    <h3 data-aos="fade-up" data-aos-delay="150">公司沿革</h3>
                 </div>
 
                 <div class="history_area">
@@ -38,7 +38,7 @@
 				                <div class="item">
 				                    <dl data-aos="fade-up">
 				                        <dt>{{ (int)$row->month }}</dt>
-				                        <dd><p>{{ $row->subject }}</p></dd>
+				                        <dd><p>{{ $row->subject_cn }}</p></dd>
 				                    </dl>
 				                </div>
 				            @endforeach

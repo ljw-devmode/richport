@@ -7,27 +7,27 @@
                 <!-- 타이틀 -->
                 <div class="tit">
                     <div class="left_tit">
-                        <span>{{$data->regions->name_kr}} - {{ $data->cities->name_kr }}</span>
-                        <h4>{{$data->station_name}}</h4>
+                        <span>{{$data->regions->name_cn}} - {{ $data->cities->name_cn }}</span>
+                        <h4>{{$data->station_name_cn}}</h4>
                     </div>
                     <div class="right_txt">
                         <div>
                             <span>装机容量</span>
-                            <p><b>{{ number_format($data->volume)}}</b>kW</p>
+                            <p><b>{{ number_format($data->volume_cn)}}</b>kW</p>
                         </div>
                         <div>
                             <span>减碳效果</span>
-                            <p><b>{{ number_format(round($data->volume * 156))}}</b> 棵树</p>
+                            <p><b>{{ number_format(round($data->volume_cn * 156))}}</b> 棵树</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-			@if($data->youtube_iframe || $data->youtube_subject || $data->youtube_contents || $data->blog_contents)
+			@if($data->youtube_iframe || $data->youtube_subject_cn || $data->youtube_contents_cn || $data->blog_contents_cn)
             <div class="portfolio_content">
                 <div class="w1700">
                     <!-- 인터뷰 -->
-                    @if($data->youtube_iframe || $data->youtube_subject || $data->youtube_contents)
+                    @if($data->youtube_iframe || $data->youtube_subject_cn || $data->youtube_contents_cn)
 	                    <div class="portfolio_tit">
 	                        <h5>客户访谈</h5>
 	                    </div>
@@ -37,24 +37,24 @@
 						    </div>
 						@endif
 	                    
-	                    @if($data->youtube_subject || $data->youtube_contents)
+	                    @if($data->youtube_subject_cn || $data->youtube_contents_cn)
 		                    <div class="interview_txt">
-		                    	@if($data->youtube_subject)
-		                        <div class="subject">{{$data->youtube_subject}}</div>
+		                    	@if($data->youtube_subject_cn)
+		                        <div class="subject">{{$data->youtube_subject_cn}}</div>
 		                        @endif
-		                        @if($data->youtube_contents)
-		                        <div class="desc">“{{$data->youtube_contents}}”</div>
+		                        @if($data->youtube_contents_cn)
+		                        <div class="desc">“{{$data->youtube_contents_cn}}”</div>
 		                        @endif
 		                    </div>
 	                    @endif
                     @endif
 
                     <!-- 취재노트 -->
-                    @if($data->blog_contents)
+                    @if($data->blog_contents_cn)
                     <div class="portfolio_tit">
                         <h5>Soltek 的现场采访笔记</h5>
                         <div class="note_box">
-                            <div class="note_txt">{{$data->blog_contents}}</div>
+                            <div class="note_txt">{{$data->blog_contents_cn}}</div>
                             <a href="https://blog.naver.com/solarteq">查看更多 Soltek 博客</a>
                         </div>
                     </div>

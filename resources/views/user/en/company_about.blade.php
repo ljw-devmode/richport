@@ -141,27 +141,27 @@
                     </div>
                     <div class="right_box">
                         <dl class="effect delay_5">
-                            <dt>A. Stand-alone Text Type</dt>
+                            <dt>A. Stand-alone<br/>Text Type</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_A.svg') }}" alt=""></dd>
                         </dl>
                         <dl class="effect delay_5">
-                            <dt>B. Vertical Combination</dt>
+                            <dt>B. Vertical<br/>Combination</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_B.svg') }}" alt=""></dd>
                         </dl>
                         <dl class="effect delay_5">
-                            <dt>C. Horizontal Combination</dt>
+                            <dt>C. Horizontal<br/>Combination</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_C.svg') }}" alt=""></dd>
                         </dl>
                         <dl class="effect delay_6">
-                            <dt>D. Stand-alone Text Type</dt>
+                            <dt>D. Stand-alone<br/>Text Type</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_1.svg') }}" alt=""></dd>
                         </dl>
                         <dl class="effect delay_6">
-                            <dt>E. Vertical Combination</dt>
+                            <dt>E. Vertical<br/>Combination</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_2.svg') }}" alt=""></dd>
                         </dl>
                         <dl class="effect delay_6">
-                            <dt>F. Horizontal Combination</dt>
+                            <dt>F. Horizontal<br/>Combination</dt>
                             <dd><img src="{{ asset('user_assets/img/sub/company/about_ci_3.svg') }}" alt=""></dd>
                         </dl>
 

@@ -169,7 +169,7 @@
                 <div class="sub_tit">
                     <span data-aos="fade-up">DESIGN</span>
                     <h3 data-aos="fade-up" data-aos-delay="150">Design</h3>
-                    <p data-aos="fade-up" data-aos-delay="300"><b>Delivering refined structural aesthetics through harmony of function and form</p>
+                    <p data-aos="fade-up" data-aos-delay="300">Delivering refined structural aesthetics through harmony of function and form</p>
                 </div>
 
                 <div class="patent_area type03" data-aos="fade-up" data-aos-delay="450">

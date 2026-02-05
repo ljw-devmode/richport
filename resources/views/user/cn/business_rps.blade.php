@@ -26,7 +26,7 @@
                         </div>
                         <div class="path">
                             <div class="box"><span>发电</span>太阳能电站</div>
-                            <div class="box"><span>销售方</span>韩国电力公司（KEPCO）</div>
+                            <div class="box"><span>销售方</span>韩国电力公司(KEPCO)</div>
                         </div>
                     </li>
                     <li class="effect delay_3">
@@ -57,7 +57,7 @@
                     <li class="effect delay_2">
                         <img src="{{ asset('user_assets/img/sub/business/rps_con03_icon_1.svg') }}" alt="">
                         <h5><b>收益性</b></h5>
-                        <p>SMP + REC<br/> <b>20 年稳定的双重收益结构</b></p>
+                        <p>SMP + REC<br/> 20 年稳定的双重收益结构</p>
                     </li>
                     <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/rps_con03_icon_2.svg') }}" alt="">
@@ -109,7 +109,7 @@
                                     <input type="radio" id="cal_2" name="cal"><label for="cal_2">土地</label>
                                 </div>
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>平方米</b>
                                 </div>
                             </div>
@@ -119,8 +119,8 @@
                             <h5>20 年预计总收益</h5>
                             <b><span class="count">0</span>万韩元</b>
                             <p>• 年发电量 : <strong><span class="count">0</span> kWh/年</strong></p>
-                            <p>• 韩国电力（SMP） : <strong><span class="count">0</span> 韩元/年</strong></p>
-                            <p>• 发电运营商（REC） : <strong><span class="count">0</span> 韩元/年</strong></p>
+                            <p>• 韩国电力(SMP) : <strong><span class="count">0</span> 韩元/年</strong></p>
+                            <p>• 发电运营商(REC) : <strong><span class="count">0</span> 韩元/年</strong></p>
                             <p class="txt">※ 实际安装面积可能不同，年度收益取决于发电容量。<br/>※ 韩国电力/发电运营商的单价可能因商业运营开始日期不同而变化，从而影响收益。</p>
                         </div>
                     </div>
@@ -170,15 +170,15 @@
 	                        <div class="inner">
 	                            <div class="txt_box in_scroll">
 	                                <div class="top">
-	                                    <div class="tit"><h5>{{$item->station_name}}</h5><strong>{{number_format($item->volume)}}kW</strong></div>
+	                                    <div class="tit"><h5>{{$item->station_name_cn}}</h5><strong>{{number_format($item->volume)}}kW</strong></div>
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>地区</dt>
-	                                            <dd>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</dd>
+	                                            <dd>{{ $item->regions->name_cn ?? '' }} {{ $item->cities->name_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>类型</dt>
-	                                            <dd>{{ $item->formTypes->subject ?? '' }}</dd>
+	                                            <dd>{{ $item->formTypes->subject_cn ?? '' }}</dd>
 	                                        </dl>
 	                                        @if($item->completion_date)
 	                                        <dl>

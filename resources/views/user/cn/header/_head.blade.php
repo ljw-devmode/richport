@@ -133,4 +133,9 @@
     <script src="{{ asset('user_assets/js/fullpage.js') }}"></script>
     <script src="{{ asset('user_assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/common.js') }}"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	
 </head> 

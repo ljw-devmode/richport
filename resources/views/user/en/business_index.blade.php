@@ -20,19 +20,19 @@
                 </div>
                 <ul>
                     <li class="effect delay_2">
-                        <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_1.svg') }}" alt="">
-                        <h5>Industry-Leading Benefits</h5>
-                        <p>Customized solutions to maximize returns</p>
-                    </li>
-                    <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_2.svg') }}" alt="">
-                        <h5>Complete Waterproofing Responsible construction</h5>
+                        <h5>Waterproofing Responsible construction</h5>
                         <p>Zero leakage concerns with patented construction methods</p>
                     </li>
-                    <li class="effect delay_4">
+                    <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_3.svg') }}" alt="">
                         <h5>On-site Structural Engineering Experts</h5>
                         <p>Direct design and safety review by experts</p>
+                    </li>
+                    <li class="effect delay_4">
+                        <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_1.svg') }}" alt="">
+                        <h5>Industry-Leading Benefits</h5>
+                        <p>Customized solutions to maximize returns</p>
                     </li>
                     <li class="effect delay_5">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_4.svg') }}" alt="">

@@ -27,12 +27,12 @@
 
             <div class="portfolio_box">
                 <div class="w1700">
-                	<form method="GET" action="/portfolio">
+                	<form method="GET" action="/cn/portfolio">
 	                    <div class="portfolio_form" data-aos="fade-up">
 	                        <div class="category">
 	                        	<input type="radio" id="form_idx_all" name="form_idx"  value="" {{ request('form_idx') === null || request('form_idx') === '' ? 'checked' : '' }}><label for="form_idx_all">查看全部</label>
 	                        	@foreach ($types as $item)
-		                            <input type="radio" id="form_idx_{{$item->idx}}" name="form_idx" value="{{$item->idx}}" {{ request('form_idx') == $item->idx ? 'checked' : '' }}><label for="form_idx_{{$item->idx}}">{{$item->subject}}</label>
+		                            <input type="radio" id="form_idx_{{$item->idx}}" name="form_idx" value="{{$item->idx}}" {{ request('form_idx') == $item->idx ? 'checked' : '' }}><label for="form_idx_{{$item->idx}}">{{$item->subject_cn}}</label>
 	                            @endforeach
 	                        </div>
 	                        <div class="search">
@@ -45,18 +45,18 @@
                         <ul>
                         	@forelse ($data as $index => $item)
                             <li>
-                            	<a href="/ko/portfolio/detail/{{ $item->idx }}">
+                            	<!-- a href="/cn/portfolio/detail/{{ $item->idx }}" -->
 	                                <div class="img_box">
-	                                	<span>{{ $item->formTypes->subject ?? '' }}</span>
+	                                	<span>{{ $item->formTypes->subject_cn ?? '' }}</span>
 	                                	<img src="{{ Storage::disk('public')->url($item->pc_up_name) }}" alt="">
 	                                </div>
 	                                <div class="txt_box">
 	                                    <div class="top">
-	                                        <span>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</span>
+	                                        <span>{{ $item->regions->name_cn ?? '' }} {{ $item->cities->name_cn ?? '' }}</span>
 	                                        <b>{{number_format($item->volume)}}kW</b>
 	                                    </div>
 	                                    <div class="tit">
-	                                        <p>{{$item->station_name}}</p>
+	                                        <p>{{$item->station_name_cn}}</p>
 	                                        <div class="link_box">
 	                                        	@if($item->url)
 	                                            <a href="{{$item->url}}" target="_blank"><img src="{{ asset('user_assets/img/sub/solarteq/youtube.svg') }}" alt=""></a>
@@ -67,7 +67,7 @@
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                            </a>
+	                            <!-- /a -->
                             </li>
                             @empty
                             	<li class="empty">暂无已登记的项目案例。</li>

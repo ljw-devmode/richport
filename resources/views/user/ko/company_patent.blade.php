@@ -176,6 +176,7 @@
                     <p data-aos="fade-up" data-aos-delay="300"><b>기능과 형태의 조화</b>를 통해 완성된 구조미를 제공합니다.</p>
                 </div>
 
+
                 <div class="patent_area type03" data-aos="fade-up" data-aos-delay="450">
                     <div class="">
                         <ul class="">

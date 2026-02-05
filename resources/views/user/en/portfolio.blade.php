@@ -27,7 +27,7 @@
 
             <div class="portfolio_box">
                 <div class="w1700">
-                	<form method="GET" action="/portfolio">
+                	<form method="GET" action="/en/portfolio">
 	                    <div class="portfolio_form" data-aos="fade-up">
 	                        <div class="category">
 	                        	<input type="radio" id="form_idx_all" name="form_idx"  value="" {{ request('form_idx') === null || request('form_idx') === '' ? 'checked' : '' }}><label for="form_idx_all">View All</label>
@@ -45,7 +45,7 @@
                         <ul>
                         	@forelse ($data as $index => $item)
                             <li>
-                            	<a href="/en/portfolio/detail/{{ $item->idx }}">
+                            	<!-- a href="/en/portfolio/detail/{{ $item->idx }}" -->
 	                                <div class="img_box">
 	                                	<span>{{ $item->formTypes->subject_en ?? '' }}</span>
 	                                	<img src="{{ Storage::disk('public')->url($item->pc_up_name) }}" alt="">
@@ -67,7 +67,7 @@
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                            </a>
+	                            <!-- /a -->
                             </li>
                             @empty
                             	<li class="empty">No portfolio items found.</li>

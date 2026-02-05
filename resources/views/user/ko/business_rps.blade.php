@@ -110,7 +110,7 @@
                                     <input type="radio" id="cal_2" name="cal"><label for="cal_2">토지</label>
                                 </div>
                                 <div class="input_box">
-                                    <input type="text">
+                                    <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                     <b>평</b>
                                 </div>
                             </div>

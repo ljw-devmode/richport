@@ -13,8 +13,7 @@
 
         <div class="section solar_con02">
             <div class="sub_inner">
-                <p class="effect">Rooftop solar leasing installs solar power systems on unused rooftops</p>
-                <p class="effect">and provides lease payments for 20 years</p>
+                <p class="effect">Rooftop solar leasing installs solar power systems on unused rooftops and provides lease payments for 20 years</p>
             </div>
         </div>
 
@@ -76,7 +75,7 @@
                             <h4>Your rooftop leasing income</h4>
                             <p>Enter the area and click “Calculate Income”</p>
                             <div class="input_box">
-                                <input type="text">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                 <b>pyeong (㎡)</b>
                             </div>
                             <button onclick="calculatorBtnSolar(this)"><span>Calculate</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -85,7 +84,7 @@
                             <h5>Estimated total income over 20 years</h5>
                             <b><span class="count" data-num="23000000">0</span>KRW</b>
                             <p>• Power Generation : <strong><span class="count" data-num="500">0</span> kW</strong></p>
-                            <p>• Lease Fee : <strong><span class="count" data-num="2000">0</span>0,000KRW/Years</strong></p>
+                            <p>• Lease Fee : <strong><span class="count" data-num="2000">0</span>KRW/Years</strong></p>
                             <p class="txt">※ Rooftop area and actual installation area may differ; annual income depends on generation capacity.</p>
                         </div>
                     </div>
@@ -315,14 +314,14 @@
             let base = Math.round((pyung / 3) * 100) / 100; // 소수 둘째 자리 반올림
 
             // 3) 각 항목 계산 (최종은 정수로 반올림)
-            // 1. 건물 지붕 수입: base * 4 * 20
-            const income = Math.round(base * 4 * 20); // 만원 단위 총액
+            // 1. 건물 지붕 수입: base * 40000 * 20
+            const income = Math.round(base * 40000 * 20); // 만원 단위 총액
 
             // 2. 발전용량: base
             const capacity = Math.round(base);        // kW / 년
 
-            // 3. 임대료: base * 4
-            const rent = Math.round(base * 4) * 10000;        // 만원
+            // 3. 임대료: base * 40000
+            const rent = Math.round(base * 40000);        // 만원
 
             // 4) .count 요소에 값 세팅 (0: 수입, 1: 발전량, 2: 임대료)
             const $counts = $calBox.find('.count');

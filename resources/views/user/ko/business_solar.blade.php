@@ -77,7 +77,7 @@
                             <h4>건물 지붕 임대 수익은</h4>
                             <p>평수를 입력하고 '수익 계산하기' 를 눌러보세요</p>
                             <div class="input_box">
-                                <input type="text">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                 <b>평</b>
                             </div>
                             <button onclick="calculatorBtnSolar(this)"><span>계산하기</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>

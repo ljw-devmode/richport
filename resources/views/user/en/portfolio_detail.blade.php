@@ -15,10 +15,6 @@
                             <span>Facility capacity</span>
                             <p><b>{{ number_format($data->volume)}}</b>kW</p>
                         </div>
-                        <div>
-                            <span>Carbon Reduction Impact</span>
-                            <p><b>{{ number_format(round($data->volume * 156))}}</b> Trees</p>
-                        </div>
                     </div>
                 </div>
             </div>

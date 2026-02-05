@@ -79,23 +79,23 @@
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/1. 영화금속 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">Customer Interview: Power for 600 Homes! Yeonghwa Metal’s RE100 Journey</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=BLT1IR_Us7o" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/2. 화성 파카코리아 드론.png') }}" alt=""></div>
                                 <div class="tit">1.3MW Solar Plant Drone Footage – Hwaseong Hydraulic Factory</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=W4JUV0ABSwk" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/3. 모나크CC 인터뷰.png') }}" alt=""></div>
                                 <div class="tit">Customer Interview: Monarch CC 2.2MW Solar Installation. Unexpected Effects?</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://youtu.be/9MK7QRRRiik?si=EpPd315PkfcvfWW7" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/4. 청주 한청판지 드론.png') }}" alt=""></div>
                                 <div class="tit">2.3MW Solar Drone Footage – Cheongju Paper Mill</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=0FhNgL_ZABU" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/5. 아이소매트릭.png') }}" alt=""></div>
                                 <div class="tit">SOLARTEQ┃Your Energy Asset Partner (Isometric)</div>
                             </a></li>
-                            <li><a href="javascript:;" target="_blank">
+                            <li><a href="https://www.youtube.com/watch?v=Ke6JeaoKOls" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/6. 평택 매일유업 드론.png') }}" alt=""></div>
                                 <div class="tit">Pyeongtaek Maeil Dairy 250kW Rooftop Solar Completion</div>
                             </a></li>

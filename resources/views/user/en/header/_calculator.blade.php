@@ -25,7 +25,7 @@
         <div class="cal_box">
             <div class="top">
                 <h4>Your rooftop leasing income</h4>
-                <p>Enter the area <br/>and click “Calculate Income”</p>
+                <p>Enter the area and click “Calculate Income”</p>
                 <div class="input_box">
                     <input type="text">
                     <b>pyeong (㎡)</b>
@@ -34,9 +34,9 @@
             </div>
             <div class="bot">
                 <h5>Estimated Total Income over 20 Years</h5>
-                <b><span class="count" data-num="23000000">0</span>0,000 KRW</b>
+                <b><span class="count" data-num="23000000">0</span>,000 KRW</b>
                 <p>• Power Generation Capacity : <span class="count">0</span> kW</p>
-                <p>• Lease Fee : <span class="count">0</span>0,000 KRW/Year</p>
+                <p>• Lease Fee : <span class="count">0</span>,000 KRW/Year</p>
                 <p>• Carbon Reduction : Trees <span class="count">0</span> Equivalent to planting trees</p>
             </div>
         </div>

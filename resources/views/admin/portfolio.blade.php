@@ -294,15 +294,15 @@
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">발전소명(ko) <span class="text-danger">*</span></p>
-						<input type="text" id="regist_station_name" name="regist_station_name" class="form-control">
+						<input type="text" id="regist_station_name" name="regist_station_name" class="form-control" placeholder="한국어 발전소명을 입력해주세요">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">발전소명(en) <span class="text-danger">*</span></p>
-						<input type="text" id="regist_station_name_en" name="regist_station_name_en" class="form-control">
+						<input type="text" id="regist_station_name_en" name="regist_station_name_en" class="form-control" placeholder="영어 발전소명을 입력해주세요">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">발전소명(cn) <span class="text-danger">*</span></p>
-						<input type="text" id="regist_station_name_cn" name="regist_station_name_cn" class="form-control">
+						<input type="text" id="regist_station_name_cn" name="regist_station_name_cn" class="form-control" placeholder="중국어 발전소명을 입력해주세요">
 					</div>
 					
 					<h3 class="mt-5 mb-1 text-base font-semibold">썸네일 이미지</h3>
@@ -331,56 +331,57 @@
 		                </div>
 					</div>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">영상, 블로그</h3>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상 URL</p>
-						<input type="text" id="regist_url" name="regist_url" class="form-control" placeholder="유튜브 영상 URL을 입력해주세요">
-					</div>
+					<h3 class="mt-5 mb-1 text-base font-semibold">블로그</h3>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">블로그 URL</p>
 						<input type="text" id="regist_blog" name="regist_blog" class="form-control" placeholder="블로그 URL을 입력해주세요">
 					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(ko)</p>
+						<textarea id="regist_blog_contents" name="regist_blog_contents" class="form-control h-32" placeholder="한국어 솔택이 후기 내용을 입력하세요."></textarea>
+					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(en)</p>
+						<textarea id="regist_blog_contents_en" name="regist_blog_contents_en" class="form-control h-32" placeholder="영어 솔택이 후기 내용을 입력하세요."></textarea>
+					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(cn)</p>
+						<textarea id="regist_blog_contents_cn" name="regist_blog_contents_cn" class="form-control h-32" placeholder="중국어 솔택이 후기 내용을 입력하세요."></textarea>
+					</div>
+
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">포트폴리오 상세</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold">영상</h3>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">영상 URL</p>
+						<input type="text" id="regist_url" name="regist_url" class="form-control" placeholder="유튜브 영상 URL을 입력해주세요">
+					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">유튜브 iframe</p>
 						<input type="text" id="regist_youtube_iframe" name="regist_youtube_iframe" class="form-control" placeholder="유튜브 iframe을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상제목(ko)</p>
-						<input type="text" id="regist_youtube_subject" name="regist_youtube_subject" class="form-control" placeholder="영상제목을 입력하세요.">
+						<input type="text" id="regist_youtube_subject" name="regist_youtube_subject" class="form-control" placeholder="한국어 영상제목을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상제목(en)</p>
-						<input type="text" id="regist_youtube_subject_en" name="regist_youtube_subject_en" class="form-control" placeholder="영상제목을 입력하세요.">
+						<input type="text" id="regist_youtube_subject_en" name="regist_youtube_subject_en" class="form-control" placeholder="영어 영상제목을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상제목(cn)</p>
-						<input type="text" id="regist_youtube_subject_cn" name="regist_youtube_subject_cn" class="form-control" placeholder="영상제목을 입력하세요.">
+						<input type="text" id="regist_youtube_subject_cn" name="regist_youtube_subject_cn" class="form-control" placeholder="중국어 영상제목을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상내용(ko)</p>
-						<textarea id="regist_youtube_contents" name="regist_youtube_contents" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
+						<textarea id="regist_youtube_contents" name="regist_youtube_contents" class="form-control h-32" placeholder="한국어 영상내용을 입력하세요."></textarea>
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상내용(en)</p>
-						<textarea id="regist_youtube_contents_en" name="regist_youtube_contents_en" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
+						<textarea id="regist_youtube_contents_en" name="regist_youtube_contents_en" class="form-control h-32" placeholder="영어 영상내용을 입력하세요."></textarea>
 					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">영상내용(cn)</p>
-						<textarea id="regist_youtube_contents_cn" name="regist_youtube_contents_cn" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(ko)</p>
-						<textarea id="regist_blog_contents" name="regist_blog_contents" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(en)</p>
-						<textarea id="regist_blog_contents_en" name="regist_blog_contents_en" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(cn)</p>
-						<textarea id="regist_blog_contents_cn" name="regist_blog_contents_cn" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
+						<textarea id="regist_youtube_contents_cn" name="regist_youtube_contents_cn" class="form-control h-32" placeholder="중국어 영상내용을 입력하세요."></textarea>
 					</div>
 
 					<h3 class="mt-5 mb-1 font-medium">시공 이미지 <span class="text-danger">*</span></h3>
@@ -996,6 +997,7 @@ function setModifyForm(idx) {
             }
 
             const d = res.data;
+			console.log(d);
 
             $('#modify_idx').val(d.idx);
 			$('#modify_year').val(d.year);
