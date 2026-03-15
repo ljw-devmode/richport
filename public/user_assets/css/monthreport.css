@@ -1,0 +1,537 @@
+:root{
+ --bg: #f5f6f8;
+ --main: #ec6429;
+ --panel: #ffffff;
+ --text: #1f2937;
+ --muted: #6b7280;
+ --border: #e5e7eb;
+ --topbar: #ec6429;
+ --danger-bg: #fdecef;
+ --danger-text: #b4232c;
+ --warning-bg: #fff5dc;
+ --warning-text: #a16207;
+ --success-bg: #eaffea;
+ --success-text: #166534;
+ --info-bg: #e8fbff;
+ --info-text: #0369a1;
+ --muted-bg: #f3f4f6;
+ --muted-text: #374151;
+ --radius: 12px;
+ --shadow: 0 1px 0 rgba(16,24,40,.06), 0 10px 20px rgba(16,24,40,.06);
+}
+
+* { box-sizing: border-box; }
+
+/* fullpage 기본 배경 */
+html, body { margin: 0; padding: 0; font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;  }
+
+/* 각 섹션을 "페이지"처럼 보이게 */
+.section { 
+  width: 750px;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.page-inner {
+  padding: 50px;
+}
+
+.coversub {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fp-tableCell {
+  position: relative;
+}
+
+
+/* 일반 섹션용 */
+.section .content{
+  max-width: 1100px;
+}
+
+/* ===== 표지 스타일 ===== */
+.logo{
+  font-weight: 800;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;  
+}
+
+.log_title{
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--main);
+  letter-spacing: 0.5px;
+}
+
+.tagline{
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.divider{
+  height: 4px;
+  background: var(--main);
+  margin-top: 12px;
+}
+
+.cover-title{
+  text-align: center;
+}
+
+.report-date{
+  font-size: 28px;
+  font-weight: 650;
+  margin: 0 0 28px 0;
+}
+
+.cover-title h1{
+  font-size: 52px;
+  margin: 0 0 14px 0;
+  font-weight: 800;
+}
+
+.cover-title h3{
+  font-size: 38px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.cover-footer{
+  text-align: center;
+}
+
+.doc-date{
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  color: var(--text);
+}
+
+.company{
+  font-size: 30px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.logo-bottom{
+  font-size: 32px;
+  margin: 10px 0 0 0;
+  font-weight: 900;
+  color: var(--main);
+  letter-spacing: 1px;
+}
+
+/* ===== fullpage 네비게이션 점 크기(선택) ===== */
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+  transform: scale(1.1);
+}
+
+/* ===== 2페이지(요약) ===== */
+.summary{
+  position: relative;
+}
+
+/* 상단 제목 + 라인 */
+.page-top{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.top-title{
+  font-size: 18px;
+  font-weight: 800;
+  color: #f26422;
+  letter-spacing: 0.2px;
+}
+
+.top-line{
+  height: 3px;
+  background: #f26422;
+  width: 100%;
+}
+
+/* 가운데 "요약" */
+.page-center-title{
+  margin-top: 26px;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 8px;
+  font-size: 16px;
+}
+
+/* 블록 */
+.block{
+  margin-top: 26px;
+}
+
+.block-title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.block-title .sq{
+  width: 10px;
+  height: 10px;
+  background: #000;
+  display: inline-block;
+}
+
+/* 표 */
+.table-wrap{
+  margin-top: 10px;
+  border: 1px solid #777;
+}
+
+.report-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.report-table th,
+.report-table td{
+  border: 1px solid #777;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+  word-break: keep-all;
+}
+
+.report-table thead th{
+  background: #444;
+  color: #fff;
+  font-weight: 800;
+}
+
+.report-table .th-left{
+  background: #f5f5f5;
+  font-weight: 800;
+  color: #111;
+}
+
+/* 달성률 강조(빨간색) */
+.report-table .row-achv td,
+.report-table .row-achv th{
+  color: #d90000;
+  font-weight: 900;
+}
+
+/* 주석 */
+.note{
+  margin-top: 10px;
+  font-size: 12px;
+  color: #111;
+}
+
+/* 운영 현황 목록 */
+.dot-list{
+  margin: 10px 0 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.dot-list li{
+  margin: 2px 0;
+}
+
+/* 화면이 좁을 때 텍스트/패딩 압축 */
+@media (max-width: 900px){
+  .section.page{
+    padding: 28px 22px;
+  }
+  .report-table{
+    font-size: 11px;
+  }
+  .report-table .th-left{
+    width: 92px;
+  }
+}
+
+/* ===== 3페이지(Overview) ===== */
+
+.overview .mini-table-wrap{
+  margin-top: 10px;
+  width: 520px;            /* 이미지처럼 좌측 상단에 작은 표 */
+  border: 1px solid #777;
+}
+
+.overview .mini-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.overview .mini-table th,
+.overview .mini-table td{
+  border: 1px solid #777;
+  padding: 8px 10px;
+}
+
+.overview .mini-table th{
+  width: 120px;
+  background: #f5f5f5;
+  font-weight: 800;
+  text-align: center;
+}
+
+.overview .mini-table td{
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 달성율 컬럼 강조(상단 1차년도 테이블만) */
+.overview .th-achv{
+  color: #d90000;
+  font-weight: 900;
+}
+
+.overview .td-achv{
+  color: #d90000;
+  font-weight: 900;
+}
+
+/* 하단 주석 */
+.overview .footnotes{
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.overview .footnotes p{
+  margin: 0 0 6px 0;
+}
+
+.overview .footnotes ul{
+  margin: 4px 0 0 0;
+  padding-left: 18px;
+}
+
+.overview .footnotes li{
+  margin: 2px 0;
+}
+
+/* ===== 4페이지(발전 데이터) ===== */
+.overview-data .chart-card{
+  margin-top: 10px;
+  padding: 10px 14px 12px 14px;
+}
+
+.overview-data .chart-title{
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.overview-data .chart-area{
+  height: 240px; /* 이미지처럼 상단 그래프 높이 */
+  border: 0;
+}
+
+.chart-height {
+  height:250px;
+}
+
+/* 범례(이미지처럼 차트 아래에 작게) */
+.overview-data .chart-legend{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #666;
+}
+.overview-data .chart-legend .lg{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.overview-data .chart-legend .lg i{
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background: #c76b23; /* 범례 색은 대표색으로 */
+  border-radius: 1px;
+}
+
+/* 기상청 테이블 헤더(2줄 헤더) */
+.report-table.meteo thead th{
+  background: #444;
+  color: #fff;
+  font-weight: 800;
+}
+
+/* 2줄 헤더에서 좌측 th-left는 기본 회색이 아니라 헤더색 유지 */
+.report-table.meteo thead .th-left{
+  background: #444;
+  color: #fff;
+}
+
+
+/* ===== 5페이지(Operating Management) ===== */
+
+/* 표 공통(운영관리 페이지에서 조금 더 타이트하게) */
+.op-mgmt .block{
+  margin-top: 22px;
+}
+
+.op-mgmt .table-wrap{
+  margin-top: 10px;
+}
+
+/* 헤더 색(이미지처럼 짙은 회색) */
+.report-table.op-table thead th{
+  background: #444;
+  color: #fff;
+  font-weight: 900;
+}
+
+/* 본문 */
+.report-table.op-table td{
+  font-size: 12px;
+}
+
+/* 왼쪽 정렬 셀 */
+.report-table.op-table .td-left{
+  text-align: left;
+  padding-left: 12px;
+}
+
+/* 각 표 높이감(이미지처럼 줄 간격 약간 넉넉하게) */
+.report-table.op-table td,
+.report-table.op-table th{
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+/* ===== 6페이지(PV 정기점검) ===== */
+.op-pv .pv-wrap{
+  margin-top: 10px;
+}
+
+/* 표 헤더 (짙은 회색) */
+.report-table.pv-table thead th{
+  background: #444;
+  color: #fff;
+  font-weight: 900;
+}
+
+/* 월(1월~12월) 열: 연한 회색 */
+.report-table.pv-table tbody th.th-left{
+  background: #f5f5f5;
+  font-weight: 800;
+  text-align: center;
+  width: 90px;
+}
+
+/* 값 셀 폰트/패딩 */
+.report-table.pv-table td{
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* 합계행(회색 바) */
+.report-table.pv-table .sum-row th,
+.report-table.pv-table .sum-row td{
+  background: #9b9b9b;
+  color: #111;
+  font-weight: 900;
+}
+
+
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: visible !important;
+        background: #fff;
+    }
+
+    /* fullpage 기본 동작 해제 */
+    html.fp-enabled,
+    .fp-enabled body {
+        overflow: visible !important;
+    }
+
+    #fullpage,
+    .fp-watermark,
+    .fp-overflow,
+    .fp-section,
+    .fp-slide,
+    .fp-tableCell {
+        height: auto !important;
+    }
+
+    #fullpage {
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    .fp-section,
+    .section,
+    .page {
+        position: relative !important;
+        transform: none !important;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .section:last-child,
+    .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+    }
+
+    /* 네비게이션 점, 버튼 등 숨김 */
+    #fp-nav,
+    .fp-slidesNav,
+    .no-print {
+        display: none !important;
+    }
+
+    /* 각 페이지 내부 실제 컨텐츠 박스 */
+    .page-inner {
+        box-sizing: border-box;
+        width: 210mm;
+        height: 297mm;
+        padding: 20mm 15mm;
+        overflow: hidden;
+    }
+}

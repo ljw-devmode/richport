@@ -117,28 +117,28 @@
                     </div>
                     <div class="blog_list" data-aos="fade-up" data-aos-delay="300">
                         <ul>
-                            <li><a href="https://blog.naver.com/solarteq/224022706649" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224098866448" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/1. 대표님 수상 건.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">充满温情的邻里关爱</div>
                                     <div class="desc">SOLARTEQ 荣获 2025 年志愿者日纪念活动华城特例市市长表彰</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/223712733798" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224090223289" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/2. 울산 신화인텍.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">蔚山新和 Intech 施工案例</div>
                                     <div class="desc">金融支持项目：300kW 电站如何降低成本并创造收益？</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/223904842286" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224051103215" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/3. 울산 세일.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">蔚山 SAEL 施工案例</div>
                                     <div class="desc">蔚山广域市 SAEL 株式会社 300kW 屋顶式太阳能电站施工过程</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/224029603233" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/223882130469" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/4. 청주 한청판지.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">清州韩清纸业施工案例</div>

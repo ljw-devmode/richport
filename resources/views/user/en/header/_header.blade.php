@@ -17,7 +17,7 @@
         </a>
         <div class="language_selector">
             <a href="javascript:;" onclick="toggleLangMenu(this)">
-                <img src="{{ asset('user_assets/img/icon/calculator.svg') }}" alt="">
+                <img src="{{ asset('user_assets/img/icon/language.svg') }}" alt="">
                 <span class="mo_ver">EN</span>
                 <span class="lang_text">English</span>
             </a>
@@ -39,7 +39,7 @@
             <ul class="depth2">
                 <li><a href="/en/company/about">About SOLARTEQ</a></li>
                 <li><a href="/en/company/history">History</a></li>
-                <li><a href="/en/company/patent">Patents & Certifications</a></li>
+                <li><a href="/en/company/patent">Certifications·Patents</a></li>
             </ul>
         </div>
     </div>
@@ -52,8 +52,8 @@
                     <ul class="depth3">
                         <li><a href="/en/business/index">Why SOLARTEQ</a></li>
                         <li><a href="/en/business/solar">Rooftop Solar Leasing</a></li>
-                        <li><a href="/en/business/rps">RPS Solar Power Generation</a></li>
                         <li><a href="/en/business/lease">RE100 Leasing</a></li>
+                        <li><a href="/en/business/rps">RPS (Electricity Sales)</a></li>
                     </ul>
                 </li>
                 <li class="liwidth">
@@ -107,7 +107,7 @@
                     <dd class="check_form">
                         <input type="radio" class="input-check" id="cate_1" name="types_idx" value="1"><label for="cate_1">Rooftop Solar Leasing</label>
                         <input type="radio" class="input-check" id="cate_2" name="types_idx" value="2"><label for="cate_2">RE100 Leasing</label>
-                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS Power Generation</label>
+                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS(Electricity Sales)</label>
                         <input type="radio" class="input-check" id="cate_4" name="types_idx" value="4"><label for="cate_4">Government-funded Energy Programs</label>
                         <input type="radio" class="input-check" id="cate_5" name="types_idx" value="5"><label for="cate_5">Request Company Profile</label>
                     </dd>

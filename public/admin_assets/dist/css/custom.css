@@ -348,3 +348,28 @@ body {background-color: #d6dadd; }
 @keyframes fadeOut {
   to { opacity: 0; transform: translateY(20px); }
 }
+
+/*
+#=========================================#
+        TAB 
+#=========================================#
+*/
+.detail-tab-panels { padding:15px; }
+
+.detail-tab-panel { display:none; }
+.detail-tab-panel.active { display:block; }
+
+.detail-tabs {
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+}
+
+.detail-tab-btn.active {
+    font-weight:700;
+}
+
+.om {
+    display:flex;
+    align-items: flex-end;
+}

@@ -5,7 +5,7 @@
         <!-- 지붕임대 태양광 -->
         <div class="section rps_con01">
             <div class="sub_inner">
-                <h4 class="effects">RPS 太阳能发电项目</h4>
+                <h4 class="effects">RPS（电力销售）</h4>
                 <p class="effects delay_1">一种收益型发电业务：不自用所发电力, 仅进行对外销售</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
@@ -15,7 +15,7 @@
         <div class="section rps_con02">
             <div class="sub_inner">
                 <div class="tit">
-                    <h3 class="effect">RPS 太阳能发电项目</h3>
+                    <h3 class="effect">RPS（电力销售）</h3>
                     <p class="effect delay_1">通过电力与证书销售实现收益的结构</p>
                 </div>
                 <ul>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="input_box">
                                     <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                                    <b>平方米</b>
+                                    <b>坪</b>
                                 </div>
                             </div>
                             <button onclick="calculatorBtnRps(this)"><span>查看效果</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -138,11 +138,11 @@
                 <ul>
                     <li class="effect delay_2">
                         <h4>丰富的项目案例</h4>
-                        <p>全国 600+ 项目, 700MW+ 项目, <br/> 装机规模，减碳效果相当于种植 230 万棵以上树木</p>
+                        <p>全国 600+ 项目, 784MW+ 项目, <br/> 装机规模，减碳效果相当于种植 230 万棵以上树木</p>
                     </li>
                     <li class="effect delay_3">
                         <h4>经验证的技术实力</h4>
-                        <p>拥有 7 项专利认可的技术实力, 以及 POSCO 的 PosMAC 结构体系</p>
+                        <p>拥有 9 项专利认可的技术实力, 以及 POSCO 的 PosMAC 结构体系</p>
                     </li>
                     <li class="effect delay_4">
                         <h4>值得信赖的合作伙伴</h4>
@@ -212,7 +212,7 @@
             <div class="sub_inner">
                 <div class="sub_tit">
                     <span class="effect">分步流程</span>
-                    <h3 class="effect delay_1">RPS 太阳能发电项目流程</h3>
+                    <h3 class="effect delay_1">RPS（电力销售）流程</h3>
                 </div>
                 <ul>
                     <li class="effect delay_2">

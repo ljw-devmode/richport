@@ -6,7 +6,7 @@
             <p class="txt_type"><b>Business Registration No.</b>793-87-00520</p>
         </div>
         <div>
-            <p class="txt_type type02"><b>Gwangmyeong HQ</b>9F, T-Tower, 21 Yangji-ro, Gwangmyeong-si, Gyeonggi-do | 02-6912-4900</p>
+            <p class="txt_type type02"><b>Gwangmyeong HQ</b>9F, T-Tower, Yangji-ro 21, Gwangmyeong-si, Gyeonggi-do | 02-6912-4900</p>
             <p class="txt_type type02"><b>Hwaseong Factory</b>985-16 Beodeul-ro, Ujeong-eup, Hwaseong-si, Gyeonggi-do | 031-358-4743</p>
         </div>
         <div class="inquiry_txt">

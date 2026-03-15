@@ -28,7 +28,7 @@
                 <p>Enter the area and click “Calculate Income”</p>
                 <div class="input_box">
                     <input type="text">
-                    <b>pyeong (㎡)</b>
+                    <b>pyeong (3.3㎡)</b>
                 </div>
                 <button onclick="calculatorBtn(this)"><span>Calculate</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
             </div>

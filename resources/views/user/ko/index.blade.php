@@ -112,8 +112,8 @@
                     <div class="txt_box">
                         <h3>태양광 솔루션</h3>
                         <div class="hover_txt">
-                            <p>솔라테크의 지속가능한 에너지 컨설팅을 통해 <br/>지붕임대 태양광, RE100 리스, RPS 발전사업을 진행해 보세요</p>
-                            <a href="/business/index">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                            <p>솔라테크의 지속가능한 에너지 컨설팅을 통해 <br/>지붕임대 태양광, RE100 리스, RPS(전력판매)를 진행해 보세요</p>
+                            <a href="/ko/business/index">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
                 </li>

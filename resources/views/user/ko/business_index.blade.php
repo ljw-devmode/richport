@@ -68,11 +68,6 @@
                         <span>한전 대비 20% 저렴한 단가</span>
                     </li>
                     <li class="effect delay_4">
-                        <p>RPS 발전시간 미달 시</p>
-                        <h5><b>시간 보장</b></h5>
-                        <span>확실한 책임 보증</span>
-                    </li>
-                    <li class="effect delay_5">
                         <p>시공 품질 보증</p>
                         <h5><b>3</b>년</h5>
                         <span>하자보증증권 발행</span>

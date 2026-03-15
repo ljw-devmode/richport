@@ -117,28 +117,28 @@
                     </div>
                     <div class="blog_list" data-aos="fade-up" data-aos-delay="300">
                         <ul>
-                            <li><a href="https://blog.naver.com/solarteq/224022706649" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224098866448" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/1. 대표님 수상 건.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">마음을 담은 따뜻한 이웃사랑</div>
                                     <div class="desc">솔라테크, 2025 자원봉사자의 날 기념식 화성특례시장 표창 수상</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/223712733798" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224090223289" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/2. 울산 신화인텍.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">울산 신화인텍 시공 사례</div>
                                     <div class="desc">금융지원사업, 300kW 발전소 비용 부담 줄여 수익 만든 비결은?</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/223904842286" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/224051103215" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/3. 울산 세일.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">울산 세일 시공 사례</div>
                                     <div class="desc">울산광역시 (주)세일 300kW 지붕형 태양광 발전소 시공과정</div>
                                 </div>
                             </a></li>
-                            <li><a href="https://blog.naver.com/solarteq/224029603233" target="_blank">
+                            <li><a href="https://blog.naver.com/solarteq/223882130469" target="_blank">
                                 <div class="img_box"><img src="{{ asset('user_assets/img/sub/solarteq/4. 청주 한청판지.png') }}" alt=""></div>
                                 <div class="txt_box">
                                     <div class="tit">청주 한청판지 시공 사례</div>

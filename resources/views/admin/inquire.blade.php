@@ -1,11 +1,11 @@
 @php 
 	$header_skip = false; 
-	$depth1_num = '5'; 
+	$depth1_num = '4'; 
 	$depth2_num = '1'; 
 @endphp 
 @include('admin.header._header')
 <div class="mt-6 px-5">
-	<h3 class="intro-y text-xl font-bold">문의관리</h3>
+	<h3 class="intro-y text-xl font-bold">고객문의</h3>
 
 	<div class="intro-y border border-slate-200 mt-6 p-6 rounded-lg bg-white">
 		<form method="GET" action="/admin/inquire">

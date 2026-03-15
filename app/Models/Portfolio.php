@@ -20,8 +20,6 @@ class Portfolio extends Model
     		'station_name_en',
     		'station_name_cn',
     		'volume',
-    		'volume_en',
-    		'volume_cn',
     		'price',
     		'price_en',
     		'price_cn',

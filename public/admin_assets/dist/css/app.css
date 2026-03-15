@@ -1468,7 +1468,7 @@ select{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 0.75rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1573,6 +1573,8 @@ select{
       margin-right: auto;
       margin-top: -4rem;
       margin-bottom: 4rem;
+      overflow: auto;
+      max-height: 80vh;
     }
 @media (min-width: 640px) {
     .modal .modal-dialog {
@@ -2030,6 +2032,15 @@ select{
 .w-1\/5{
     width: 20%;
 }
+.w-50p{
+    width: 50%;
+}
+.w-60p{
+    width: 60%;
+}
+.w-70p{
+    width: 70%;
+}
 .w-10{
     width: 2.5rem;
 }
@@ -2050,6 +2061,15 @@ select{
 }
 .w-36{
     width: 9rem;
+}
+.w-40{
+    width: 10rem;
+}
+.w-44{
+    width: 11rem;
+}
+.w-48{
+    width: 12rem;
 }
 .w-4{
     width: 1rem;

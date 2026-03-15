@@ -101,7 +101,7 @@
 
 
 	<title>{{ $meta['title'] }}</title>
-	<link rel="canonical" href="https://solarteq.co.kr">
+	<link rel="canonical" href="{{ $meta['canonical'] }}">
     <link rel="icon" href="{{ asset('user_assets/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('user_assets/img/appleicon.png') }}">
 	
@@ -115,23 +115,6 @@
     <meta property="twitter:description" content="{{ $meta['twitter:description'] }}"/>
     <meta property="twitter:card" content="{{ $meta['twitter:card'] }}"/>
 
-
-<!-- 
-    <title>솔라테크 SOLARTEQ</title>
-    <link rel="canonical" href="https://solarteq.co.kr">
-    <link rel="icon" href="{{ asset('user_assets/img/favicon.svg') }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('user_assets/img/appleicon.png') }}">
-
-    <meta name="Keywords" content="태양광,지붕임대,RPS발전,자가소비,RE100,주차장,건물지원,주택지원,금융지원,탄소중립" />
-    <meta name="Description" content="당신의 에너지 자산 파트너, 신재생에너지 전문기업 솔라테크"/>
-    <meta property="og:title" content="솔라테크 SOLARTEQ"/>
-    <meta property="og:image" content="https://solarteq.co.kr/og_image.png"/>
-    <meta property="og:description" content="당신의 에너지 자산 파트너, 신재생에너지 전문기업 솔라테크"/>
-    <meta property="twitter:title" content="솔라테크 SOLARTEQ"/>
-    <meta property="twitter:image" content="https://solarteq.co.kr/og_image.png"/>
-    <meta property="twitter:description" content="당신의 에너지 자산 파트너, 신재생에너지 전문기업 솔라테크"/>
-    <meta property="twitter:card" content="태양광,지붕임대,RPS발전,자가소비,RE100,주차장,건물지원,주택지원,금융지원,탄소중립"/>
--->
 
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('user_assets/css/font.css') }}" />

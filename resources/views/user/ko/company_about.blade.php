@@ -46,7 +46,7 @@
                     <span class="effect">CONTACT</span>
                     <h3 class="effect delay_1">찾아오시는 길</h3>
                     <div class="tab_box effect delay_2">
-                        <a href="javascript:;" class="active">광명 본사</a>
+                        <a href="javascript:;" class="active">광명 HQ</a>
                         <a href="javascript:;">화성 공장</a>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                 </script>
                             </div>
                             <div class="info effect delay_4">
-                                <h5>광명본사</h5>
+                                <h5>광명 HQ</h5>
                                 <div>
                                     <b>주소</b>
                                     <p>경기 광명시 양지로 21 티타워 9층 <a href="javascript:;" onclick="copyText('경기 광명시 양지로 21 유플래닛티타워 9층')">복사하기</a></p>

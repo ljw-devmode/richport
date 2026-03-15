@@ -5,7 +5,7 @@
         <!-- 지붕임대 태양광 -->
         <div class="section rps_con01">
             <div class="sub_inner">
-                <h4 class="effects">RPS Solar Power Generation Business</h4>
+                <h4 class="effects">RPS (Electricity Sales)</h4>
                 <p class="effects delay_1">A revenue-generating power project where all generated electricity is sold rather than self-consumed</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
@@ -15,7 +15,7 @@
         <div class="section rps_con02">
             <div class="sub_inner">
                 <div class="tit">
-                    <h3 class="effect">RPS RPS Solar Power Generation Project</h3>
+                    <h3 class="effect">RPS (Electricity Sales)</h3>
                     <p class="effect delay_1">A profit model based on selling electricity and certificates</p>
                 </div>
                 <ul>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="input_box">
                                     <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                                    <b>pyeong (㎡)</b>
+                                    <b>pyeong (3.3㎡)</b>
                                 </div>
                             </div>
                             <button onclick="calculatorBtnRps(this)"><span>Profit Calculator</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
@@ -138,11 +138,11 @@
                 <ul>
                     <li class="effect delay_2">
                         <h4>Extensive Project Experience</h4>
-                        <p><b>600+ projects</b>, 700MW+ capacity, Carbon reduction equivalent to 2.5M+ trees</p>
+                        <p><b>600+ projects</b>, 784MW+ capacity, Carbon reduction equivalent to 2.5M+ trees</p>
                     </li>
                     <li class="effect delay_3">
                         <h4>Proven Technology</h4>
-                        <p>Technology recognized by 7 patents and POSCO PosMAC structures</p>
+                        <p>Technology recognized by 9 patents and POSCO PosMAC structures</p>
                     </li>
                     <li class="effect delay_4">
                         <h4>A Trusted Partner</h4>
@@ -212,7 +212,7 @@
             <div class="sub_inner">
                 <div class="sub_tit">
                     <span class="effect">STEP-BY-STEP PROCESS</span>
-                    <h3 class="effect delay_1">RPS Solar Project Process</h3>
+                    <h3 class="effect delay_1">RPS(Electricity Sales) Process</h3>
                 </div>
                 <ul>
                     <li class="effect delay_2">
@@ -220,7 +220,7 @@
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/rps_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_3">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/rps_con06_icon_2.svg') }}" alt=""></i>Local government permits & KEPCO contract</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/rps_con06_icon_2.svg') }}" alt=""></i>Local Government Permits & KEPCO Contract</p>
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/rps_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_4">
@@ -232,7 +232,7 @@
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/rps_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_6">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/rps_con06_icon_5.svg') }}" alt=""></i>Realize revenue through electricity sales</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/rps_con06_icon_5.svg') }}" alt=""></i>Realize Revenue through Electricity Sales</p>
                     </li>
                 </ul>
                 <div class="btn_box effect delay_7">

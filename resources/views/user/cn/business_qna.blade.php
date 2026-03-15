@@ -205,7 +205,7 @@
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">发电项目的收益如何计算？</dt>
-                                <dd><div class="answer">RPS 发电项目通过向韩国电力出售电力（SMP）以及向大型发电企业出售可再生能源证书（REC）获取收益，因此收益可按装机容量的 SMP + REC 进行计算。</div></dd>
+                                <dd><div class="answer">通过向韩国电力出售电力（SMP）以及向大型发电企业出售可再生能源证书（REC）获取收益，因此收益可按装机容量的 SMP + REC 进行计算。</div></dd>
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">电站建成后的维护如何进行？</dt>
@@ -217,7 +217,7 @@
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">最少需要多少面积？</dt>
-                                <dd><div class="answer">RPS 发电项目至少需要 000 坪以上的土地或建筑屋顶，规模越大收益越高，建议尽可能在较大的空间内进行。</div></dd>
+                                <dd><div class="answer">RPS（电力销售）至少需要 1,000 坪以上的土地或建筑屋顶，规模越大收益越高，建议尽可能在较大的空间内进行。</div></dd>
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">发电项目收益涉及哪些税费？</dt>

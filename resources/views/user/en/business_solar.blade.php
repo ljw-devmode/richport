@@ -23,7 +23,7 @@
                 <div class="left_txt">
                     <div class="txt_box">
                         <i class="effect">PRIVILEGE</i>
-                        <h3 class="effect delay_1">We offer <span>the Best Benefits</span></h3>
+                        <h3 class="effect delay_1">We Offer <span>the Best Benefits</span></h3>
                     </div>
                 </div>
                 <div class="right_box">
@@ -36,12 +36,12 @@
                         <li class="effect delay_1">
                             <i><img src="{{ asset('user_assets/img/sub/business/solar_icon_2.svg') }}" alt="">Stable Income</i>
                             <p><b>20</b>Years</p>
-                            <span>Long-term Guaranteed Contract</span>
+                            <span>Long-term guaranteed contract</span>
                         </li>
                         <li class="effect delay_2">
                             <i><img src="{{ asset('user_assets/img/sub/business/solar_icon_3.svg') }}" alt="">Based on 100 kW</i>
                             <p><b>80</b>million KRW</p>
-                            <span>Estimated Total Income over 20 Years</span>
+                            <span>Estimated total income over 20 years</span>
                         </li>
                         <li class="effect delay_3">
                             <i><img src="{{ asset('user_assets/img/sub/business/solar_icon_4.svg') }}" alt="">Rooftop Maintenance</i>
@@ -76,7 +76,7 @@
                             <p>Enter the area and click “Calculate Income”</p>
                             <div class="input_box">
                                 <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                                <b>pyeong (㎡)</b>
+                                <b>pyeong (3.3㎡)</b>
                             </div>
                             <button onclick="calculatorBtnSolar(this)"><span>Calculate</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
                         </div>
@@ -204,7 +204,7 @@
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/solar_con06_arrow.svg') }}" alt="">Within 24 hours</div>
                     </li>
                     <li class="effect delay_3">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/solar_con06_icon_2.svg') }}" alt=""></i>Contract after safety & profitability review</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/solar_con06_icon_2.svg') }}" alt=""></i>Contract after Safety & Profitability Review</p>
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/solar_con06_arrow.svg') }}" alt="">Within one week</div>
                     </li>
                     <li class="effect delay_4">

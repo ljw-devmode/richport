@@ -21,7 +21,7 @@
                 <ul>
                     <li class="effect delay_2">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_2.svg') }}" alt="">
-                        <h5>Waterproofing Responsible construction</h5>
+                        <h5>Complete Waterproofing Responsible Construction</h5>
                         <p>Zero leakage concerns with patented construction methods</p>
                     </li>
                     <li class="effect delay_3">
@@ -37,7 +37,7 @@
                     <li class="effect delay_5">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_4.svg') }}" alt="">
                         <h5 style="letter-spacing: -2px;">In-house Manufacturing</h5>
-                        <p>No Corrosion Concerns! Guaranteed Durability!</p>
+                        <p>No corrosion concerns and guaranteed durability</p>
                     </li>
                     <li class="effect delay_6">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con02_icon_5.svg') }}" alt="">
@@ -60,7 +60,7 @@
                     <li class="effect delay_2">
                         <p>Rooftop Leasing per 1kW</p>
                         <h5><b>40,000+ </b> KRW</h5> 
-                        <span>Industry-Leading offer</span>
+                        <span>Industry-leading offer</span>
                     </li>
                     <li class="effect delay_3">
                         <p>RE100 Leasing Electricity Cost</p>
@@ -68,14 +68,9 @@
                         <span>20% lower than KEPCO rates</span>
                     </li>
                     <li class="effect delay_4">
-                        <p>When RPS generation time is not met</p>
-                        <h5><b>Guaranteed Hours</b></h5>
-                        <span>Guaranteed Liability</span>
-                    </li>
-                    <li class="effect delay_5">
                         <p>Construction Quality Warranty</p>
                         <h5><b>3</b> Years</h5>
-                        <span>Defect Liability Insurance Issued</span>
+                        <span>Defect liability insurance issued</span>
                     </li>
                 </ul>
             </div>
@@ -106,17 +101,17 @@
                     <div class="box step_1 effect delay_3">
                         <i>01</i>
                         <h5>Certified Professional Nurse</h5>
-                        <p>Securing the Golden Time in Emergencies Close Health Care for Workers</p>
+                        <p>Securing the Golden Time in Emergencies, Close health care for workers</p>
                     </div>
                     <div class="box step_2 effect delay_4">
                         <i>02</i>
                         <h5>Government-Certified Safety Experts</h5>
-                        <p>On-site Industrial Safety Engineers & Technicians</p>
+                        <p>On-site industrial safety engineers & technicians</p>
                     </div>
                     <div class="box step_3 effect delay_5">
                         <i>03</i>
                         <h5>Completion of Regular Safety Training</h5>
-                        <p>Regular Safety Training for All Employees <b>Zero-Accident Policy</b></p>
+                        <p>Regular safety training for all employees, Zero-accident policy</b></p>
                     </div>
                 </div>
             </div>
@@ -127,7 +122,7 @@
             <div class="sub_inner">
                 <div class="sub_tit">
                     <span class="effect">WATERTIGHT</span>
-                    <h3 class="effect delay_1">Completely waterproof, not a single drop leaks</h3>
+                    <h3 class="effect delay_1">Completely Waterproof, not a Single Drop Leaks</h3>
                 </div>
                 <ul>
                     <li class="effect delay_2">
@@ -138,7 +133,7 @@
                     <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con06_2.svg') }}" alt="">
                         <h5>3-Year Assurance</h5>
-                        <p>3-Year Warranty After Construction<br/> Defect Warranty Insurance Issued</p>
+                        <p>3-Year warranty after construction, Defect warranty insurance issued</p>
                     </li>
                     <li class="effect delay_4">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con06_3.svg') }}" alt="">
@@ -154,7 +149,7 @@
             <div class="sub_inner">
                 <div class="txt_box">
                     <span class="effect">IN-HOUSE MANUFACTURING</span>
-                    <div class="txt effect delay_1">Direct production of PosMAC structures in our own factory </div>
+                    <div class="txt effect delay_1">Direct Production of PosMAC Structures in Our Own Factory</div>
                     <p class="effect delay_2">Using highly corrosion-resistant PosMAC alloy-coated steel We promise reliable safety</p>
                 </div>
                 <div class="img_box effect"><img src="{{ asset('user_assets/img/sub/business/사업소개_왜솔라테크인가_PC.png') }}" alt=""></div>

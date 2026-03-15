@@ -107,7 +107,7 @@
                             <div class="flex_type">
                                 <div class="input_box">
                                     <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                                    <b>pyeong (㎡)</b>
+                                    <b>pyeong (3.3㎡)</b>
                                 </div>
                                 <button onclick="calculatorBtnLease(this)"><span>Check Impact</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
                             </div>
@@ -271,7 +271,7 @@
 	                                    <div class="info">
 	                                        <dl>
 	                                            <dt>Power Generation Capacity</dt>
-	                                            <dd>{{number_format($item->volume_en)}}kW</dd>
+	                                            <dd>{{number_format($item->volume)}}kW</dd>
 	                                        </dl>
 	                                        <dl>
 	                                            <dt>Region</dt>
@@ -315,11 +315,11 @@
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/lease_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_3">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_2.svg') }}" alt=""></i>Lease contract with the leasing entity</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_2.svg') }}" alt=""></i>Lease Contract with the Leasing Entity</p>
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/lease_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_4">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_3.svg') }}" alt=""></i>Customized design via 3D mapping</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_3.svg') }}" alt=""></i>Customized Design via 3D Mapping</p>
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/lease_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_5">
@@ -327,7 +327,7 @@
                         <div class="arrow"><img src="{{ asset('user_assets/img/sub/business/lease_con06_arrow.svg') }}" alt=""></div>
                     </li>
                     <li class="effect delay_6">
-                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_5.svg') }}" alt=""></i>Power supply & RE100 performance results</p>
+                        <p><i><img src="{{ asset('user_assets/img/sub/business/lease_con06_icon_5.svg') }}" alt=""></i>Power Supply & RE100 Performance Results</p>
                     </li>
                 </ul>
                 <div class="btn_box effect delay_7">

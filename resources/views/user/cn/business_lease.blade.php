@@ -108,7 +108,7 @@
                             <div class="flex_type">
                                 <div class="input_box">
                                     <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                                    <b>平方米</b>
+                                    <b>坪</b>
                                 </div>
                                 <button onclick="calculatorBtnLease(this)"><span>查看效果</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
                             </div>

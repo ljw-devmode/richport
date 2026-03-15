@@ -79,7 +79,7 @@
                 </div>
                 @endif
                 <div class="btn_box">
-                    <a href="/portfolio?form_idx=&station_name=">Back to List</a>
+                    <a href="/en/portfolio?form_idx=&station_name=">Back to List</a>
                 </div>
             </div>
         </div>

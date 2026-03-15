@@ -19,5 +19,5 @@
             <a href="javascript:;" onclick="modalOpen('inquiry-modal')" class="txt_link">联系我们</a>
         </div>
     </div>
-    <div class="copy">ⓒ 2025 SOLARTEQ。版权所有。</div>
+    <div class="copy">ⓒ 2026 SOLARTEQ。版权所有。</div>
 </footer>

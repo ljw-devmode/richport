@@ -83,7 +83,7 @@
                 </div>
                 @endif
                 <div class="btn_box">
-                    <a href="/portfolio?form_idx=&station_name=">返回列表</a>
+                    <a href="/cn/portfolio?form_idx=&station_name=">返回列表</a>
                 </div>
             </div>
         </div>

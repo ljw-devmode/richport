@@ -1,7 +1,7 @@
 @php 
 	$header_skip = false; 
-	$depth1_num = '4'; 
-	$depth2_num = '1'; 
+	$depth1_num = '2'; 
+	$depth2_num = '2'; 
 @endphp 
 @include('admin.header._header')
 

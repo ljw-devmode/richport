@@ -45,7 +45,18 @@ const modalOpen = (item) => {
     modal.style.marginTop = "0px";
     modal.style.marginLeft = "0px";
     modal.style.paddingLeft = "0px";
+    modal.style.zIndex = "1000";
+    modal.style.display = "block";
+};
+
+const modalOpen2 = (item) => {
+    const modal = document.querySelector(`#${item}`);
+    modal.classList.add("show", "overflow-y-auto");
+    modal.style.marginTop = "0px";
+    modal.style.marginLeft = "0px";
+    modal.style.paddingLeft = "0px";
     modal.style.zIndex = "10000";
+    modal.style.display = "block";
 };
 
 // 모달 닫기
@@ -56,6 +67,7 @@ const modalClose = (item)=>{
     modal.style.marginLeft = "-10000px";
     modal.style.paddingLeft = "0";
     modal.style.zIndex = "0";
+    modal.style.display = "none";
 }
 
 
@@ -93,21 +105,21 @@ function showLoadingSvg() {
     const loadingContainer = document.getElementById('loadingContainer');
         if(loadingContainer == null) return;
         loadingContainer.style.display = 'flex';
-    }
+}
 
-    // 페이지 로딩이 완료된 후 실행할 함수
-    function hideLoadingSvg() {
+// 페이지 로딩이 완료된 후 실행할 함수
+function hideLoadingSvg() {
     const loadingContainer = document.getElementById('loadingContainer');
         if(loadingContainer == null) return;
         loadingContainer.style.display = 'none';
-    }
+}
 
-    // 페이지 로딩 시작 시 showLoadingSvg() 함수 호출
-    window.addEventListener('load', function() {
-        showLoadingSvg(); // 로딩 시작 시 바로 SVG 표시
+// 페이지 로딩 시작 시 showLoadingSvg() 함수 호출
+window.addEventListener('load', function() {
+    showLoadingSvg(); // 로딩 시작 시 바로 SVG 표시
 
-        // 3초 후에 hideLoadingSvg() 함수 호출
-        setTimeout(hideLoadingSvg, 500); // 3초(3000ms)로 설정
+    // 3초 후에 hideLoadingSvg() 함수 호출
+    setTimeout(hideLoadingSvg, 500); // 3초(3000ms)로 설정
 });
 
 
@@ -206,3 +218,4 @@ function showToast(message, type = 'default', duration = 3000) {
     // 전역 함수로 노출 (필요한 경우 재초기화용)
     window.initFileUploads = initFileUploads;
 })();
+

@@ -67,11 +67,6 @@
                         <span>比韩国电力公司低 20%</span>
                     </li>
                     <li class="effect delay_4">
-                        <p>若 RPS 发电时间不足</p>
-                        <h5><b>发电时数保障</b></h5>
-                        <span>明确责任保障</span>
-                    </li>
-                    <li class="effect delay_5">
                         <p>施工质量保证</p>
                         <h5><b>3</b>年</h5>
                         <span>出具质量缺陷保证保险</span>

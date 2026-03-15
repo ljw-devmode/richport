@@ -16,7 +16,7 @@
         <div class="section rps_con02">
             <div class="sub_inner">
                 <div class="tit">
-                    <h3 class="effect">RPS 태양광 발전 사업</h3>
+                    <h3 class="effect">RPS (전력판매)</h3>
                     <p class="effect delay_1"><b>전력과 인증서 판매</b>를 통한 수익 창출 구조</p>
                 </div>
                 <ul>
@@ -139,11 +139,11 @@
                 <ul>
                     <li class="effect delay_2">
                         <h4><b>많은</b> 시공사례</h4>
-                        <p>전국 <b>600건 이상</b>, 700MW 이상,<br/> 탄소 감축 230만그루 이상 실적</p>
+                        <p>전국 <b>600건 이상</b>, 784MW 이상,<br/> 탄소 감축 230만그루 이상 실적</p>
                     </li>
                     <li class="effect delay_3">
                         <h4><b>검증된</b> 기술력</h4>
-                        <p>7건의 특허로 <b>인정받은 기술력</b>과<br/> 포스코의 포스맥 구조물</p>
+                        <p>9건의 특허로 <b>인정받은 기술력</b>과<br/> 포스코의 포스맥 구조물</p>
                     </li>
                     <li class="effect delay_4">
                         <h4><b>신뢰받는</b> 기업</h4>
@@ -213,7 +213,7 @@
             <div class="sub_inner">
                 <div class="sub_tit">
                     <span class="effect">STEP-BY-STEP PROCESS</span>
-                    <h3 class="effect delay_1">RPS 태양광 발전사업 <br class="mo_ver"/>진행 절차</h3>
+                    <h3 class="effect delay_1">RPS(전력판매) <br class="mo_ver"/>진행 절차</h3>
                 </div>
                 <ul>
                     <li class="effect delay_2">

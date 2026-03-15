@@ -44,7 +44,7 @@
             <div class="sub_inner2">
                  <div class="sub_tit">
                     <span class="effect">CONTACT</span>
-                    <h3 class="effect delay_1">CONTACT</h3>
+                    <h3 class="effect delay_1">Directions</h3>
                     <div class="tab_box effect delay_2">
                         <a href="javascript:;" class="active">Gwangmyeong HQ</a>
                         <a href="javascript:;">Hwaseong Factory</a>

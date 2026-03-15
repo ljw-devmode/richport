@@ -27,8 +27,8 @@
                     </li>
                     <li class="effect delay_3">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con08_2.svg') }}" alt="">
-                        <h5>200kW 까지</h5>
-                        <p>일반건물 <b>100kW</b>, <br/> RE100·산단기업 <b>200kW</b></p>
+                        <h5>1,000kW 까지</h5>
+                        <p>일반건물 <b>200kW</b>, <br/> RE100·산단기업 <b>1,000kW</b></p>
                     </li>
                     <li class="effect delay_4">
                         <img src="{{ asset('user_assets/img/sub/business/busi_con08_4.svg') }}" alt="">

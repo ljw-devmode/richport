@@ -101,20 +101,20 @@
 
 
 
-    <title>SOLARTEQ</title>
-    <link rel="canonical" href="https://solarteq.co.kr">
+    <title>{{ $meta['title'] }}</title>
+    <link rel="canonical" href="{{ $meta['canonical'] }}">
     <link rel="icon" href="{{ asset('user_assets/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('user_assets/img/appleicon.png') }}">
 
-    <meta name="Keywords" content="太阳能、屋顶租赁、RPS 发电、可再生能源配额制发电、RE100、停车场、建筑支持、住宅支持、金融支持、财政支持、碳中和" />
-    <meta name="Description" content="Your Energy Asset Partner，新能源专业企业 SOLARTEQ"/>
-    <meta property="og:title" content="SOLARTEQ"/>
+    <meta name="Keywords" content="太阳能、屋顶租赁、RPS（电力销售）、可再生能源配额制发电、RE100、停车场、建筑支持、住宅支持、金融支持、财政支持、碳中和" />
+    <meta name="Description" content="{{ $meta['description'] }}"/>
+    <meta property="og:title" content="{{ $meta['og:title'] }}"/>
     <meta property="og:image" content="https://solarteq.co.kr/og_image.png"/>
-    <meta property="og:description" content="Your Energy Asset Partner，新能源专业企业 SOLARTEQ"/>
-    <meta property="twitter:title" content="SOLARTEQ"/>
+    <meta property="og:description" content="{{ $meta['og:description'] }}"/>
+    <meta property="twitter:title" content="{{ $meta['twitter:title'] }}"/>
     <meta property="twitter:image" content="https://solarteq.co.kr/og_image.png"/>
-    <meta property="twitter:description" content="Your Energy Asset Partner，新能源专业企业 SOLARTEQ"/>
-    <meta property="twitter:card" content="太阳能、屋顶租赁、RPS 发电、可再生能源配额制发电、RE100、停车场、建筑支持、住宅支持、金融支持、财政支持、碳中和"/>
+    <meta property="twitter:description" content="{{ $meta['twitter:description'] }}"/>
+    <meta property="twitter:card" content="太阳能、屋顶租赁、RPS（电力销售）、可再生能源配额制发电、RE100、停车场、建筑支持、住宅支持、金融支持、财政支持、碳中和"/>
 
 
     <!-- css -->

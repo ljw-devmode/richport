@@ -17,7 +17,7 @@
         </a>
         <div class="language_selector">
             <a href="javascript:;" onclick="toggleLangMenu(this)">
-                <img src="{{ asset('user_assets/img/icon/calculator.svg') }}" alt="">
+                <img src="{{ asset('user_assets/img/icon/language.svg') }}" alt="">
                 <span class="mo_ver">CN</span>
                 <span class="lang_text">中文</span>
             </a>
@@ -39,7 +39,7 @@
             <ul class="depth2">
                 <li><a href="/cn/company/about">SOLARTEQ 介绍</a></li>
                 <li><a href="/cn/company/history">发展历程</a></li>
-                <li><a href="/cn/company/patent">专利 / 认证</a></li>
+                <li><a href="/cn/company/patent">认证·专利</a></li>
             </ul>
         </div>
     </div>
@@ -52,7 +52,7 @@
                     <ul class="depth3">
                         <li><a href="/cn/business/index">为什么选择 SOLARTEQ</a></li>
 						<li><a href="/cn/business/solar">屋顶租赁式太阳能</a></li>
-                        <li><a href="/cn/business/rps">RPS 太阳能发电</a></li>
+                        <li><a href="/cn/business/rps">RPS（电力销售）</a></li>
                         <li><a href="/cn/business/lease">RE100 租赁</a></li>
                     </ul>
                 </li>
@@ -107,8 +107,9 @@
                     <dd class="check_form">
                         <input type="radio" class="input-check" id="cate_1" name="types_idx" value="1"><label for="cate_1">屋顶租赁式太阳能</label>
                         <input type="radio" class="input-check" id="cate_2" name="types_idx" value="2"><label for="cate_2">RE100 租赁</label>
-                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS 发电项目</label>
-                        <input type="radio" class="input-check" id="cate_4" name="types_idx" value="4"><label for="cate_4">支持项目（建筑、屋顶、金融）</label>
+                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS（电力销售）</label>
+                        <input type="radio" class="input-check" id="cate_4" name="types_idx" value="4"><label for="cate_4">支持项目（建筑、屋顶、金融）
+                        </label>
                         <input type="radio" class="input-check" id="cate_5" name="types_idx" value="5"><label for="cate_5">索取公司介绍</label>
                     </dd>
                 </dl>

@@ -112,8 +112,8 @@
                     <div class="txt_box">
                         <h3>太阳能解决方案</h3>
                         <div class="hover_txt">
-                            <p>通过 SOLARTEQ 的可持续能源咨询，开展屋顶租赁式太阳能、RE100 租赁及 RPS 发电项目</p>
-                            <a href="/business/index">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                            <p>通过 SOLARTEQ 的可持续能源咨询，开展屋顶租赁式太阳能、RE100 租赁及 RPS（电力销售）</p>
+                            <a href="/cn/business/index">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
                 </li>
@@ -193,7 +193,8 @@
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
                         <div class="video_box">
-                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/W4JUV0ABSwk?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=W4JUV0ABSwk" title="고객만족 인터뷰┃모나크CC, 고객 편의를 위해 설치한 2.2MW 태양광, 예상 못 한 효과가?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
+                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/W4JUV0ABSwk?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=W4JUV0ABSwk&cc_load_policy=1&cc_lang_pref=zh-Hans
+" title="고객만족 인터뷰┃모나크CC, 고객 편의를 위해 설치한 2.2MW 태양광, 예상 못 한 효과가?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
                         </div>
                         <div class="txt_box">
                             <p>忠清北道 阴城郡 | Monarch CC | 2,217kW</p>
@@ -211,10 +212,11 @@
                     </li>
                     <li class="swiper-slide">
                         <div class="video_box">
-                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/B3hzO4AkKrI?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=B3hzO4AkKrI" title="고객만족인터뷰┃600가구 전력 생산! 영화금속이 RE100을 준비하는 현실적 방법" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
+                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/B3hzO4AkKrI?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=B3hzO4AkKrI&cc_load_policy=1&cc_lang_pref=zh-Hans
+" title="고객만족인터뷰┃600가구 전력 생산! 영화금속이 RE100을 준비하는 현실적 방법" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
                         </div>
                         <div class="txt_box">
-                            <p>경상남도 | 함안 | 1,987kW</p>
+                            <p>庆尚南道 | 咸安郡 | 1,987kW</p>
                             <div class="mo_ver">
                                 <h5>电影金属</h5>
                                 <b>客户访谈┃为 600 户供电！电影金属的 RE100 实践</b>

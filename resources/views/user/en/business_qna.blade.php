@@ -217,7 +217,7 @@
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">What is the minimum area required?</dt>
-                                <dd><div class="answer">The RPS power generation business requires at least 000 pyeong of land or rooftop area. Larger-scale projects offer higher profitability, so larger spaces are recommended.</div></dd>
+                                <dd><div class="answer">The RPS (Electricity Sales) requires at least 000 pyeong of land or rooftop area. Larger-scale projects offer higher profitability, so larger spaces are recommended.</div></dd>
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">What taxes apply to power generation revenue?</dt>

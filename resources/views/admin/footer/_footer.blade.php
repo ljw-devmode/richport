@@ -36,6 +36,7 @@
         <!-- BEGIN: JS Assets-->
         <script src="{{ asset('admin_assets/dist/js/app.js') }}"></script>
         <script src="{{ asset('admin_assets/dist/js/jquery-1.12.4.js') }}"></script>
+        <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
         <script src="{{ asset('admin_assets/dist/js/custom.js') }}"></script>
         <!-- 파일업로드 -->
         <script src="{{ asset('admin_assets/dist/js/filepond.min.js') }}"></script>

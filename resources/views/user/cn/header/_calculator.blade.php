@@ -28,7 +28,7 @@
                 <p>输入面积并点击“计算收益”</p>
                 <div class="input_box">
                     <input type="text">
-                    <b>平方米</b>
+                    <b>坪</b>
                 </div>
                 <button onclick="calculatorBtn(this)"><span>计算</span><i><img src="{{ asset('user_assets/img/icon/loading.svg') }}" alt=""></i></button>
             </div>

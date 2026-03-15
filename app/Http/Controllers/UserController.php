@@ -27,6 +27,11 @@ use App\Models\PortfolioFiles;
 use App\Models\Notice;
 use App\Models\NoticeFiles;
 use App\Models\History;
+use App\Models\ProjectMemo;
+use App\Services\GoogleSheetService;
+use Illuminate\Support\Facades\Cache;
+use App\Services\KmaAsosService;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -104,7 +109,7 @@ class UserController extends Controller
     	return view('user.ko.business_solar', compact('data'));
     }
     
-    // 신재생에너지 > RPS 태양광발전
+    // 신재생에너지 > RPS (전력판매)
     public function business_rps_ko(Request $request)
     {
     	$data = Portfolio::with(['regions', 'cities', 'formTypes','types'])
@@ -199,14 +204,18 @@ class UserController extends Controller
     	$data = Portfolio::with(['regions', 'cities', 'formTypes'])
     	->findOrFail($idx);
 
-		$data['youtube_iframe'] = '<iframe
-       width="560"
-       height="315"
-       src="https://www.youtube.com/embed/'.$data['youtube_iframe'].'?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;rel=0&amp;playlist='.$data['youtube_iframe'].'"
-       title="YouTube video player"
-       frameborder="0"
-       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
-       allowfullscreen></iframe>';
+		if (!empty($data['youtube_iframe'])) {
+			$data['youtube_iframe'] = '<iframe
+		   width="560"
+		   height="315"
+		   src="https://www.youtube.com/embed/'.$data['youtube_iframe'].'?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;rel=0&amp;playlist='.$data['youtube_iframe'].'"
+		   title="YouTube video player"
+		   frameborder="0"
+		   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+		   allowfullscreen></iframe>';
+		} else {
+
+		}
     	
     	// 시공사례 이미지들
     	$files = PortfolioFiles::where('portfolio_idx', $idx)->orderBy('orderby', 'asc')->orderBy('idx', 'asc')->get();
@@ -376,7 +385,7 @@ class UserController extends Controller
     	return view('user.en.business_solar', compact('data'));
     }
     
-    // 신재생에너지 > RPS 태양광발전
+    // 신재생에너지 > RPS (전력판매)
     public function business_rps_en(Request $request)
     {
     	$data = Portfolio::with(['regions', 'cities', 'formTypes','types'])
@@ -600,7 +609,7 @@ class UserController extends Controller
     	return view('user.cn.business_solar', compact('data'));
     }
     
-    // 신재생에너지 > RPS 태양광발전
+    // 신재생에너지 > RPS (전력판매)
     public function business_rps_cn(Request $request)
     {
     	$data = Portfolio::with(['regions', 'cities', 'formTypes','types'])
@@ -747,4 +756,207 @@ class UserController extends Controller
     {
     	return view('user.cn.policy');
     }
+
+
+	public function report(GoogleSheetService $sheet)
+    {
+        // 대시보드는 캐시 필수 (API 호출비용/속도/쿼터)
+        $rows = Cache::remember('dashboard_sheet_rows', 60, function () use ($sheet) {
+            return $sheet->getRange('dashboard!A1:L1000'); // 시트명/범위
+        });
+
+        // 1행이 헤더라면 매핑
+        $header = $rows[0] ?? [];
+        $dataRows = array_slice($rows, 1);
+
+        $items = array_map(function ($row) use ($header) {
+            return array_combine($header, array_pad($row, count($header), null));
+        }, $dataRows);
+
+        // 여기서 상태별 집계/필터링 등 가공
+        $summary = [
+            'total' => count($items),
+            'total_kw' => array_sum(array_map(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0), $items)),
+
+            'contract' => collect($items) -> filter(fn($x) => !empty(trim($x['계약 날인'] ?? ''))) -> count(),
+            'contract_kw' => collect($items) -> filter(fn($x) => !empty(trim($x['계약 날인'] ?? ''))) -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),            
+
+            'process_confirm' => count(array_filter($items, fn($x)=>$x['공사 단계']==='인허가 진행 중')),
+            'process_confirm_kw' => collect($items) -> where('공사 단계', '인허가 진행 중') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+            'process_ready' => count(array_filter($items, fn($x)=>$x['공사 단계']==='사용 전 검사')),
+            'process_ready_kw' => collect($items) -> where('공사 단계', '사용 전 검사') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+
+            'issue_red' => count(array_filter($items, fn($x)=>$x['이슈']==='협의 난항')),
+            'issue_red_kw' => collect($items) -> where('이슈', '협의 난항') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+            'issue_yellow' => count(array_filter($items, fn($x)=>$x['이슈']==='협의 중')),
+            'issue_yellow_kw' => collect($items) -> where('이슈', '협의 중') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+            'issue_green' => count(array_filter($items, fn($x)=>$x['이슈']==='원활')),
+            'issue_green_kw' => collect($items) -> where('이슈', '원활') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+
+            'completed' => count(array_filter($items, fn($x)=>$x['공사 단계']==='완공')),
+            'completed_kw' => collect($items) -> where('공사 단계', '완공') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+
+            'management' => collect($items) -> filter(fn($x) => !empty(trim($x['운영 여부'] ?? ''))) -> count(),
+            'management_kw' => collect($items) -> filter(fn($x) => !empty(trim($x['운영 여부'] ?? ''))) -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)), 
+        ];
+
+        return view('user.ko.report', compact('header', 'items', 'summary'));
+    }
+
+    public function reportMemoStore(Request $request)
+    {
+        $memo = ProjectMemo::create([
+            'name' => $request->name,
+            'memo' => $request->memo,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        return ProjectMemo::where('name', $request->name)
+            ->orderByDesc('created_at')
+            ->get();
+    }
+
+    public function reportMemoList($name)
+    {
+        return ProjectMemo::where('name', $name)
+            ->orderByDesc('created_at')
+            ->get();
+    }
+
+    public function reportMemoDelete(Request $request, $idx)
+    {
+		$request->validate([
+            'name' => 'required|string',
+        ]);
+
+        ProjectMemo::find($idx)?->delete();
+
+        return ProjectMemo::where('name', $request->name)
+            ->orderByDesc('created_at')
+            ->get();
+    }    
+
+    public function reportMemoUpdate(Request $request, $idx)
+    {
+        $request->validate([
+            'memo' => 'required|string',
+            'name' => 'required|string',
+        ]);
+
+        $m = ProjectMemo::findOrFail($idx);
+
+        // 안전: 다른 프로젝트 메모를 실수로 수정 방지(선택)
+        if ($m->name !== $request->name) {
+            return response()->json(['error' => 'project mismatch'], 400);
+        }
+
+        $m->memo = $request->memo;
+        $m->save();
+
+        return ProjectMemo::where('name', $request->name)
+            ->orderByDesc('created_at')
+            ->get();
+    }
+
+	// 일사량과 발전량 조회
+	public function compareMonthly(Request $request, KmaAsosService $asos)
+    {
+		// ✅ 관측소 목록(DB)
+		$stations = DB::table('kma_obv')
+			->select('stn_code', 'stn_name')
+			->orderBy('stn_name')
+			->get();
+
+		// ✅ 기본 관측소 (예: 수원 119) - DB에 있으면 그걸 기본으로
+		$defaultStn = DB::table('kma_obv')->where('stn_name', '수원')->value('stn_code') ?? 119;
+
+		$stnId = (int) $request->get('stnId', $defaultStn);
+		$year  = (int) $request->get('year', 2026);
+		$month = (int) $request->get('month', 2);
+
+		// ✅ 선택된 관측소명
+		$stnName = $stations->firstWhere('stn_code', $stnId)->stn_name ?? "stnId={$stnId}";
+        $target = Carbon::create($year, $month, 1);
+
+		// ✅ 현재월이면: 1일 ~ 어제까지만
+		$today = Carbon::now('Asia/Seoul')->startOfDay();
+		$isCurrentMonth = ($target->year === $today->year) && ($target->month === $today->month);
+
+		// "어제"가 같은 달에 없을 수 있으니(매월 1일) 안전 처리
+		$yesterday = (clone $today)->subDay();
+		$targetEndDay = $isCurrentMonth ? max(1, (int)$yesterday->day) : $target->daysInMonth;
+
+		$prevMonth = (clone $target)->subMonthNoOverflow();
+        $prevYearSameMonth = (clone $target)->subYear();
+
+    	$prevMonthEndDay = min($prevMonth->daysInMonth, $targetEndDay);
+    	$prevYearEndDay  = min($prevYearSameMonth->daysInMonth, $targetEndDay);
+
+		// ✅ 여기서부터는 "start/end 날짜(YYYYMMDD)"를 만들어서 호출
+		$startTarget = $target->copy()->day(1)->format('Ymd');
+		$endTarget   = $target->copy()->day($targetEndDay)->format('Ymd');
+
+		$startPrevMon = $prevMonth->copy()->day(1)->format('Ymd');
+		$endPrevMon   = $prevMonth->copy()->day($prevMonthEndDay)->format('Ymd');
+
+		$startPrevYear = $prevYearSameMonth->copy()->day(1)->format('Ymd');
+		$endPrevYear   = $prevYearSameMonth->copy()->day($prevYearEndDay)->format('Ymd');		
+
+		// ✅ 월 데이터(일별 sumGsr) 가져오기
+		$dataPrevYear = $asos->getMonthlySumGsrByRange($startPrevYear, $endPrevYear, $stnId);
+		$dataPrevMon  = $asos->getMonthlySumGsrByRange($startPrevMon, $endPrevMon, $stnId);
+		$dataTarget   = $asos->getMonthlySumGsrByRange($startTarget, $endTarget, $stnId);
+
+        $daysInTarget = $target->daysInMonth;
+
+        // 표 row 만들기
+        $rows = [];
+        for ($d = 1; $d <= $daysInTarget; $d++) {
+            $rows[] = [
+                'day' => $d,
+                'prev_year' => $dataPrevYear[$d] ?? null,
+                'prev_month' => $dataPrevMon[$d] ?? null,
+                'target' => $dataTarget[$d] ?? null,
+            ];
+        }
+
+        // 합계 (null 제외)
+        $sumPrevYear = array_sum(array_filter($dataPrevYear, fn($v) => $v !== null));
+        $sumPrevMon  = array_sum(array_filter($dataPrevMon, fn($v) => $v !== null));
+        $sumTarget   = array_sum(array_filter($dataTarget, fn($v) => $v !== null));
+
+        // 단위 변환 참고: ASOS 일사량(합계일사)은 보통 MJ/m²로 제공되는 경우가 많습니다.
+        // 필요하면 kWh/m²로 변환: 1 MJ/m² = 0.277784755950055 kWh/m²
+        $mjToKwh = 0.277784755950055;
+
+        return view('user.ko.kma', [
+			'stations' => $stations,
+			'stnId' => $stnId,
+			'stnName' => $stnName,
+			'year' => $year,
+			'month' => $month,
+
+            'target' => $target,
+            'prevMonth' => $prevMonth,
+            'prevYear' => $prevYearSameMonth,
+
+            'rows' => $rows,
+            'sumPrevYear' => $sumPrevYear,
+            'sumPrevMon' => $sumPrevMon,
+            'sumTarget' => $sumTarget,
+
+            'mjToKwh' => $mjToKwh,
+
+        	'targetEndDay' => $targetEndDay,
+        	'isCurrentMonth' => $isCurrentMonth,			
+        ]);
+    }
+
+
+	// 월별 리포트
+    public function report_month(Request $request)
+    {
+    	return view('report.month');
+    }
+
 }

@@ -29,14 +29,6 @@
 					</select>
 				</div>				
 				<div>
-					<p class="mb-1">영상</p>
-					<select id="is_url" name="is_url" class="form-select w-36">
-						<option value="" {{ request('is_url') === null || request('is_url') === '' ? 'selected' : '' }}>전체</option>
-			            <option value="1" {{ request('is_url') == '1' ? 'selected' : '' }}>있음</option>
-			            <option value="0" {{ request('is_url') == '0' ? 'selected' : '' }}>없음</option>
-					</select>
-				</div>
-				<div>
 					<p class="mb-1">블로그</p>
 					<select id="is_blog" name="is_blog" class="form-select w-36">
 						<option value="" {{ request('is_blog') === null || request('is_blog') === '' ? 'selected' : '' }}>전체</option>
@@ -44,6 +36,14 @@
 			            <option value="0" {{ request('is_blog') == '0' ? 'selected' : '' }}>없음</option>
 					</select>
 				</div>
+				<div>
+					<p class="mb-1">유튜브</p>
+					<select id="is_url" name="is_url" class="form-select w-36">
+						<option value="" {{ request('is_url') === null || request('is_url') === '' ? 'selected' : '' }}>전체</option>
+			            <option value="1" {{ request('is_url') == '1' ? 'selected' : '' }}>있음</option>
+			            <option value="0" {{ request('is_url') == '0' ? 'selected' : '' }}>없음</option>
+					</select>
+				</div>				
 				<div>
 					<p class="mb-1">홈 추천</p>
 					<select id="home_recommend" name="home_recommend" class="form-select w-36">
@@ -133,8 +133,8 @@
 						<th class="whitespace-nowrap">번호</th>
 						<th class="whitespace-nowrap">구분</th>
 						<th class="whitespace-nowrap">형태</th>
-						<th class="whitespace-nowrap">영상</th>
 						<th class="whitespace-nowrap">블로그</th>
+						<th class="whitespace-nowrap">유튜브</th>
 						<th class="whitespace-nowrap">지역</th>
 						<th class="whitespace-nowrap">도시</th>
 						<th class="whitespace-nowrap">발전소명</th>
@@ -155,8 +155,8 @@
 							<td>{{ $number }}</td>
 							<td>{{ $item->types->subject }}</td>
 							<td>{{ $item->formtypes->subject }}</td>
-							<td>{{ $item->is_url }}</td>
 							<td>{{ $item->is_blog }}</td>
+							<td>{{ $item->is_url }}</td>
 							<td>{{ $item->regions->name_kr }}</td>
 							<td>{{ $item->cities->name_kr }}</td>
 							<td>{{ $item->station_name }}</td>
@@ -288,10 +288,20 @@
 							<input type="text" id="regist_volume" name="regist_volume" class="form-control">
 						</div>
 						<div class="flex-1 flex items-center gap-2">
-                            <p class="shrink-0 w-32 font-medium">금액/억 <span class="text-danger">*</span></p>
+                            <p class="shrink-0 w-32 font-medium">금액(ko 단위기재) <span class="text-danger">*</span></p>
                             <input type="text" id="regist_price" name="regist_price" class="form-control">
                         </div>
 					</div>
+					<div class="flex items-center gap-10 mt-3">
+						<div class="flex-1 flex items-center gap-2">
+							<p class="shrink-0 w-32 font-medium">금액/억(en 단위기재) <span class="text-danger">*</span></p>
+							<input type="text" id="regist_price_en" name="regist_price_en" class="form-control">
+						</div>
+						<div class="flex-1 flex items-center gap-2">
+                            <p class="shrink-0 w-32 font-medium">금액/억(cn 단위기재) <span class="text-danger">*</span></p>
+                            <input type="text" id="regist_price_cn" name="regist_price_cn" class="form-control">
+                        </div>
+					</div>					
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">발전소명(ko) <span class="text-danger">*</span></p>
 						<input type="text" id="regist_station_name" name="regist_station_name" class="form-control" placeholder="한국어 발전소명을 입력해주세요">
@@ -305,7 +315,7 @@
 						<input type="text" id="regist_station_name_cn" name="regist_station_name_cn" class="form-control" placeholder="중국어 발전소명을 입력해주세요">
 					</div>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">썸네일 이미지</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">썸네일 이미지</h3>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">PC 썸네일 <span class="text-danger">*</span></p>
 						<div class="w-full flex items-center gap-2">
@@ -331,28 +341,29 @@
 		                </div>
 					</div>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">블로그</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">블로그</h3>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">블로그 URL</p>
 						<input type="text" id="regist_blog" name="regist_blog" class="form-control" placeholder="블로그 URL을 입력해주세요">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(ko)</p>
-						<textarea id="regist_blog_contents" name="regist_blog_contents" class="form-control h-32" placeholder="한국어 솔택이 후기 내용을 입력하세요."></textarea>
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(ko)</p>
+						<textarea id="regist_blog_contents" name="regist_blog_contents" class="form-control h-32" placeholder="한국어 블로그 내용을 입력하세요."></textarea>
+					</div>
+					<!-- div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(en)</p>
+						<textarea id="regist_blog_contents_en" name="regist_blog_contents_en" class="form-control h-32" placeholder="영어 블로그 내용을 입력하세요."></textarea>
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(en)</p>
-						<textarea id="regist_blog_contents_en" name="regist_blog_contents_en" class="form-control h-32" placeholder="영어 솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(cn)</p>
-						<textarea id="regist_blog_contents_cn" name="regist_blog_contents_cn" class="form-control h-32" placeholder="중국어 솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(cn)</p>
+						<textarea id="regist_blog_contents_cn" name="regist_blog_contents_cn" class="form-control h-32" placeholder="중국어 블로그 내용을 입력하세요."></textarea>
+					</div -->
+					<input type="hidden" id="regist_blog_contents_en" name="regist_blog_contents_en" value=""/>
+					<input type="hidden" id="regist_blog_contents_cn" name="regist_blog_contents_cn" value=""/>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">영상</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">유튜브</h3>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상 URL</p>
+						<p class="shrink-0 w-32 font-medium ">유튜브 URL</p>
 						<input type="text" id="regist_url" name="regist_url" class="form-control" placeholder="유튜브 영상 URL을 입력해주세요">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
@@ -360,31 +371,36 @@
 						<input type="text" id="regist_youtube_iframe" name="regist_youtube_iframe" class="form-control" placeholder="유튜브 iframe을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(ko)</p>
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(ko)</p>
 						<input type="text" id="regist_youtube_subject" name="regist_youtube_subject" class="form-control" placeholder="한국어 영상제목을 입력하세요.">
 					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(en)</p>
-						<input type="text" id="regist_youtube_subject_en" name="regist_youtube_subject_en" class="form-control" placeholder="영어 영상제목을 입력하세요.">
+					<!--div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(en)</p>
+						<input type="text" id="regist_youtube_subject_en" name="regist_youtube_subject_en" class="form-control" placeholder="영어 유튜브 제목을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(cn)</p>
-						<input type="text" id="regist_youtube_subject_cn" name="regist_youtube_subject_cn" class="form-control" placeholder="중국어 영상제목을 입력하세요.">
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(ko)</p>
-						<textarea id="regist_youtube_contents" name="regist_youtube_contents" class="form-control h-32" placeholder="한국어 영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(en)</p>
-						<textarea id="regist_youtube_contents_en" name="regist_youtube_contents_en" class="form-control h-32" placeholder="영어 영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(cn)</p>
-						<textarea id="regist_youtube_contents_cn" name="regist_youtube_contents_cn" class="form-control h-32" placeholder="중국어 영상내용을 입력하세요."></textarea>
-					</div>
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(cn)</p>
+						<input type="text" id="regist_youtube_subject_cn" name="regist_youtube_subject_cn" class="form-control" placeholder="중국어 유튜브 제목을 입력하세요.">
+					</div-->
+					<input type="hidden" id="regist_youtube_subject_en" name="regist_youtube_subject_en" value=""/>
+					<input type="hidden" id="regist_youtube_subject_cn" name="regist_youtube_subject_cn" value=""/>
 
-					<h3 class="mt-5 mb-1 font-medium">시공 이미지 <span class="text-danger">*</span></h3>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(ko)</p>
+						<textarea id="regist_youtube_contents" name="regist_youtube_contents" class="form-control h-32" placeholder="한국어 유튜브 내용을 입력하세요."></textarea>
+					</div>
+					<!--div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(en)</p>
+						<textarea id="regist_youtube_contents_en" name="regist_youtube_contents_en" class="form-control h-32" placeholder="영어 유튜브 내용을 입력하세요."></textarea>
+					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(cn)</p>
+						<textarea id="regist_youtube_contents_cn" name="regist_youtube_contents_cn" class="form-control h-32" placeholder="중국어 유튜브 내용을 입력하세요."></textarea>
+					</div-->
+					<input type="hidden" id="regist_youtube_contents_en" name="regist_youtube_contents_en" value=""/>
+					<input type="hidden" id="regist_youtube_contents_cn" name="regist_youtube_contents_cn" value=""/>
+
+					<h3 class="mt-5 mb-1 font-medium" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">시공 이미지 <span class="text-danger">*</span></h3>
 					<input type="file" id="regist_portfolioFiles" name="regist_portfolioFiles" class="filepond filepond-media" multiple />
 					
 					<h3 class="mt-5 mb-1 text-lg font-semibold">추천 포트폴리오</h3>
@@ -490,8 +506,18 @@
 							<input type="text" id="modify_volume" name="modify_volume" class="form-control" placeholder="">
 						</div>
 						<div class="flex-1 flex items-center gap-2">
-                            <p class="shrink-0 w-32 font-medium">금액/억 <span class="text-danger">*</span></p>
+                            <p class="shrink-0 w-32 font-medium">금액(ko 단위기재) <span class="text-danger">*</span></p>
                             <input type="text" id="modify_price" name="modify_price" class="form-control">
+                        </div>
+					</div>
+                    <div class="flex items-center gap-10 mt-3">
+						<div class="flex-1 flex items-center gap-2">
+							<p class="shrink-0 w-32 font-medium">금액(en 단위기재) <span class="text-danger">*</span></p>
+							<input type="text" id="modify_price_en" name="modify_price_en" class="form-control" placeholder="">
+						</div>
+						<div class="flex-1 flex items-center gap-2">
+                            <p class="shrink-0 w-32 font-medium">금액(cn 단위기재) <span class="text-danger">*</span></p>
+                            <input type="text" id="modify_price_cn" name="modify_price_cn" class="form-control">
                         </div>
 					</div>
                     
@@ -508,7 +534,7 @@
 						<input type="text" id="modify_station_name_cn" name="modify_station_name_cn" class="form-control" placeholder="">
 					</div>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">썸네일 이미지</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">썸네일 이미지</h3>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">PC 썸네일 <span class="text-danger">*</span></p>
 						<div class="w-full flex items-center gap-2">
@@ -534,59 +560,66 @@
 		                </div>
 					</div>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">영상, 블로그</h3>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상 URL</p>
-						<input type="text" id="modify_url" name="modify_url" class="form-control" placeholder="유튜브 영상 URL을 입력해주세요">
-					</div>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">블로그</h3>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">블로그 URL</p>
 						<input type="text" id="modify_blog" name="modify_blog" class="form-control" placeholder="블로그 URL을 입력해주세요">
 					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(ko)</p>
+						<textarea id="modify_blog_contents" name="modify_blog_contents" class="form-control h-32" placeholder="블로그 내용을 입력하세요."></textarea>
+					</div>
+					<!--div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(en)</p>
+						<textarea id="modify_blog_contents_en" name="modify_blog_contents_en" class="form-control h-32" placeholder="블로그 내용을 입력하세요."></textarea>
+					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">블로그 내용(cn)</p>
+						<textarea id="modify_blog_contents_cn" name="modify_blog_contents_cn" class="form-control h-32" placeholder="블로그 내용을 입력하세요."></textarea>
+					</div-->
+					<input type="hidden" id="modify_blog_contents_en" name="modify_blog_contents_en" value=""/>
+					<input type="hidden" id="modify_blog_contents_cn" name="modify_blog_contents_cn" value=""/>
 					
-					<h3 class="mt-5 mb-1 text-base font-semibold">포트폴리오 상세</h3>
+					<h3 class="mt-5 mb-1 text-base font-semibold" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">유튜브</h3>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 URL</p>
+						<input type="text" id="modify_url" name="modify_url" class="form-control" placeholder="유튜브 영상 URL을 입력해주세요">
+					</div>
 					<div class="flex items-center gap-2 mt-3">
 						<p class="shrink-0 w-32 font-medium ">유튜브 iframe</p>
 						<input type="text" id="modify_youtube_iframe" name="modify_youtube_iframe" class="form-control" placeholder="유튜브 iframe을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(ko)</p>
-						<input type="text" id="modify_youtube_subject" name="modify_youtube_subject" class="form-control" placeholder="영상제목을 입력하세요.">
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(ko)</p>
+						<input type="text" id="modify_youtube_subject" name="modify_youtube_subject" class="form-control" placeholder="유튜브 제목을 입력하세요.">
+					</div>
+					<!--div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(en)</p>
+						<input type="text" id="modify_youtube_subject_en" name="modify_youtube_subject_en" class="form-control" placeholder="유튜브 제목을 입력하세요.">
 					</div>
 					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(en)</p>
-						<input type="text" id="modify_youtube_subject_en" name="modify_youtube_subject_en" class="form-control" placeholder="영상제목을 입력하세요.">
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상제목(cn)</p>
-						<input type="text" id="modify_youtube_subject_cn" name="modify_youtube_subject_cn" class="form-control" placeholder="영상제목을 입력하세요.">
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(ko)</p>
-						<textarea id="modify_youtube_contents" name="modify_youtube_contents" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(en)</p>
-						<textarea id="modify_youtube_contents_en" name="modify_youtube_contents_en" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">영상내용(cn)</p>
-						<textarea id="modify_youtube_contents_cn" name="modify_youtube_contents_cn" class="form-control h-32" placeholder="영상내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(ko)</p>
-						<textarea id="modify_blog_contents" name="modify_blog_contents" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(en)</p>
-						<textarea id="modify_blog_contents_en" name="modify_blog_contents_en" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
-					<div class="flex items-center gap-2 mt-3">
-						<p class="shrink-0 w-32 font-medium ">솔택이 후기 내용(cn)</p>
-						<textarea id="modify_blog_contents_cn" name="modify_blog_contents_cn" class="form-control h-32" placeholder="솔택이 후기 내용을 입력하세요."></textarea>
-					</div>
+						<p class="shrink-0 w-32 font-medium ">유튜브 제목(cn)</p>
+						<input type="text" id="modify_youtube_subject_cn" name="modify_youtube_subject_cn" class="form-control" placeholder="유튜브 제목을 입력하세요.">
+					</div-->
+					<input type="hidden" id="modify_youtube_subject_en" name="modify_youtube_subject_en" value=""/>
+					<input type="hidden" id="modify_youtube_subject_cn" name="modify_youtube_subject_cn" value=""/>
 
-					<h3 class="mt-5 mb-1 font-medium">시공 이미지 <span class="text-danger">*</span></h3>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(ko)</p>
+						<textarea id="modify_youtube_contents" name="modify_youtube_contents" class="form-control h-32" placeholder="유튜브 내용을 입력하세요."></textarea>
+					</div>
+					<!--div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(en)</p>
+						<textarea id="modify_youtube_contents_en" name="modify_youtube_contents_en" class="form-control h-32" placeholder="유튜브 내용을 입력하세요."></textarea>
+					</div>
+					<div class="flex items-center gap-2 mt-3">
+						<p class="shrink-0 w-32 font-medium ">유튜브 내용(cn)</p>
+						<textarea id="modify_youtube_contents_cn" name="modify_youtube_contents_cn" class="form-control h-32" placeholder="유튜브 내용을 입력하세요."></textarea>
+					</div-->
+					<input type="hidden" id="modify_youtube_contents_en" name="modify_youtube_contents_en" value=""/>
+					<input type="hidden" id="modify_youtube_contents_cn" name="modify_youtube_contents_cn" value=""/>
+
+					<h3 class="mt-5 mb-1 font-medium" style="border-top: 1px solid rgb(var(--color-slate-200)); padding-top: 15px;">시공 이미지 <span class="text-danger">*</span></h3>
 					<input type="file" id="modify_portfolioFiles" name="modify_portfolioFiles" class="filepond filepond-media" multiple />
 					
 					<h3 class="mt-5 mb-1 text-lg font-semibold">추천 포트폴리오</h3>
@@ -846,6 +879,8 @@ function regist() {
   	const cities_idx			= $('#regist_cities_idx').val();
   	const volume				= $('#regist_volume').val().trim();
   	const price					= $('#regist_price').val().trim();
+  	const price_en				= $('#regist_price_en').val().trim();
+  	const price_cn				= $('#regist_price_cn').val().trim();
   	const station_name			= $('#regist_station_name').val().trim();
   	const station_name_en		= $('#regist_station_name_en').val().trim();
   	const station_name_cn		= $('#regist_station_name_cn').val().trim();
@@ -875,10 +910,12 @@ function regist() {
 	if (!cities_idx)			return showToast('도시를 선택해주세요.','error');
 	if (!volume)				return showToast('용량을 입력해주세요.','error');
 	if (isNaN(Number(volume)))	return showToast('용량은 숫자만 입력해주세요.','error');
-	if (!price)					return showToast('금액을 입력해주세요.','error');
-	if (!station_name)			return showToast('발전소명을 입력해주세요.','error');
-	if (!station_name_en)		return showToast('발전소명(영문)을 입력해주세요.','error');
-	if (!station_name_cn)		return showToast('발전소명(중문)을 입력해주세요.','error');
+	if (!price)					return showToast('금액(한국어)을 입력해주세요.','error');
+	if (!price_en)				return showToast('금액(영어)을 입력해주세요.','error');
+	if (!price_cn)				return showToast('금액(중국어)을 입력해주세요.','error');
+	if (!station_name)			return showToast('발전소명(한국어)을 입력해주세요.','error');
+	if (!station_name_en)		return showToast('발전소명(영어)을 입력해주세요.','error');
+	if (!station_name_cn)		return showToast('발전소명(중국어)을 입력해주세요.','error');
 	
 	
 	const fd = new FormData();
@@ -890,6 +927,8 @@ function regist() {
 	fd.append('cities_idx', cities_idx);
 	fd.append('volume', volume);
 	fd.append('price', price);
+	fd.append('price_en', price_en);
+	fd.append('price_cn', price_cn);
 	fd.append('station_name', station_name);
 	fd.append('station_name_en', station_name_en);
 	fd.append('station_name_cn', station_name_cn);
@@ -1010,6 +1049,8 @@ function setModifyForm(idx) {
 			$('#modify_station_name_cn').val(d.station_name_cn);
 			$('#modify_volume').val(d.volume);
 			$('#modify_price').val(d.price);
+			$('#modify_price_en').val(d.price_en);
+			$('#modify_price_cn').val(d.price_cn);
 			$('#modify_completion_date').val(d.completion_date);
 			$('#modify_url').val(d.url);
 			$('#modify_blog').val(d.blog);
@@ -1115,6 +1156,8 @@ function modify() {
   	const cities_idx			= $('#modify_cities_idx').val();
   	const volume				= $('#modify_volume').val().trim();
   	const price					= $('#modify_price').val().trim();
+  	const price_en				= $('#modify_price_en').val().trim();
+  	const price_cn				= $('#modify_price_cn').val().trim();
   	const station_name			= $('#modify_station_name').val().trim();
   	const station_name_en		= $('#modify_station_name_en').val().trim();
   	const station_name_cn		= $('#modify_station_name_cn').val().trim();
@@ -1144,10 +1187,12 @@ function modify() {
 	if (!cities_idx)			return showToast('도시를 선택해주세요.','error');
 	if (!volume)				return showToast('용량을 입력해주세요.','error');
 	if (isNaN(Number(volume)))	return showToast('용량은 숫자만 입력해주세요.','error');
-	if (!price)					return showToast('금액을 입력해주세요.','error');
-	if (!station_name)			return showToast('발전소명을 입력해주세요.','error');
-	if (!station_name_en)		return showToast('발전소명(영문)을 입력해주세요.','error');
-	if (!station_name_cn)		return showToast('발전소명(중문)을 입력해주세요.','error');
+	if (!price)					return showToast('금액(한국어)을 입력해주세요.','error');
+	if (!price_en)				return showToast('금액(영어)을 입력해주세요.','error');
+	if (!price_cn)				return showToast('금액(중국어)을 입력해주세요.','error');
+	if (!station_name)			return showToast('발전소명(한국어)을 입력해주세요.','error');
+	if (!station_name_en)		return showToast('발전소명(영어)을 입력해주세요.','error');
+	if (!station_name_cn)		return showToast('발전소명(중국어)을 입력해주세요.','error');
 
 	const fd = new FormData();
 	fd.append('year', year);
@@ -1158,6 +1203,8 @@ function modify() {
 	fd.append('cities_idx', cities_idx);
 	fd.append('volume', volume);
 	fd.append('price', price);
+	fd.append('price_en', price_en);
+	fd.append('price_cn', price_cn);
 	fd.append('station_name', station_name);
 	fd.append('station_name_en', station_name_en);
 	fd.append('station_name_cn', station_name_cn);

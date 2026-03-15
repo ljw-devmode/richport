@@ -83,7 +83,7 @@
                 </div>
                 @endif
                 <div class="btn_box">
-                    <a href="/portfolio?form_idx=&station_name=">목록으로 돌아가기</a>
+                    <a href="/ko/portfolio?form_idx=&station_name=">목록으로 돌아가기</a>
                 </div>
             </div>
         </div>

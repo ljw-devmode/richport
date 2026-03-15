@@ -112,8 +112,8 @@
                     <div class="txt_box">
                         <h3>Solar Solutions</h3>
                         <div class="hover_txt">
-                            <p>Discover rooftop solar leasing, RE100 leasing, and RPS power generation through SOLARTEQ’s sustainable energy consulting</p>
-                            <a href="/business/index">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                            <p>Discover rooftop solar leasing, RE100 leasing, and RPS(Electricity Sales) through SOLARTEQ’s sustainable energy consulting</p>
+                            <a href="/en/business/index">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
                 </li>
@@ -193,7 +193,7 @@
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
                         <div class="video_box">
-                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/W4JUV0ABSwk?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=W4JUV0ABSwk" title="고객만족 인터뷰┃모나크CC, 고객 편의를 위해 설치한 2.2MW 태양광, 예상 못 한 효과가?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
+                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/W4JUV0ABSwk?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=W4JUV0ABSwk&cc_load_policy=1&cc_lang_pref=en" title="고객만족 인터뷰┃모나크CC, 고객 편의를 위해 설치한 2.2MW 태양광, 예상 못 한 효과가?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
                         </div>
                         <div class="txt_box">
                             <p>Chungcheongbuk-do Eumseong | Monarch CC | 2,217kW</p>
@@ -211,7 +211,7 @@
                     </li>
                     <li class="swiper-slide">
                         <div class="video_box">
-                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/B3hzO4AkKrI?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=B3hzO4AkKrI" title="고객만족인터뷰┃600가구 전력 생산! 영화금속이 RE100을 준비하는 현실적 방법" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
+                            <iframe width="1239" height="697" style="pointer-events: none;" src="https://www.youtube.com/embed/B3hzO4AkKrI?frameborder=0&autoplay=1&mute=1&controls=0&loop=1&rel=0&playlist=B3hzO4AkKrI&cc_load_policy=1&cc_lang_pref=en" title="고객만족인터뷰┃600가구 전력 생산! 영화금속이 RE100을 준비하는 현실적 방법" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-keepplaying></iframe>
                         </div>
                         <div class="txt_box">
                             <p>Gyeongsangnam-do | Haman | 1,987kW</p>

@@ -205,7 +205,7 @@
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">발전사업 수익은 어떻게 계산되나요?</dt>
-                                <dd><div class="answer">RPS 발전사업은 생산된 전력을 한국전력을 판매하는 것 (SMP) 과 신재생에너지 공급 인증서를 대규모 발전 사업자에게 판매하는 것 (REC)으로 수익을 얻습니다. 그래서 발전용량에 대한 SMP + REC 로 수익을 계산할 수 있습니다.</div></dd>
+                                <dd><div class="answer">생산된 전력을 한국전력을 판매하는 것 (SMP) 과 신재생에너지 공급 인증서를 대규모 발전 사업자에게 판매하는 것 (REC)으로 수익을 얻습니다. 그래서 발전용량에 대한 SMP + REC 로 수익을 계산할 수 있습니다.</div></dd>
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">발전소 시공 후 유지보수는 어떻게 하나요?</dt>
@@ -217,7 +217,7 @@
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">최소 몇 평부터 가능한가요?</dt>
-                                <dd><div class="answer">RPS 발전사업은 최소 000 평 이상의 부지 또는 건물 지붕에서 가능합니다. 또한 규모가 커질수록 수익이 극대화 되기 때문에 최대한 넓은 공간에서 진행하시는 것이 좋습니다.</div></dd>
+                                <dd><div class="answer">RPS(전력판매)는 최소 1,000 평 이상의 부지 또는 건물 지붕에서 가능합니다. 또한 규모가 커질수록 수익이 극대화 되기 때문에 최대한 넓은 공간에서 진행하시는 것이 좋습니다.</div></dd>
                             </dl>
                             <dl>
                                 <dt onclick="toggleQna(this)">발전사업 수익의 세금은 어떻게 되나요?</dt>
