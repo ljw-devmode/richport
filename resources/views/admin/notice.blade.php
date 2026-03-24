@@ -33,9 +33,15 @@
 	<div class="intro-y border border-slate-200 mt-6 rounded-lg bg-white">
 		<div class="flex items-center justify-between border-b border-slate-200 py-3 px-6">
 			<div class="text-base text-primary">총 {{ $data->total() }}개</div>
+			@if(auth()->user()->hasPerm('notice.create') || auth()->user()->hasPerm('notice.excel'))
+			@endif
 			<div class="flex items-center gap-2">
+				@if(auth()->user()->hasPerm('notice.create'))
 				<a href="javascript:;" class="btn btn-dark px-4" onclick="modalOpen('notice_regist-modal')">회사소식 등록</a>
+				@endif	
+				@if(auth()->user()->hasPerm('notice.excel'))
 				<button type="button" class="btn border-[#1b6c40] bg-[#1b6c40] text-white px-4" onclick="window.location.href='{{ route('admin.notice.export', request()->query()) }}'">엑셀 다운로드</button>
+				@endif
 			</div>
 		</div>
 
@@ -64,7 +70,15 @@
 						@php
 					        $number = ($data->currentPage() - 1) * $data->perPage() + ($index + 1);
 					    @endphp
-						<tr onclick="setModifyForm('{{ $item->idx }}')">
+						<tr 
+						@if(auth()->user()->hasPerm('notice.update') || auth()->user()->hasPerm('notice.delete')) 
+							onclick="setModifyForm('{{ $item->idx }}')"
+							style="cursor: pointer;" 
+							class="hover:bg-slate-100"
+						@else 
+							style="cursor: default;" 
+						@endif
+						>
 							<td>{{ $number }}</td>
 							<td>{{ $item->gubun_kr }}</td>
 							<td>{{ $item->subject }}</td>
@@ -181,7 +195,9 @@
 				</div>
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="modalClose('notice_regist-modal')">취소</button>
+					@if(auth()->user()->hasPerm('notice.create'))
 					<button type="button" class="btn btn-primary w-20" onclick="regist()">등록</button>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -251,8 +267,12 @@
 				</div>
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="javascript:window.location.reload()">취소</button>
+					@if(auth()->user()->hasPerm('notice.update'))
 					<button type="button" class="btn btn-primary w-20" onclick="modify()">수정</button>
+					@endif
+					@if(auth()->user()->hasPerm('notice.delete'))
 					<button type="button" class="btn btn-outline-danger w-20" onclick="deleteNotice()">삭제</button>
+					@endif
 				</div>
 			</div>
 		</div>

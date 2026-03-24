@@ -373,3 +373,20 @@ body {background-color: #d6dadd; }
     display:flex;
     align-items: flex-end;
 }
+
+.tabrelative {
+    position: relative !important;
+}
+
+.btnreg {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    z-index: 100;
+}
+
+.permission {
+    padding: 0px 15px;
+    border: 1px solid lightgray;
+    border-radius: 0.375rem;
+}

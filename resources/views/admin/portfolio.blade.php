@@ -104,10 +104,16 @@
 	<div class="intro-y border border-slate-200 mt-6 rounded-lg bg-white">
 		<div class="flex items-center justify-between border-b border-slate-200 py-3 px-6">
 			<div class="text-base text-primary">총 {{ $data->total() }}개</div>
+			@if(auth()->user()->hasPerm('portfolio.create') || auth()->user()->hasPerm('portfolio.excel'))
 			<div class="flex items-center gap-2">
+				@if(auth()->user()->hasPerm('portfolio.create'))
 				<a href="javascript:;" class="btn btn-dark w-20" onclick="modalOpen('portfolio_regist-modal')">등록</a>
+				@endif
+				@if(auth()->user()->hasPerm('portfolio.excel'))
 				<button type="button" class="btn border-[#1b6c40] bg-[#1b6c40] text-white px-4" onclick="window.location.href='{{ route('admin.portfolio.export', request()->query()) }}'">엑셀 다운로드</button>
+				@endif
 			</div>
+			@endif
 		</div>
 
 		<div class="p-6">
@@ -151,7 +157,15 @@
 						@php
 					        $number = ($data->currentPage() - 1) * $data->perPage() + ($index + 1);
 					    @endphp
-						<tr onclick="setModifyForm('{{ $item->idx }}')">
+						<tr
+						@if(auth()->user()->hasPerm('portfolio.update') || auth()->user()->hasPerm('portfolio.delete')) 
+							onclick="setModifyForm('{{ $item->idx }}')"
+							style="cursor: pointer;" 
+							class="hover:bg-slate-100"
+						@else 
+							style="cursor: default;" 
+						@endif
+						>
 							<td>{{ $number }}</td>
 							<td>{{ $item->types->subject }}</td>
 							<td>{{ $item->formtypes->subject }}</td>
@@ -421,7 +435,9 @@
 				</div>
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="modalClose('portfolio_regist-modal')">취소</button>
+					@if(auth()->user()->hasPerm('portfolio.create'))
 					<button type="button" class="btn btn-primary w-20" onclick="regist()">등록</button>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -641,8 +657,12 @@
 				</div>
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="javascript:window.location.reload()">취소</button>
+					@if(auth()->user()->hasPerm('portfolio.update'))
 					<button type="button" class="btn btn-primary w-20" onclick="modify()">수정</button>
+					@endif
+					@if(auth()->user()->hasPerm('portfolio.delete'))
 					<button type="button" class="btn btn-outline-danger w-20" onclick="deletePortfolio()">삭제</button>
+					@endif
 				</div>
 			</div>
 		</div>

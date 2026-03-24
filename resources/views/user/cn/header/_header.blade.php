@@ -52,8 +52,8 @@
                     <ul class="depth3">
                         <li><a href="/cn/business/index">为什么选择 SOLARTEQ</a></li>
 						<li><a href="/cn/business/solar">屋顶租赁式太阳能</a></li>
-                        <li><a href="/cn/business/rps">RPS（电力销售）</a></li>
                         <li><a href="/cn/business/lease">RE100 租赁</a></li>
+                        <li><a href="/cn/business/rps">RPS 电力销售</a></li>
                     </ul>
                 </li>
                 <li>
@@ -107,7 +107,7 @@
                     <dd class="check_form">
                         <input type="radio" class="input-check" id="cate_1" name="types_idx" value="1"><label for="cate_1">屋顶租赁式太阳能</label>
                         <input type="radio" class="input-check" id="cate_2" name="types_idx" value="2"><label for="cate_2">RE100 租赁</label>
-                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS（电力销售）</label>
+                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS 电力销售</label>
                         <input type="radio" class="input-check" id="cate_4" name="types_idx" value="4"><label for="cate_4">支持项目（建筑、屋顶、金融）
                         </label>
                         <input type="radio" class="input-check" id="cate_5" name="types_idx" value="5"><label for="cate_5">索取公司介绍</label>

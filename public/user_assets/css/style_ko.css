@@ -506,18 +506,20 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 
 
 /* main_con02 */
-.main_con02 ul {display:grid; grid-template-columns:repeat(2,1fr); height:100%; }
+.main_con02 ul {display:grid; grid-template-columns:repeat(3,1fr); height:100%; }
 .main_con02 ul li {overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; padding-top:80px; }
 .main_con02 ul li:before {content:''; position:absolute; left:0; top:0; width:100%; height:100%; transition:all var(--default-duration); }
-.main_con02 ul li:nth-of-type(1):before { background:url('../img/main/사업소개_태양광솔루션_3_PC.png') no-repeat center center / cover; }
-.main_con02 ul li:nth-of-type(2):before { background:url('../img/main/main_con02_2.png') no-repeat center center / cover; }
-.main_con02 ul li:after {content:''; opacity:0; z-index:2; position:absolute; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.4); transition:all var(--default-duration); }
+.main_con02 ul li:nth-of-type(1):before { background:url('../img/sub/business/지붕임대_상단_PC.png') no-repeat center center / cover; }
+.main_con02 ul li:nth-of-type(2):before { background:url('../img/sub/business/lease_con01.png') no-repeat center center / cover; }
+.main_con02 ul li:nth-of-type(3):before { background:url('../img/sub/business/rps_con01.png') no-repeat center center / cover; }
+/* .main_con02 ul li:after {content:''; opacity:0; z-index:2; position:absolute; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.4); transition:all var(--default-duration); } */
 /* .main_con02 ul li img.bg {z-index:1; position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; transition:all var(--default-duration); } */
 .main_con02 ul li .txt_box {z-index:3; position:relative; width:100%; padding:0 20px; opacity:0; transform:translateY(40px); text-align:center; transition:margin var(--default-duration), transform var(--default-duration), opacity var(--default-duration); }
 .main_con02 ul li .txt_box h3 {font-size:clamp(50px,5vw,80px); word-break:keep-all; font-weight:800; color:#fff; text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
 .main_con02 ul li .txt_box .hover_txt {opacity:0; padding-top:20px; transition:all var(--default-duration); }
-.main_con02 ul li .txt_box p {font-size:clamp(14px,1.5vw,20px); color:#fff; line-height:1.4; }
-.main_con02 ul li .txt_box a {display:inline-flex; align-items:center; justify-content:center; gap:6px; margin-top:30px; padding:12px 44px; border:1px solid #fff; font-size:clamp(16px,1.3vw,18px);; color:#fff; font-weight:600; background-color:var(--color-primary); border-radius:40px; }
+.main_con02 ul li .txt_box p {font-size:clamp(14px,1.5vw,20px); color:#fff; line-height:1.4; word-break: keep-all; }
+.main_con02 ul li .txt_box p br {display: none;}
+.main_con02 ul li .txt_box a {display:inline-flex; align-items:center; justify-content:center; gap:6px; margin-top:15px; padding:12px 44px; border:1px solid #fff; font-size:clamp(16px,1.3vw,18px);; color:#fff; font-weight:600; background-color:var(--color-primary); border-radius:40px; }
 
 .main_con02 ul li:hover:before {transform:scale(1.05); }
 .main_con02 ul li:hover:after {opacity:1; }
@@ -528,19 +530,18 @@ footer .copy {padding:24px 0; border-top: 1px solid rgba(255, 255, 255, 0.20); f
 
 @media all and (max-width:767px){
     .main_con02 ul {display:block; }
-    .main_con02 ul li {height:calc(50% + 30px); padding-top:60px;}
+    .main_con02 ul li {height:calc(33.4% + 40px); padding-top:60px;}
     .main_con02 ul li:after {opacity:1; }
-    .main_con02 ul li:nth-of-type(2) {height:calc(50% - 30px); padding-top:0; }
-    .main_con02 ul li:nth-of-type(1):before {background:url('../img/main/사업소개_태양광솔루션_3_F M.png') no-repeat center center / cover; }
-    .main_con02 ul li:nth-of-type(2):before {background:url('../img/main/main_con02_2_mo.png') no-repeat center center / cover; }
+    .main_con02 ul li:nth-of-type(2) {height:calc(33.3% - 20px); padding-top:0; }
+    .main_con02 ul li:nth-of-type(3) {height:calc(33.3% - 20px); padding-top:0; }
+
     .main_con02 ul li .txt_box { margin-top:0 !important; }
     .main_con02 ul li .txt_box .hover_txt {opacity:1; padding-top:10px; }
-    .main_con02 ul li .txt_box a {padding:9px 48px; }
+    .main_con02 ul li .txt_box a {padding:5px 30px; }
+    .main_con02 ul li .txt_box p br {display:block; }    
 }
 
 @media all and (max-width:500px){
-    .main_con02 ul li:nth-of-type(1):before {background:url('../img/main/사업소개_태양광솔루션_3_F M.png') no-repeat center center / cover; }
-    .main_con02 ul li:nth-of-type(2):before {background:url('../img/main/main_con02_2_mo.png') no-repeat center center / cover; }
     .main_con02 ul li .txt_box h3 {font-size:34px; }
 }
 

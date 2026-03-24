@@ -29,7 +29,7 @@
         <div class="card__value">{{ number_format($summary['process_confirm']) }}건 <br/>{{ number_format($summary['process_confirm_kw']) }}kW</div>
       </article>
 
-      <article class="card card--info summary-card" data-text="사용 전 검사" data-summary="preuse">
+      <article class="card card--info summary-card" data-text="사용전 검사" data-summary="preuse">
         <div class="card__label">사용전검사 건수</div>
         <div class="card__value">{{ number_format($summary['process_ready']) }}건 <br/>{{ number_format($summary['process_ready_kw']) }}kW</div>
       </article>
@@ -219,7 +219,7 @@ function applyCardColumnMove(datatext) {
     moveColumnToFront('계약 날인');
   } else if (datatext === '인허가 진행 중') {
     moveColumnToFront('공사 단계');
-  } else if (datatext === '사용 전 검사') {
+  } else if (datatext === '사용전 검사') {
     moveColumnToFront('사용전 검사');
   } else if (datatext === '이슈 협의 난항' || datatext === '이슈 협의 중') {
     moveColumnToFront('이슈');
@@ -245,7 +245,7 @@ function search() {
   const keyword = normalize(searchInput.value);
 
   if(keyword === '') {
-    alert('프로젝트명을 입력하세요.');
+    showToast('프로젝트명을 입력하세요.','error');
     return;
   }
 
@@ -313,8 +313,10 @@ resetBtn.addEventListener('click', function() {
 const PROJECT_COL_INDEX = 0;
 // 각 행의 "계약 날인" 열 인덱스
 const CONTRACT_COL_INDEX = 5;
-// 각 행의 "인허가, 사용전검사, 완공" 열 인덱스
+// 각 행의 "인허가, 완공" 열 인덱스
 const PROECSS_COL_INDEX = 8;
+// 각 행의 "사용전 검사" 열 인덱스
+const PREUSE_COL_INDEX = 9;
 // 각 행의 "이슈" 열 인덱스
 const ISSUE_COL_INDEX = 10;
 // 각 행의 "운영 여부" 열 인덱스
@@ -342,12 +344,15 @@ summaryCards.forEach(card => {
           } else if(datatext === '계약 건수') {
               const contractText = tds[CONTRACT_COL_INDEX]?.textContent;
               row.style.display = contractText !== '' ? '' : 'none';
-          } else if(datatext === '인허가 진행 중' || datatext === '사용 전 검사' || datatext === '완공') {
+          } else if(datatext === '인허가 진행 중' || datatext === '완공') {
               const processText = tds[PROECSS_COL_INDEX]?.textContent ;
               row.style.display = (processText === datatext) ? '' : 'none';
           } else if(datatext === '이슈 협의 난항' || datatext === '이슈 협의 중') {
               const issueText = tds[ISSUE_COL_INDEX]?.textContent ;
               row.style.display = (issueText === datatext) ? '' : 'none';
+          } else if(datatext === '사용전 검사') {
+              const contractText = tds[PREUSE_COL_INDEX]?.textContent;
+              row.style.display = contractText !== '' ? '' : 'none';
           } else if(datatext === '운영 여부') {
               const managementText = tds[MANAGEMENT_COL_INDEX]?.textContent ;
               row.style.display = managementText ? '' : 'none';              
@@ -488,6 +493,10 @@ tbody.addEventListener('click', function(e) {
   const headers = document.querySelectorAll('#mainTable thead th');
   const detailList = document.getElementById('detailList');
 
+  // [수정 포인트] data-col 속성을 이용해 프로젝트명을 정확히 타겟팅
+  const projectTd = tr.querySelector('td[data-col="프로젝트명"]');
+  const currentProjectName = projectTd ? projectTd.textContent.trim() : '이름 없음';  
+
   // 상세 정보 리스트 초기화 후 각 셀의 데이터로 리스트 아이템 생성
   detailList.innerHTML = '';
   headers.forEach((th, index) => {
@@ -499,11 +508,9 @@ tbody.addEventListener('click', function(e) {
     detailList.appendChild(li);
   });
   
-  // 모달 타이틀을 프로젝트명으로 설정
-  currentProjectName = cells[0]?. textContent ?? '';
-  modalTitle. textContent = currentProjectName;
-
-  // 메모 목록 로드
+  // 모달 타이틀 설정 및 메모 로드
+  modalTitle.textContent = currentProjectName;
+  memoList.innerHTML = '';
   loadMemo(currentProjectName);
 
   modal.style.display = 'flex';
@@ -632,11 +639,11 @@ cancelBtn.addEventListener('click', function(){
 saveBtn.addEventListener('click', function(){
   const memo = (memoText.value ?? '').trim();
   if (!memo) {
-    alert('메모를 입력하세요.');
+    showToast('메모를 입력하세요.','error');
     return;
   }
   if (!currentProjectName) {
-    alert('프로젝트를 먼저 선택하세요.');
+    showToast('프로젝트를 먼저 선택하세요.','error');
     return;
   }
 

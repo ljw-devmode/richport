@@ -11,10 +11,10 @@ class CompanyKwh extends Model
     public $timestamps = false;
 
     protected $fillable = [
-    		'comp_idx',
-    		'year',
-    		'month',
-    		'act_kwh',
+    		'comp_idx',		// 발전소 (comopany.idx)
+    		'year',			// 발전 년도 (yyyy)
+    		'month',		// 발전 월 (m)
+    		'act_kwh',		// 발전량
     		'created_by',
     		'created_at',
     		'updated_by',

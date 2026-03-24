@@ -11,7 +11,7 @@ class CompanyGroup extends Model
     public $timestamps = false;
 
     protected $fillable = [
-    		'group_name',
+    		'group_name',   // SPC명
     		'created_by',
     		'created_at',
     		'updated_by',
@@ -22,4 +22,9 @@ class CompanyGroup extends Model
     {
     	return $this->hasMany(Company::class, 'group_idx', 'idx');
     }
+
+    public function companyreport()
+    {
+    	return $this->hasMany(CompanyReport::class, 'group_idx', 'idx');
+    }    
 }

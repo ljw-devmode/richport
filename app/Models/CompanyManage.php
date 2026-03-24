@@ -11,11 +11,13 @@ class CompanyManage extends Model
     public $timestamps = false;
 
     protected $fillable = [
-    		'comp_idx',
-    		'day',
-    		'type',
-    		'manage',
-    		'del_yn',
+    		'comp_idx',		// 발전소 (company.idx)
+    		'day',			// O&M, 이슈 발생일 (yyyy-mm-dd)
+    		'type',			// 구분 (정기점검, 긴급점검, 소모품교체, 이슈)
+    		'manage',		// 업무 내용
+			'result',		// 처리 결과
+			'count',		// 처리 수량
+    		'del_yn',		// 삭제여부 (현재 미사용중)
     		'created_at',
 			'created_by',
     		'updated_at',

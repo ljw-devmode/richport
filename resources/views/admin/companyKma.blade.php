@@ -1,12 +1,12 @@
 @php 
 	$header_skip = false; 
 	$depth1_num = '3'; 
-	$depth2_num = '33'; 
+	$depth2_num = '41'; 
 @endphp 
 @include('admin.header._header')
 
 <div class="mt-6 px-5">
-	<h3 class="intro-y text-xl font-bold">기상청 일사량</h3>
+	<h3 class="intro-y text-xl font-bold">기상청 일사량 (2023.01.01~2026.03.16)</h3>
 	<div class="intro-y border border-slate-200 mt-6 p-6 rounded-lg bg-white">
 		<form method="GET" action="/admin/kma">
 			<div class="flex items-end gap-3">
@@ -23,7 +23,7 @@
 				<div class="w-1/5">
 					<p class="mb-1">년도</p>
 					<select id="year" name="year" class="form-select">
-					@for($y=2024; $y<=2027; $y++)
+					@for($y=2024; $y<=2026; $y++)
 						<option value="{{ $y }}" {{ (int)$year === $y ? 'selected' : '' }}>{{ $y }}년</option>
 					@endfor
 					</select>
@@ -38,6 +38,9 @@
 				</div>
 				        
 				<button type="submit" class="shrink-0 btn btn-primary w-24">검색</button>
+				@if(auth()->user()->hasPerm('kma_monthly.excel'))
+				<button type="button" class="btn border-[#1b6c40] bg-[#1b6c40] text-white px-4" onclick="window.location.href='{{ route('admin.kma.monthlyexport', request()->query()) }}'">엑셀 다운로드</button>
+				@endif
 			</div>
 		</form>
 	</div>
@@ -67,7 +70,7 @@
 				</colgroup>
 				<thead class="bg-slate-50 text-center">
 					<tr>
-						<th rowspan="2">일</th>
+						<th rowspan="2">일자</th>
 						<th colspan="2">{{ $prevYear->format('Y-m') }}</th>
 						<th colspan="2">{{ $prevMonth->format('Y-m') }}</th>
 						<th colspan="2">{{ $target->format('Y-m') }}</th>

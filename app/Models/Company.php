@@ -11,15 +11,15 @@ class Company extends Model
     public $timestamps = false;
 
     protected $fillable = [
-    		'comp_name',
-    		'regions_idx',
-    		'cities_idx',
-    		'volume',
-    		'tgt_kwh',
-    		'tgt_rate',
-    		'start_date',
-    		'kma_idx',
-    		'group_idx',
+    		'comp_name',    // 발전소명
+    		'regions_idx',  // 발전소 위치 시도 (regions.idx)
+    		'cities_idx',   // 발전소 위치 시군 (cities.idx)
+    		'volume',       // 발전 용량
+    		'tgt_kwh',      // 최초년도 목표 발전량
+    		'tgt_rate',     // 목표 발전 효율
+    		'start_date',   // 발전 시작일 (1차년도 시작 년월일 yyyy-mm-dd)
+    		'kma_idx',      // 기상청 일사량 조회 관측소 코드 (omaobv.idx)
+    		'group_idx',    // SPC 그룹 (companygroup.idx)
     		'created_by',
     		'created_at',
     		'updated_by',
@@ -45,6 +45,11 @@ class Company extends Model
 	public function companyyearkwh()
     {
     	return $this->hasMany(CompanyYearKwh::class, 'comp_idx','idx');
+    }    
+
+	public function companyyearkwhhours()
+    {
+    	return $this->hasMany(CompanyYearKwhHours::class, 'comp_idx','idx');
     }    
 
 	public function companysales()

@@ -1580,21 +1580,21 @@ select{
     .modal .modal-dialog {
         width: 460px
     }
-        .modal .modal-dialog.modal-sm {
-          width: 300px;
-        }
-        .modal .modal-dialog.modal-lg {
-          width: 600px;
-        }
-        .modal .modal-dialog.modal-xl {
-          width: 600px;
-        }
-      }
+    .modal .modal-dialog.modal-sm {
+        width: 300px;
+    }
+    .modal .modal-dialog.modal-lg {
+        width: 600px;
+    }
+    .modal .modal-dialog.modal-xl {
+        width: 600px;
+    }
+}
 @media (min-width: 1024px) {
-        .modal .modal-dialog.modal-xl {
-          width: 900px;
-        }
-      }
+    .modal .modal-dialog.modal-xl {
+        width: 900px;
+    }
+}
 .modal .modal-dialog .modal-content{
     position: relative;
 }
@@ -2026,11 +2026,32 @@ select{
 .h-32{
     height: 8rem;
 }
+.h-42px{
+    height: 42px;
+}
 .w-0{
     width: 0px;
 }
 .w-1\/5{
     width: 20%;
+}
+.w-9p{
+    width: 9%;
+}
+.w-10p{
+    width: 10%;
+}
+.w-15p{
+    width: 15%;
+}
+.w-35p{
+    width: 35%;
+}
+.w-30p{
+    width: 30%;
+}
+.w-40p{
+    width: 40%;
 }
 .w-50p{
     width: 50%;
@@ -7459,6 +7480,7 @@ html body{
     z-index: 100;
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom-width: 1px;
     --tw-border-opacity: 1;

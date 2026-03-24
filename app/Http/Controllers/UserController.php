@@ -3,35 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\DB;
-//use App\Http\Requests\ContactRequest;
-use App\Models\Reference;
-use App\Models\ReferenceFiles;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 use App\Models\Category;
+use App\Models\Company;
+use App\Models\CompanyGroup;
+use App\Models\CompanyKwh;
+use App\Models\CompanyManage;
+use App\Models\CompanyReportMonthly;
+use App\Models\CompanySales;
+use App\Models\CompanyYearKwh;
+use App\Models\CompanyYearKwhHours;
 use App\Models\Contents;
 use App\Models\Contact;
-use App\Models\Popup;
-use Illuminate\Support\Facades\Response;
-use App\Models\Product;
-use App\Models\Inquire;
-use App\Models\News;
-use App\Models\Portfolio;
 use App\Models\FormTypes;
-use App\Models\PortfolioFiles;
+use App\Models\History;
+use App\Models\Inquire;
+use App\Models\KmaObv;
+use App\Models\KmaSumgsr;
+use App\Models\News;
 use App\Models\Notice;
 use App\Models\NoticeFiles;
-use App\Models\History;
+use App\Models\Popup;
+use App\Models\Portfolio;
+use App\Models\PortfolioFiles;
+use App\Models\Product;
 use App\Models\ProjectMemo;
+use App\Models\Reference;
+use App\Models\ReferenceFiles;
 use App\Services\GoogleSheetService;
-use Illuminate\Support\Facades\Cache;
 use App\Services\KmaAsosService;
-use Illuminate\Support\Facades\Log;
+use App\Services\ReportService;
 
 class UserController extends Controller
 {
@@ -783,13 +793,16 @@ class UserController extends Controller
 
             'process_confirm' => count(array_filter($items, fn($x)=>$x['공사 단계']==='인허가 진행 중')),
             'process_confirm_kw' => collect($items) -> where('공사 단계', '인허가 진행 중') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
-            'process_ready' => count(array_filter($items, fn($x)=>$x['공사 단계']==='사용 전 검사')),
-            'process_ready_kw' => collect($items) -> where('공사 단계', '사용 전 검사') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+            
+			'process_ready' => collect($items) -> filter(fn($x) => !empty(trim($x['사용전 검사'] ?? ''))) -> count(),
+            'process_ready_kw' => collect($items) -> filter(fn($x) => !empty(trim($x['사용전 검사'] ?? ''))) -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),   
 
             'issue_red' => count(array_filter($items, fn($x)=>$x['이슈']==='협의 난항')),
             'issue_red_kw' => collect($items) -> where('이슈', '협의 난항') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+
             'issue_yellow' => count(array_filter($items, fn($x)=>$x['이슈']==='협의 중')),
             'issue_yellow_kw' => collect($items) -> where('이슈', '협의 중') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
+
             'issue_green' => count(array_filter($items, fn($x)=>$x['이슈']==='원활')),
             'issue_green_kw' => collect($items) -> where('이슈', '원활') -> sum(fn($x) => (float) str_replace(',', '', $x['용량(kW)'] ?? 0)),
 
@@ -958,5 +971,244 @@ class UserController extends Controller
     {
     	return view('report.month');
     }
+
+	// SPC 리포트 보기
+	public function getSpcMonthlyReport(Request $request)
+    {
+        $year = $request->input('year');
+        $month = $request->input('month');
+        $group_idx = $request->input('group_idx');
+
+        if (!$year || !$month || !$group_idx) {
+            abort(400, '파라미터 누락');
+        }
+
+		$mjToKwh = 0.277784755950055;
+
+		// 리포트 표지 하단 일자 표시
+		$today = Carbon::now('Asia/Seoul')->startOfDay()->format('Y-m-d');
+
+		// 해당월의 1~말일, 전년동월, 전월 계산
+		$baseDate = Carbon::create($year, $month, 1);
+        $start_date = $baseDate->copy()->startOfMonth()->format('Y-m-d');
+		$end_date   = $baseDate->copy()->endOfMonth()->format('Y-m-d');
+		$lastYearSameMonth = $baseDate->copy()->subYear()->format('Y-m');
+		$lastMonth = $baseDate->copy()->subMonth()->format('Y-m');
+		$next1Month = $baseDate->copy()->addMonth()->format('Y년 m월');      // 1개월 뒤
+		$next2Month = $baseDate->copy()->addMonths(2)->format('Y년 m월');   // 2개월 뒤
+		$next3Month = $baseDate->copy()->addMonths(3)->format('Y년 m월');   // 3개월 뒤
+
+		// 발전소 목록
+		$companies = Company::where('group_idx', $group_idx)
+			->orderBy('idx')
+			->get();
+
+		// 회사목록 배열화
+		$companyMap = $companies->keyBy('idx');
+		
+		// 전체 발전소 용량 합계
+		$totalVolume = $companies->sum('volume');
+
+		// 발전소 개수
+		$companiesCount = $companies->count();
+
+		// 리포트 데이터
+		$reports = CompanyReportMonthly::where('group_idx', $group_idx)
+					->where('tgt_year', $year)
+					->where('tgt_month', $month)
+					->get()
+					->keyBy('comp_idx'); 
+
+		// 발전소별 발전시간 그래프 표시 데이터
+		$labels = [];
+		$values = [];
+
+		foreach ($companies as $c) {
+			$labels[] = $c->comp_name;
+
+			$values[] = isset($reports[$c->idx])
+				? round($reports[$c->idx]->act_hours, 2)
+				: 0;
+		}		
+		
+		// 년차별 집계
+   		$summary = CompanyReportMonthly::selectRaw("
+						comp_idx,
+						period,
+						tgt_yearkwh,
+						SUM(act_kwh) as sum_act_kwh
+					")
+					->where('group_idx', $group_idx)
+					->groupBy('comp_idx', 'period', 'tgt_yearkwh')
+					->get();
+		
+		// 년차별 집계 구조 변환 [period][comp_idx]
+		$summarydata = [];
+		foreach ($summary as $row) {
+			// 집계하려는 항목과 일치하는 회사 정보 획득
+			$company = $companyMap[$row->comp_idx] ?? null;
+
+			if (!$company || !$company->start_date) {
+				continue;
+			}
+
+			$startDate = Carbon::parse($company->start_date);
+			$period = (int)$row->period;
+
+			// 시작년월 (n년차 시작)
+			$startYm = $startDate->copy()->addMonths(($period - 1) * 12);
+
+			// 종료년월 (n년차 끝)
+			$endYm = $startDate->copy()->addMonths($period * 12)->subMonth();
+
+			// row에 추가
+			$row->start_ym = $startYm->format('y-m');
+			$row->end_ym   = $endYm->format('y-m');
+			
+			$summarydata[$row->period][$row->comp_idx] = $row;
+		}		
+		
+		// 존재하는 period 목록
+    	$periods = collect($summary)->pluck('period')->unique()->sort()->values();
+
+		// 관리 내역 획득
+		$yearlyManages = CompanyManage::with('company:idx,comp_name')
+    				->selectRaw("comp_idx, day, type, manage")
+    				->whereYear('day', $year) // 1년치 전체 조회
+    				->whereIn('comp_idx', $companies->pluck('idx'))
+    				->get();
+
+		// 년간 관리 내역에서 start_date >= 표시할 범위 <= end_date 의 데이터를 추출
+		$manages = $yearlyManages->filter(function ($item) use ($start_date, $end_date) {
+    		return $item->day >= $start_date && $item->day <= $end_date;
+		});		
+		
+		// 타입별을 기준으로 발전소별 점검일자를 나열 
+		// 	"정기 점검": {  "1": { "comp_name": "디엠산업", "days": "02-02, 02-20" },  "2": { "comp_name": "대현", "days": "02-04" }},
+  		//  "긴급 출동": {  "1": { "comp_name": "디엠산업", "days": "02-21" }} 형태
+		// groupBy('type') 를 통해서 type별로 분류
+		$manageData = $manages->groupBy('type')->map(function ($itemsInType) {
+			// groupBy('comp_idx') 를 통해서 comp_idx별로 분류
+			return $itemsInType->groupBy('comp_idx')->map(function ($group) {
+				// comp_name, days 목록으로 내용 구성
+				return [
+					'comp_idx'  => $group->first()->comp_idx,
+					'comp_name' => $group->first()->company->comp_name,
+					'days'      => $group->map(fn($item) => \Carbon\Carbon::parse($item->day)->format('m-d'))
+										->unique()->sort()->implode(', ')
+				];
+			});
+		});	
+
+		// 년간 정기 점검, 긴급 출동 그룹화
+		$targetType = '정기 점검';   // 각 셀에 표시할 타입
+		$changeType = '소모품 교체';      // 우측 끝에 합산할 타입
+		$emergencyType = '긴급 출동';      // 우측 끝에 합산할 타입
+		$months = range(1, 12);     // 1월부터 12월까지
+
+		// 2. 월별 데이터 가공, collect와 map을 통해서 1~12월까지 loop가 실행됨
+		$yearManageData = collect($months)->map(function ($month) use ($yearlyManages, $companies, $targetType, $changeType, $emergencyType) {
+			
+			// 해당 월의 데이터만 필터링 (Carbon 객체 생성을 최소화하여 성능 최적화)
+			// collect와 map을 통해서 생성된 loop를 통해서 1월부터 12월까지 각 월별 데이터를 filter를 통해서 추출
+			$monthData = $yearlyManages->filter(function ($item) use ($month) {
+				return \Carbon\Carbon::parse($item->day)->month == $month;
+			});
+
+			// row의 첫번째 칸에 month 로 00월의 값을 추가
+			$row = ['month' => $month . '월'];
+
+			// [중앙] 각 발전소별 "정기 점검" 건수
+			// month 에 해당 하는 월에 row[키 companiex->idx]로 정기점검 건수가 추가됨 ([키] 에서 키가 같으면 업데이트 없으면 추가됨)
+			foreach ($companies as $company) {
+				$row[$company->idx] = $monthData->where('comp_idx', $company->idx)
+									->where('type', $targetType)
+									->count();
+			}
+
+			// [우측 끝] 해당 월의 모든 발전소 "소모품 교체" 총합
+			$row['monthly_change'] = $monthData->where('type', $changeType)->count();
+
+			// [우측 끝] 해당 월의 모든 발전소 "긴급 출동" 총합
+			$row['monthly_emergency'] = $monthData->where('type', $emergencyType)->count();
+
+			return $row;
+		});
+
+		// [하단] 연간 합계(Summary) 계산
+		$yearManageSummary = [
+			'month' => '합계',
+			'total_change' => $yearManageData->sum('monthly_change'), // 하단 우측 끝 (연간 소모품 교체 총합)
+			'total_emergency' => $yearManageData->sum('monthly_emergency') // 하단 우측 끝 (연간 긴급 출동 총합)
+		];
+
+		// 하단 각 발전소별 "정기 점검" 연간 총합 추가 ([키] 에서 키가 같으면 업데이트 없으면 추가됨)
+		foreach ($companies as $company) {
+			$yearManageSummary[$company->idx] = $yearManageData->sum($company->idx);
+		}
+
+		// 해당월의 정기 점검 데이터를 추출
+		$checkData = $manages->filter(function ($item) {
+    		return $item->type === '정기 점검';
+		})->map(function ($item) {
+    		return [
+				'comp_name' => $item->company->comp_name,
+				'day'       => \Carbon\Carbon::parse($item->day)->format('m-d'),
+				'manage'    => $item->manage ?? ''
+			];
+		})->sortBy('comp_name')->sortBy('day')->values();	
+		
+		// 해당월의 긴급 출동 데이터를 추출
+		$emergencyData = $manages->filter(function ($item) {
+    		return $item->type === '긴급 출동';
+		})->map(function ($item) {
+    		return [
+				'comp_name' => $item->company->comp_name,
+				'day'       => \Carbon\Carbon::parse($item->day)->format('m-d'),
+				'manage'    => $item->manage ?? ''
+			];
+		})->sortBy('comp_name')->sortBy('day')->values();
+
+		// 해당월의 소모품 교체 데이터를 추출
+		$changeData = $manages->filter(function ($item) {
+    		return $item->type === '소모품 교체';
+		})->map(function ($item) {
+    		return [
+				'comp_name' => $item->company->comp_name,
+				'day'       => \Carbon\Carbon::parse($item->day)->format('m-d'),
+				'manage'    => $item->manage ?? ''
+			];
+		})->sortBy('comp_name')->sortBy('day')->values();
+
+		// 해당월의 이슈 데이터를 추출
+		$issueData = $manages->filter(function ($item) {
+    		return $item->type === '이슈';
+		})->map(function ($item) {
+    		return [
+				'comp_name' => $item->company->comp_name,
+				'day'       => \Carbon\Carbon::parse($item->day)->format('m-d'),
+				'manage'    => $item->manage ?? ''
+			];
+		})->sortBy('comp_name')->sortBy('day')->values();	
+
+
+		$data = [
+            'year' => $year,
+            'month' => $month,
+			'lastYearSameMonth' => $lastYearSameMonth,
+			'lastMonth' => $lastMonth,
+			'next1Month' => $next1Month,
+			'next2Month' => $next2Month,
+			'next3Month' => $next3Month,		
+            'today' => $today,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+            'companiesCount' => $companiesCount,
+			'totalVolume' => $totalVolume,
+        ];			
+
+    	return view('report.spcMonthReport', compact('mjToKwh', 'data', 'companies', 'reports', 'labels', 'values','summarydata', 'periods', 'manageData', 'yearManageData', 'yearManageSummary', 'checkData', 'emergencyData', 'changeData', 'issueData'));
+    }
+
 
 }

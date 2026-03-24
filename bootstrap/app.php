@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
         	'admin.level2' => \App\Http\Middleware\CheckAdminLevel2::class,
         	'check.language' => \App\Http\Middleware\CheckLanguageCookie::class,
+            'can.admin' => \App\Http\Middleware\CheckAdminPermission::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -4,8 +4,13 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+use App\Models\KmaObv;
+use App\Models\KmaSumgsr;
+
 
 class KmaAsosService
 {
@@ -22,7 +27,7 @@ class KmaAsosService
             $resp = Http::timeout(20)->retry(2, 300)->get($this->baseUrl, [
                 'serviceKey' => $key,
                 'pageNo' => 1,
-                'numOfRows' => 50,
+                'numOfRows' => 500,
                 'dataType' => 'JSON',
                 'dataCd' => 'ASOS',
                 'dateCd' => 'DAY',

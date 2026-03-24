@@ -49,9 +49,11 @@
 
 		<div class="flex items-center justify-between border-b border-slate-200 py-3 px-6">
 			<div class="text-base text-primary">총 {{ $data->total() }}개</div>
+			@if(auth()->user()->hasPerm('inquire.excel'))
 			<div class="flex items-center gap-2">
 				<button type="button" class="btn border-[#1b6c40] bg-[#1b6c40] text-white px-4" onclick="window.location.href='{{ route('admin.inquire.export', request()->query()) }}'">엑셀 다운로드</button>
 			</div>
+			@endif
 		</div>
 
 		<div class="p-6">
@@ -83,7 +85,15 @@
 					@php
 				        $number = ($data->currentPage() - 1) * $data->perPage() + ($index + 1);
 				    @endphp
-						<tr onclick="setModifyForm('{{ $item->idx }}')">
+						<tr 
+						@if(auth()->user()->hasPerm('inquire.save')) 
+							onclick="setModifyForm('{{ $item->idx }}')"
+							style="cursor: pointer;" 
+							class="hover:bg-slate-100"
+						@else 
+							style="cursor: default;" 
+						@endif
+						>
 							<td>{{ $number }}</td>
 							<td>{{ optional($item->types)->subject ?? '-' }}</td>
 							<td>{{ $item->inquire_company }} {{ $item->inquire_name }}</td>
@@ -207,7 +217,9 @@
 				</div>
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="modalClose('inquiry_detail-modal')">목록</button>
+					@if(auth()->user()->hasPerm('inquire.save'))
 					<button type="button" class="btn btn-primary w-20" onclick="modify()">저장</button>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -225,7 +237,7 @@ function setModifyForm(idx) {
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         success: function (res) {
         	if (res.status !== 'success') {
-        		alert(res.message || '불러오기 실패');
+        		showToast('오류가 발생하였습니다.','error');
                 return;
             }
 

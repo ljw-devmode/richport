@@ -1,7 +1,7 @@
 @php 
 	$header_skip = false; 
 	$depth1_num = '3'; 
-	$depth2_num = '22'; 
+	$depth2_num = '32'; 
 @endphp 
 @include('admin.header._header')
 
@@ -998,7 +998,7 @@ function savekwh() {
     const kwh 		= $('#inputKwh').val();
 
     if (kwh === '') {
-        alert('발전량을 입력해주세요.');
+    	showToast('발전량을 입력해주세요.','error');    
         return;
     }
 
@@ -1027,7 +1027,7 @@ function savekwh() {
             }
         },
         error: function () {
-            alert('저장 중 오류가 발생했습니다.');
+            showToast('오류가 발생하였습니다.','error');
         }
     });
 }
@@ -1064,7 +1064,7 @@ function deletekwh() {
             }
         },
         error: function () {
-            alert('삭제 중 오류가 발생했습니다.');
+            showToast('오류가 발생하였습니다.','error');
         }
     });
 }

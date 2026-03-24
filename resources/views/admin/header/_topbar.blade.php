@@ -5,5 +5,9 @@
             <i data-lucide="menu" class="text-white"></i>
         </button>
     </div>
-    <a href="javascript:;" class="btn btn-dark intro-x ml-auto" onclick="modalOpen('logout-modal')">로그아웃</a>
+    <div class="">
+        <a href="javascript:;" class="btn btn-primary intro-x mr-2" onclick="openUserModifyModal()">정보수정</a>
+        <a href="javascript:;" class="btn btn-dark intro-x ml-auto" onclick="modalOpen('logout-modal')">로그아웃</a>
+    </div>
 </div>
+

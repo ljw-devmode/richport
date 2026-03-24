@@ -36,95 +36,138 @@ Route::middleware('web')->group(function () {
 			Route::put('/memo/update/{idx}', [AdminController::class, 'dashboardMemoUpdate']);
 			
 			/* 회사소개 > 연혁 */
-			Route::get('/history', [AdminController::class, 'getHistoryList'])->name('history');
-			Route::get('/history/list', [AdminController::class, 'getHistoryList'])->name('history.list');
-			Route::get('/history/export', [AdminController::class, 'getHistoryExport'])->name('history.export');
-			Route::post('/history/regist', [AdminController::class, 'setHistoryRegist'])->name('history.regist');
-			Route::post('/history/detailForm/{idx}', [AdminController::class, 'getHistoryDetailForm'])->name('history.detailForm');
-			Route::post('/history/modify/{idx}', [AdminController::class, 'setHistoryModify'])->name('history.modify');
-			Route::delete('/history/delete/{idx}', [AdminController::class, 'setHistoryDelete'])->name('history.delete');
-			
+			Route::middleware(['can.admin:history.view'])->group(function () {
+				Route::get('/history', [AdminController::class, 'getHistoryList'])->name('history');
+				Route::get('/history/list', [AdminController::class, 'getHistoryList'])->name('history.list');
+				Route::get('/history/export', [AdminController::class, 'getHistoryExport'])->name('history.export');
+				Route::post('/history/regist', [AdminController::class, 'setHistoryRegist'])->name('history.regist');
+				Route::post('/history/detailForm/{idx}', [AdminController::class, 'getHistoryDetailForm'])->name('history.detailForm');
+				Route::post('/history/modify/{idx}', [AdminController::class, 'setHistoryModify'])->name('history.modify');
+				Route::delete('/history/delete/{idx}', [AdminController::class, 'setHistoryDelete'])->name('history.delete');
+			});
+				
 			/* 회사소개 > 솔라테크소식 */
-			Route::get('/notice', [AdminController::class, 'getNoticeList'])->name('notice');
-			Route::get('/notice/list', [AdminController::class, 'getNoticeList'])->name('notice.list');
-			Route::get('/notice/export', [AdminController::class, 'getNoticeExport'])->name('notice.export');
-			Route::post('/notice/regist', [AdminController::class, 'setNoticeRegist'])->name('notice.regist');
-			Route::post('/notice/detailForm/{idx}', [AdminController::class, 'getNoticeDetailForm'])->name('notice.detailForm');
-			Route::post('/notice/modify/{idx}', [AdminController::class, 'setNoticeModify'])->name('notice.modify');
-			Route::delete('/notice/delete/{idx}', [AdminController::class, 'setNoticeDelete'])->name('notice.delete');
+			Route::middleware(['can.admin:notice.view'])->group(function () {
+				Route::get('/notice', [AdminController::class, 'getNoticeList'])->name('notice');
+				Route::get('/notice/list', [AdminController::class, 'getNoticeList'])->name('notice.list');
+				Route::get('/notice/export', [AdminController::class, 'getNoticeExport'])->name('notice.export');
+				Route::post('/notice/regist', [AdminController::class, 'setNoticeRegist'])->name('notice.regist');
+				Route::post('/notice/detailForm/{idx}', [AdminController::class, 'getNoticeDetailForm'])->name('notice.detailForm');
+				Route::post('/notice/modify/{idx}', [AdminController::class, 'setNoticeModify'])->name('notice.modify');
+				Route::delete('/notice/delete/{idx}', [AdminController::class, 'setNoticeDelete'])->name('notice.delete');
+			});
 
 			/* 사업소개 > 포트폴리오 */
-			Route::get('/portfolio', [AdminController::class, 'getPortfolioList'])->name('portfolio');
-			Route::get('/portfolio/list', [AdminController::class, 'getPortfolioList'])->name('portfolio.list');
-			Route::get('/portfolio/export', [AdminController::class, 'getPortfolioExport'])->name('portfolio.export');
-			Route::post('/portfolio/regist', [AdminController::class, 'setPortfolioRegist'])->name('portfolio.regist');
-			Route::post('/portfolio/detailForm/{idx}', [AdminController::class, 'getPortfolioDetailForm'])->name('portfolio.detailForm');
-			Route::post('/portfolio/modify/{idx}', [AdminController::class, 'setPortfolioModify'])->name('portfolio.modify');
-			Route::delete('/portfolio/delete/{idx}', [AdminController::class, 'setPortfolioDelete'])->name('portfolio.delete');
+			Route::middleware(['can.admin:portfolio.view'])->group(function () {
+				Route::get('/portfolio', [AdminController::class, 'getPortfolioList'])->name('portfolio');
+				Route::get('/portfolio/list', [AdminController::class, 'getPortfolioList'])->name('portfolio.list');
+				Route::get('/portfolio/export', [AdminController::class, 'getPortfolioExport'])->name('portfolio.export');
+				Route::post('/portfolio/regist', [AdminController::class, 'setPortfolioRegist'])->name('portfolio.regist');
+				Route::post('/portfolio/detailForm/{idx}', [AdminController::class, 'getPortfolioDetailForm'])->name('portfolio.detailForm');
+				Route::post('/portfolio/modify/{idx}', [AdminController::class, 'setPortfolioModify'])->name('portfolio.modify');
+				Route::delete('/portfolio/delete/{idx}', [AdminController::class, 'setPortfolioDelete'])->name('portfolio.delete');
+			});
 
 			/* 사업소개 > SPC 리포트 */
-			Route::get('/report/spc', [AdminController::class, 'getReportSpcList'])->name('reportSpc'); // Company 관리
-			Route::get('/report/spc/list', [AdminController::class, 'getReportSpcList'])->name('reportSpc.list');
-			Route::get('/report/spc/detail/{idx}', [AdminController::class, 'getReportSpcDetail'])->name('reportSpc.detail');
-			Route::get('/report/spc/{idx}/download-pdf', [ReportController::class, 'downloadPdf']);
-
+			Route::middleware(['can.admin:spc_report.view'])->group(function () {
+				Route::get('/report/spc', [AdminController::class, 'getReportSpcList'])->name('reportSpc'); // Company 관리
+				Route::get('/report/spc/list', [AdminController::class, 'getReportSpcList'])->name('reportSpc.list');
+				// Route::get('/report/spc/detail/{idx}', [AdminController::class, 'getReportSpcDetail'])->name('reportSpc.detail');
+				Route::get('/report/spc/monthly', [AdminController::class, 'getSpcMonthlyReport'])->name('reportSpc.monthly');
+				Route::post('/report/spc/monthly', [AdminController::class, 'getSpcMonthlyReport'])->name('reportSpc.monthly');
+				Route::get('/report/spc/{idx}/download-pdf', [ReportController::class, 'downloadPdf']);
+			});
+			
 			/* 사업소개 > 발전소 리포트 */
-			Route::get('/report/company', [AdminController::class, 'getReportSpcList'])->name('reportCompany'); // Company 관리
-			Route::get('/report/company/list', [AdminController::class, 'getReportSpcList'])->name('reportCompany.list');
-			Route::get('/report/company/detail/{idx}', [AdminController::class, 'getReportSpcDetail'])->name('reportCompany.detail');			
-			Route::get('/report/company/{idx}/download-pdf', [AdminController::class, 'downloadPdf']);
+			Route::middleware(['can.admin:company_report.view'])->group(function () {
+				Route::get('/report/company', [AdminController::class, 'getReportSpcList'])->name('reportCompany');
+				Route::get('/report/company/list', [AdminController::class, 'getReportSpcList'])->name('reportCompany.list');
+				Route::get('/report/company/detail/{idx}', [AdminController::class, 'getReportSpcDetail'])->name('reportCompany.detail');
+				Route::get('/report/company/{idx}/download-pdf', [AdminController::class, 'downloadPdf']);
+				Route::post('/report/company/reportgenerater/{idx}', [AdminController::class, 'generateReport'])->name('reportCompany.reportgenerater');			
+			});
 
 			/* 사업소개 > 발전소 관리 */
-			Route::get('/company', [AdminController::class, 'getCompanyList'])->name('company'); // Company 관리
-			Route::get('/company/list', [AdminController::class, 'getCompanyList'])->name('company.list');
-			Route::get('/company/export', [AdminController::class, 'getCompanyExport'])->name('company.export');
-			Route::post('/company/regist', [AdminController::class, 'setCompanyRegist'])->name('company.regist');
-			Route::get('/company/detail/{idx}', [AdminController::class, 'getCompanyDetail'])->name('company.detail');
-			Route::post('/company/modify/{idx}', [AdminController::class, 'setCompanyModify'])->name('company.modify');
-			Route::delete('/company/delete/{idx}', [AdminController::class, 'setCompanyDelete'])->name('company.delete');
+			Route::middleware(['can.admin:company.view'])->group(function () {
+				Route::get('/company', [AdminController::class, 'getCompanyList'])->name('company'); 
+				Route::get('/company/list', [AdminController::class, 'getCompanyList'])->name('company.list');
+				Route::get('/company/export', [AdminController::class, 'getCompanyExport'])->name('company.export');
+				Route::post('/company/regist', [AdminController::class, 'setCompanyRegist'])->name('company.regist');
+				Route::get('/company/detail/{idx}', [AdminController::class, 'getCompanyDetail'])->name('company.detail');
+				Route::post('/company/modify/{idx}', [AdminController::class, 'setCompanyModify'])->name('company.modify');
+				Route::delete('/company/delete/{idx}', [AdminController::class, 'setCompanyDelete'])->name('company.delete');
 
-			/* 사업소개 > 발전소 관리 > 상세 > 매출 */
-			Route::post('/company/sales/save', [AdminController::class, 'saveCompanySales']);
-			Route::post('/company/sales/delete', [AdminController::class, 'deleteCompanySales']);
-			Route::post('/company/sales/{idx}', [AdminController::class, 'getCompanySales']);
+				/* 사업소개 > 발전소 관리 > 상세 > 매출 */
+				Route::post('/company/sales/save', [AdminController::class, 'saveCompanySales'])->name('sales.save');
+				Route::post('/company/sales/delete', [AdminController::class, 'deleteCompanySales'])->name('sales.delete');
+				Route::post('/company/sales/{idx}', [AdminController::class, 'getCompanySales'])->name('sales.detail');
 
-			/* 사업소개 > 발전소 관리 > 상세 > 발전량 */
-			Route::post('/company/kwh/save', [AdminController::class, 'saveCompanyKwh']);
-			Route::post('/company/kwh/delete', [AdminController::class, 'deleteCompanyKwh']);
-			Route::post('/company/kwh/{idx}', [AdminController::class, 'getCompanyKwh']);
-
-			/* 사업소개 > 발전소 관리 > 상세 > O&M, 이슈 */
-			Route::post('/company/manage/save', [AdminController::class, 'saveCompanyManage']);
-			Route::post('/company/manage/delete', [AdminController::class, 'deleteCompanyManage']);
-			Route::post('/company/manage/{idx}', [AdminController::class, 'getCompanyManage']);
-
-			/* 사업소개 > SPC 관리 */
-			Route::get('/spc', [AdminController::class, 'getCompanySpcList'])->name('spc'); // spc 관리
-			Route::get('/spc/list', [AdminController::class, 'getCompanySpcList'])->name('spc.list');
-			Route::post('/spc/regist', [AdminController::class, 'setCompanySpcRegist'])->name('spc.regist');
-			Route::post('/spc/detailForm/{idx}', [AdminController::class, 'getCompanySpcDetailForm'])->name('spc.detailForm');
-			Route::post('/spc/modify/{idx}', [AdminController::class, 'setCompanySpcModify'])->name('spc.modify');
-			Route::delete('/spc/delete/{idx}', [AdminController::class, 'setCompanySpcDelete'])->name('spc.delete');
-
-			/* 사업소개 > 기상청 일사량 */
-			Route::get('/kma', [AdminController::class, 'getCompareMonthly'])->name('kma'); // 일사량 조회
+				/* 사업소개 > 발전소 관리 > 상세 > 발전량 */
+				Route::post('/company/kwh/save', [AdminController::class, 'saveCompanyKwh'])->name('kwh.save');
+				Route::post('/company/kwh/delete', [AdminController::class, 'deleteCompanyKwh'])->name('kwh.delete');
+				Route::post('/company/kwh/{idx}', [AdminController::class, 'getCompanyKwh'])->name('kwh.detail');
+	
+				/* 사업소개 > 발전소 관리 > 상세 > 목표 발전량 */
+				Route::post('/company/yearkwh/save', [AdminController::class, 'saveCompanyYearKwh'])->name('yearkwh.save');
+				Route::post('/company/yearkwh/delete', [AdminController::class, 'deleteCompanyYearKwh'])->name('yearkwh.delete');
+				Route::post('/company/yearkwh/{idx}', [AdminController::class, 'getCompanyYearKwh'])->name('yearkwh.detail');
+		
+				/* 사업소개 > 발전소 관리 > 상세 > 목표 발전시간 */
+				Route::post('/company/yearkwhhours/save', [AdminController::class, 'saveCompanyYearKwhHours'])->name('yearkwhhours.save');
+				Route::post('/company/yearkwhhours/delete', [AdminController::class, 'deleteCompanyYearKwhHours'])->name('yearkwhhours.delete');
+				Route::post('/company/yearkwhhours/{idx}', [AdminController::class, 'getCompanyYearKwhHours'])->name('yearkwhhours.detail');
 			
+				/* 사업소개 > 발전소 관리 > 상세 > O&M, 이슈 */
+				Route::post('/company/manage/save', [AdminController::class, 'saveCompanyManage'])->name('manage.save');
+				Route::post('/company/manage/delete', [AdminController::class, 'deleteCompanyManage'])->name('manage.save');
+				Route::post('/company/manage/{idx}', [AdminController::class, 'getCompanyManage'])->name('manage.save');
+			});
+
+			/* 사업소개 > 일사량 전년·전월 비교 */
+			Route::middleware(['can.admin:kma_monthly.view'])->group(function () {
+				Route::get('/kma', [AdminController::class, 'getCompareMonthly'])->name('kma'); // 일사량 조회
+				Route::get('/kma/monthly', [AdminController::class, 'getCompareMonthly'])->name('kma.monthly'); // 일사량 조회
+				Route::get('/kma/monthly/export', [AdminController::class, 'kmaCompareMonthlyExport'])->name('kma.monthlyexport');
+			});
+
+			/* 사업소개 > 일사량 기간조회 */
+			Route::middleware(['can.admin:kma_db.view'])->group(function () {
+				Route::get('/kma/db', [AdminController::class, 'getCompareMonthlyDB'])->name('kma.db'); // 일사량 기간 조회
+				Route::get('/kma/db/export', [AdminController::class, 'kmaDbExport'])->name('kma.dbexport');
+				Route::post('/kma/syncYearlyKma', [AdminController::class, 'syncYearlyKma'])->name('kma.sync'); // 일사량 동기화 (기상정 -> DB)
+			});
+
 			/* 문의관리 */
-			Route::get('/inquire', [AdminController::class, 'getInquireList'])->name('inquire');
-			Route::get('/inquire/list', [AdminController::class, 'getInquireList'])->name('inquire.list');
-			Route::get('/inquire/export', [AdminController::class, 'getInquireExport'])->name('inquire.export');
-			Route::post('/inquire/detailForm/{idx}', [AdminController::class, 'getInquireDetailForm'])->name('inquire.detailForm');
-			Route::post('/inquire/modify/{idx}', [AdminController::class, 'setInquireModify'])->name('inquire.modify');
-			Route::delete('/inquire/delete/{idx}', [AdminController::class, 'setInquireDelete'])->name('inquire.delete');
-			
+			Route::middleware(['can.admin:inquire.view'])->group(function () {
+				Route::get('/inquire', [AdminController::class, 'getInquireList'])->name('inquire');
+				Route::get('/inquire/list', [AdminController::class, 'getInquireList'])->name('inquire.list');
+				Route::get('/inquire/export', [AdminController::class, 'getInquireExport'])->name('inquire.export');
+				Route::post('/inquire/detailForm/{idx}', [AdminController::class, 'getInquireDetailForm'])->name('inquire.detailForm');
+				Route::post('/inquire/modify/{idx}', [AdminController::class, 'setInquireModify'])->name('inquire.modify');
+				Route::delete('/inquire/delete/{idx}', [AdminController::class, 'setInquireDelete'])->name('inquire.delete');
+			});
+
 			/* 사용자 관리 */
-			Route::get('/user', [AdminController::class, 'getUserList'])->name('user');
-			Route::post('/user/regist', [AdminController::class, 'setUserRegist'])->name('user.regist');
-			Route::get('/user/list', [AdminController::class, 'getUserList'])->name('user.list');
-			Route::post('/user/detailForm/{idx}', [AdminController::class, 'getUserDetailForm'])->name('user.detailForm');
-			Route::post('/user/modify/{idx}', [AdminController::class, 'setUserModify'])->name('user.modify');
-			Route::delete('/user/delete/{idx}', [AdminController::class, 'setUserDelete'])->name('user.delete');
-			Route::get('/createId', [AdminController::class, 'setAccountRegist']);			
+			Route::middleware(['can.admin:user.view'])->group(function () {
+				Route::get('/user', [AdminController::class, 'getUserList'])->name('user');
+				Route::post('/user/regist', [AdminController::class, 'setUserRegist'])->name('user.regist');
+				Route::get('/user/list', [AdminController::class, 'getUserList'])->name('user.list');
+				Route::post('/user/detailForm/{idx}', [AdminController::class, 'getUserDetailForm'])->name('user.detailForm');
+				Route::post('/user/modify/{idx}', [AdminController::class, 'setUserModify'])->name('user.modify');
+				Route::delete('/user/delete/{idx}', [AdminController::class, 'setUserDelete'])->name('user.delete');
+				Route::get('/createId', [AdminController::class, 'setAccountRegist']);			
+			});
+
+			/* SPC 관리 */
+			Route::middleware(['can.admin:spc.view'])->group(function () {
+				Route::get('/spc', [AdminController::class, 'getCompanySpcList'])->name('spc'); // spc 관리
+				Route::get('/spc/list', [AdminController::class, 'getCompanySpcList'])->name('spc.list');
+				Route::post('/spc/regist', [AdminController::class, 'setCompanySpcRegist'])->name('spc.regist');
+				Route::post('/spc/detailForm/{idx}', [AdminController::class, 'getCompanySpcDetailForm'])->name('spc.detailForm');
+				Route::post('/spc/modify/{idx}', [AdminController::class, 'setCompanySpcModify'])->name('spc.modify');
+				Route::delete('/spc/delete/{idx}', [AdminController::class, 'setCompanySpcDelete'])->name('spc.delete');
+			});
+
 
 			// 파일 다운로드
 			Route::get('/file/download/{path}', function (string $path) {
@@ -332,15 +375,9 @@ Route::middleware('web')->group(function () {
 
 /* 리포트 */
 Route::middleware('web')->group(function () {
-	Route::prefix('report')->name('report.')->group(function () {
-		Route::get('/', [UserController::class, 'report_month']); // 메인화면
+	Route::get('/spc/monthly', [UserController::class, 'getSpcMonthlyReport'])->name('spc.monthly');
+	Route::post('/spc/monthly', [UserController::class, 'getSpcMonthlyReport'])->name('spc.monthly');
 
-		Route::get('/month', [UserController::class, 'report_month']);
-
-		Route::fallback(function () {
-			return redirect('/');
-		});
-	});
 });
 
 Route::fallback(function () {

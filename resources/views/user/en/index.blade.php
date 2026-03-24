@@ -110,6 +110,34 @@
             <ul>
                 <li>
                     <div class="txt_box">
+                        <h3>Rooftop Solar Leasing</h3>
+                        <div class="hover_txt">
+                            <p>If your building rooftop is unused, SOLARTEQ enables stable income for 20 years</p>
+                            <a href="/ko/business/solar">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RE100 Leasing</h3>
+                        <div class="hover_txt">
+                            <p>A program that lets you use renewable energy in a leasing model for 20 years</p>
+                            <a href="/ko/business/lease">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RPS Electricity Sales</h3>
+                        <div class="hover_txt">
+                            <p>A revenue-generating power project where all generated electricity is sold rather than self-consumed</p>
+                            <a href="/ko/business/rps">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- <li>
+                    <div class="txt_box">
                         <h3>Solar Solutions</h3>
                         <div class="hover_txt">
                             <p>Discover rooftop solar leasing, RE100 leasing, and RPS(Electricity Sales) through SOLARTEQ’s sustainable energy consulting</p>
@@ -125,7 +153,7 @@
                             <a href="javascript:alert('Coming Soon.')">View More <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
 

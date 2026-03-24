@@ -1,7 +1,7 @@
 @php 
 	$header_skip = false; 
 	$depth1_num = '3'; 
-	$depth2_num = '31'; 
+	$depth2_num = '21'; 
 @endphp 
 @include('admin.header._header')
 
@@ -37,9 +37,11 @@
 		<div class="intro-y border border-slate-200 mt-6 rounded-lg bg-white">
 			<div class="flex items-center justify-between border-b border-slate-200 py-3 px-6">
 				<div class="text-base text-primary">총 {{ $data->total() }}개</div>
+				@if(auth()->user()->hasPerm('company.create'))
 				<div class="flex items-center gap-2">
 					<a href="javascript:;" class="btn btn-dark px-4" onclick="modalOpen('company_regist-modal')">발전소 등록</a>
 				</div>
+        		@endif
 			</div>
 
 			<div class="p-6">
@@ -73,7 +75,15 @@
 						@php
 							$number = ($data->currentPage() - 1) * $data->perPage() + ($index + 1);
 						@endphp
-							<tr onclick="companyDetail('{{ $item->idx }}')">
+							<tr 
+							@if(auth()->user()->hasPerm('company.detail') || auth()->user()->hasPerm('company.detail') || auth()->user()->hasPerm('company.delete')) 
+								onclick="companyDetail('{{ $item->idx }}')"
+								style="cursor: pointer;" 
+								class="hover:bg-slate-100"
+							@else 
+								style="cursor: default;" 
+							@endif
+							>
 								<td>{{ $index + 1 }}</td>
 								<td>{{ $item->comp_name }}</td>
 								<td>{{ $item->regions?->name_kr }}</td>
@@ -216,7 +226,9 @@
 				
 				<div class="modal-footer flex items-center justify-center gap-3">
 					<button type="button" class="btn btn-outline-secondary w-20" onclick="modalClose('company_regist-modal')">취소</button>
+					@if(auth()->user()->hasPerm('company.create'))
 					<button type="button" class="btn btn-primary w-20" onclick="regist();">등록</button>
+					@endif
 				</div>
 			</div>
 		</div>

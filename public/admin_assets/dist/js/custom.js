@@ -140,6 +140,16 @@ function showToast(message, type = 'default', duration = 3000) {
   }, duration);
 }
 
+// 전역 AJAX 에러 핸들링 (CSRF 토큰 만료 등)
+$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+    if (jqxhr.status === 419) {
+        showToast('세션이 만료되었습니다. 로그인 페이지로 이동합니다.', 'error', 3000);
+        setTimeout(function() {
+            window.location.href = '/admin/login';
+        }, 1000);
+    }
+});
+
 
 //=======================================================
 //   FilePond

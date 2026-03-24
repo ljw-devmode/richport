@@ -53,7 +53,7 @@
                         <li><a href="/ko/business/index">왜 솔라테크인가?</a></li>
 						<li><a href="/ko/business/solar">지붕임대 태양광</a></li>
                         <li><a href="/ko/business/lease">RE100 리스</a></li>
-                        <li><a href="/ko/business/rps">RPS(전력판매)</a></li>
+                        <li><a href="/ko/business/rps">RPS 전력판매</a></li>
                     </ul>
                 </li>
                 <li>
@@ -116,7 +116,7 @@
                     <dd class="check_form">
                         <input type="radio" class="input-check" id="cate_1" name="types_idx" value="1"><label for="cate_1">지붕임대 태양광</label>
                         <input type="radio" class="input-check" id="cate_2" name="types_idx" value="2"><label for="cate_2">RE100 리스</label>
-                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS(전력판매)</label>
+                        <input type="radio" class="input-check" id="cate_3" name="types_idx" value="3"><label for="cate_3">RPS 전력판매</label>
                         <input type="radio" class="input-check" id="cate_4" name="types_idx" value="4"><label for="cate_4">지원사업(건물·금융·주택·탄소중립)</label>
                         <input type="radio" class="input-check" id="cate_5" name="types_idx" value="5"><label for="cate_5">회사소개서·지명원 요청</label>
                     </dd>

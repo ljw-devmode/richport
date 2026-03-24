@@ -110,6 +110,34 @@
             <ul>
                 <li>
                     <div class="txt_box">
+                        <h3>屋顶租赁式太阳能</h3>
+                        <div class="hover_txt">
+                            <p>如果您的建筑屋顶闲置，通过 SOLARTEQ 可获得 20 年稳定收益</p>
+                            <a href="/ko/business/solar">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RE100 租赁</h3>
+                        <div class="hover_txt">
+                            <p>可通过租赁模式使用可再生能源 20 年的项目</p>
+                            <a href="/ko/business/lease">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RPS电力销售</h3>
+                        <div class="hover_txt">
+                            <p>一种收益型发电业务：不自用所发电力, 仅进行对外销售</p>
+                            <a href="/ko/business/rps">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- <li>
+                    <div class="txt_box">
                         <h3>太阳能解决方案</h3>
                         <div class="hover_txt">
                             <p>通过 SOLARTEQ 的可持续能源咨询，开展屋顶租赁式太阳能、RE100 租赁及 RPS（电力销售）</p>
@@ -125,7 +153,7 @@
                             <a href="javascript:alert('준비중입니다.')">查看详情 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
 

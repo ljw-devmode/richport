@@ -110,13 +110,40 @@
             <ul>
                 <li>
                     <div class="txt_box">
-                        <h3>태양광 솔루션</h3>
+                        <h3>지붕임대 태양광</h3>
                         <div class="hover_txt">
-                            <p>솔라테크의 지속가능한 에너지 컨설팅을 통해 <br/>지붕임대 태양광, RE100 리스, RPS(전력판매)를 진행해 보세요</p>
-                            <a href="/ko/business/index">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                            <p>내 건물 지붕이 비어있다면 솔라테크를 통해 20년간 <br/>안정적인 수익을 얻을 수 있습니다</p>
+                            <a href="/ko/business/solar">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RE100 리스</h3>
+                        <div class="hover_txt">
+                            <p>고정 단가로 20년간 전기를 구독해서 전기료 절감, <br/>탄소 감축, RE100을 실현할 수 있습니다.</p>
+                            <a href="/ko/business/lease">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="txt_box">
+                        <h3>RPS 전력판매</h3>
+                        <div class="hover_txt">
+                            <p>생산한 전기와 신재생에너지 공급 인증서를 <br/>판매하는 수익형 발전 사업입니다</p>
+                            <a href="/ko/business/rps">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>   
+                <!-- <li>
+                    <div class="txt_box">
+                        <h3>태양광 솔루션</h3>
+                        <div class="hover_txt">
+                            <p>솔라테크의 지속가능한 에너지 컨설팅을 통해 <br/>지붕임대 태양광, RE100 리스, RPS(전력판매)를 진행해 보세요</p>
+                            <a href="/ko/business/solar">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </li>                                             
                 <li>
                     <div class="txt_box">
                         <h3>스마트팩토리 솔루션</h3>
@@ -125,7 +152,7 @@
                             <a href="javascript:alert('준비중입니다.')">자세히 보기 <img src="{{ asset('user_assets/img/main/main_con02_arrow.svg') }}" alt=""></a>
                         </div>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
 

@@ -32,7 +32,7 @@
   <!-- Top Bar -->
   <header class="topbar_front">
     <div class="container">
-      <h1 class="topbar__title">솔라테크 현황판</h1>
+      <h1 class="topbar__title">솔라테크 현황판 (2025년1월 ~ 현재)</h1>
     </div>
     <div class="header-right">
       <button id="refreshNowBtn" type="button" class="refresh-btn">새로고침(10:00)</button>
@@ -59,24 +59,24 @@
         <div class="card__value">{{ number_format($summary['process_confirm']) }}건 <br/>{{ number_format($summary['process_confirm_kw']) }}kW</div>
       </article>
 
-      <article class="card card--info summary-card" data-text="사용 전 검사" data-summary="preuse">
+      <article class="card card--info summary-card" data-text="사용전 검사" data-summary="preuse">
         <div class="card__label">사용전검사 건수</div>
         <div class="card__value">{{ number_format($summary['process_ready']) }}건 <br/>{{ number_format($summary['process_ready_kw']) }}kW</div>
       </article>
     </section>
     <section class="cards2" aria-label="요약 카드">
-      <article class="card card--danger summary-card" data-text="이슈 협의 난항" data-summary="issue_red">
-        <div class="card__label">이슈 협의 난항</div>
-        <div class="card__value">{{ number_format($summary['issue_red']) }}건 <br/>{{ number_format($summary['issue_red_kw']) }}kW</div>
-      </article>
-
       <article class="card card--warning summary-card" data-text="이슈 협의 중" data-summary="issue_yellow">
         <div class="card__label">이슈 협의 중</div>
         <div class="card__value">{{ number_format($summary['issue_yellow']) }}건 <br/>{{ number_format($summary['issue_yellow_kw']) }}kW</div>
       </article>
 
+      <article class="card card--danger summary-card" data-text="이슈 협의 난항" data-summary="issue_red">
+        <div class="card__label">이슈 협의 난항</div>
+        <div class="card__value">{{ number_format($summary['issue_red']) }}건 <br/>{{ number_format($summary['issue_red_kw']) }}kW</div>
+      </article>
+
       <article class="card card--management summary-card" data-text="운영 여부">
-        <div class="card__label">운영 여부</div>
+        <div class="card__label">운영 건수</div>
         <div class="card__value">{{ number_format($summary['management']) }}건 <br/>{{ number_format($summary['management_kw']) }}kW</div>
       </article>
 
@@ -245,7 +245,7 @@ function applyCardColumnMove(datatext) {
     moveColumnToFront('계약 날인');
   } else if (datatext === '인허가 진행 중') {
     moveColumnToFront('공사 단계');
-  } else if (datatext === '사용 전 검사') {
+  } else if (datatext === '사용전 검사') {
     moveColumnToFront('사용전 검사');
   } else if (datatext === '이슈 협의 난항' || datatext === '이슈 협의 중') {
     moveColumnToFront('이슈');
@@ -339,8 +339,10 @@ resetBtn.addEventListener('click', function() {
 const PROJECT_COL_INDEX = 0;
 // 각 행의 "계약 날인" 열 인덱스
 const CONTRACT_COL_INDEX = 5;
-// 각 행의 "인허가, 사용전검사, 완공" 열 인덱스
+// 각 행의 "인허가, 완공" 열 인덱스
 const PROECSS_COL_INDEX = 8;
+// 각 행의 "사용전 검사" 열 인덱스
+const PREUSE_COL_INDEX = 9;
 // 각 행의 "이슈" 열 인덱스
 const ISSUE_COL_INDEX = 10;
 // 각 행의 "운영 여부" 열 인덱스
@@ -348,7 +350,7 @@ const MANAGEMENT_COL_INDEX = 11;
 
 
 // 요약 카드 클릭 시 해당 조건에 맞는 행만 보이도록 필터링
-summaryCards.forEach(card => {
+summaryCards.forEach(card => {2024
   card.addEventListener('click', function() {
     const datatext = this.dataset.text;
     
@@ -369,12 +371,15 @@ summaryCards.forEach(card => {
           } else if(datatext === '계약 건수') {
               const contractText = tds[CONTRACT_COL_INDEX]?.textContent;
               row.style.display = contractText !== '' ? '' : 'none';
-          } else if(datatext === '인허가 진행 중' || datatext === '사용 전 검사' || datatext === '완공') {
+          } else if(datatext === '인허가 진행 중' || datatext === '완공') {
               const processText = tds[PROECSS_COL_INDEX]?.textContent ;
               row.style.display = (processText === datatext) ? '' : 'none';
           } else if(datatext === '이슈 협의 난항' || datatext === '이슈 협의 중') {
               const issueText = tds[ISSUE_COL_INDEX]?.textContent ;
               row.style.display = (issueText === datatext) ? '' : 'none';
+          } else if(datatext === '사용전 검사') {
+              const contractText = tds[PREUSE_COL_INDEX]?.textContent;
+              row.style.display = contractText !== '' ? '' : 'none';
           } else if(datatext === '운영 여부') {
               const managementText = tds[MANAGEMENT_COL_INDEX]?.textContent ;
               row.style.display = managementText ? '' : 'none';
@@ -466,7 +471,7 @@ document.querySelectorAll(".sortable").forEach(header => {
               ? new Date(aText) - new Date(bText)
               : new Date(bText) - new Date(aText);
 
-          // 문자열 정렬 (프로젝트명, 사업 구도, 사업기획팀, EPC, 공사 단계, 이슈, 운영여부)
+          // 문자열 정렬 (프로젝트명, 사업 구도, 사업기획팀, EPC, 공사 단계, 이슈, 운영 건수)
           } else {
             return isAsc
               ? aText.localeCompare(bText)
@@ -514,6 +519,10 @@ tbody.addEventListener('click', function(e) {
   const cells = tr.querySelectorAll('td');
   const headers = document.querySelectorAll('#mainTable thead th');
   const detailList = document.getElementById('detailList');
+  
+  // [수정 포인트] data-col 속성을 이용해 프로젝트명을 정확히 타겟팅
+  const projectTd = tr.querySelector('td[data-col="프로젝트명"]');
+  const currentProjectName = projectTd ? projectTd.textContent.trim() : '이름 없음';
 
   // 상세 정보 리스트 초기화 후 각 셀의 데이터로 리스트 아이템 생성
   detailList.innerHTML = '';
@@ -526,11 +535,9 @@ tbody.addEventListener('click', function(e) {
     detailList.appendChild(li);
   });
   
-  // 모달 타이틀을 프로젝트명으로 설정
-  currentProjectName = cells[0]?.textContent ?? '';
+  // 모달 타이틀 설정 및 메모 로드
   modalTitle.textContent = currentProjectName;
-
-  // 메모 목록 로드
+  memoList.innerHTML = '';
   loadMemo(currentProjectName);
 
   modal.style.display = 'flex';
