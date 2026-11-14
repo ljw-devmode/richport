@@ -1,0 +1,21 @@
+■ 화면: 1,주요특징_설명1 (PC / Mobile)
+■ 원본 파일: 1,주요특징_설명1_PC.png / 1,주요특징_설명1_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠)
+
+[PC / Mobile 공통]
+- 메인 타이틀: 현지 데이터를 수출 기회로 바꾸는 R.I.P.S
+- 서브 설명: 폐기를 줄이고, 잠재 매출기회 손실을 낮추며, 판매데이터 기반의 적정발주와 신제품 제안으로 반복발주와 수출 확대를 지원합니다.
+- 핵심 특장점 카드 4개:
+  1. 폐기 감소
+  2. 매출기회 확대
+  3. 적정발주
+  4. 신제품 제안
+
+■ 유지 대상 (사진·오브젝트·UI 내부 글자 — 이미지에 그대로 유지됨)
+- 좌상단 박스 로고: K-FOOD / KOREAN FOOD / GLOBAL TASTE / A BRIGHTER TOMORROW
+- 인물 어깨/등 문구: K-FOOD CONNECTS THE WORLD / R.I.P.S (M)
+- 중앙 대시보드 UI: GLOBAL SALES DATA, 국가 리스트(USA, CANADA, JAPAN, AUSTRALIA, VIETNAM, SINGAPORE, UAE, UK), SALES TREND +32%, DEMAND FORECAST, TOP PRODUCTS, RECOMMENDED ORDER, NEW PRODUCT OPPORTUNITY
+- 모바일 대시보드 UI: 판매 추이 / 국가별 판매 현황(미국 +32%, 일본 +28%, 호주 +18%, 베트남 +24%, 기타 +16%) / 제품 카테고리 비중(라면 28%, 스낵 20%, 소스 15%, 음료 14%, 김치 13%, 기타 10%) / 수출 성장 추이 +42%
+- 상품 패키지 라벨 (K-라면, 김, 김치, 소스, 만두, K-DRINK, 왕교자 등)
+- 우측 박스/트럭: K-FOOD GLOBAL TASTE A BRIGHTER TOMORROW / K-FOOD CONNECTS THE WORLD

@@ -23,7 +23,7 @@ $header_skip = true;
                         <div class="intro-x mt-5 text-center">
                             <button type="submit" class="btn btn-dark px-4 w-full py-3 text-base align-top" id="btnLoginC">관리자 로그인</button>
                         </div>
-                        <div class="intro-x mt-6 text-center text-slate-500">© 2026 SOLARTEQ. All Rights Reserved.</div>
+                        <div class="intro-x mt-6 text-center text-slate-500">© 2026 RICHPORT. All Rights Reserved.</div>
                     </form>
                 </div>
             </div>

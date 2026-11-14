@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* =======================================================
+   영어 / 베트남어 화면 보정 (user/en, user/vn 의 _head 에서만 로드)
+   - 한국어보다 글자가 길어 메뉴 간격·글자 크기를 줄이고 줄바꿈을 조정
+   - style_ko.css, sub_ko.css 다음에 로드 (같은 선택자는 이 파일이 우선)
+======================================================= */
+
+/* ---------- 공통 ----------
+   style_ko.css 의 body {word-break:break-all} 은 한국어용 → 영어/베트남어는 단어 중간에서 끊기므로 단어 단위 줄바꿈 */
+body {word-break:normal; overflow-wrap:break-word; }
+
+/* 서브 상단 큰 제목 (기본 최소 60px) : 모바일에서 화면 폭에 맞춰 축소 */
+@media all and (max-width:767px){
+    .about_con01 h4,
+    .contact_con01 h4,
+    .crew_con01 h4 {font-size:clamp(34px,9vw,60px); }
+    .about_con01 p,
+    .contact_con01 p,
+    .crew_con01 p {font-size:clamp(18px,4.5vw,24px); }
+}
+
+/* ---------- 헤더 ---------- */
+header .right_btn a,
+header .right_btn a span,
+.language_selector a span {white-space:nowrap; }
+
+/* 상단 대메뉴
+   - 대메뉴마다 같은 폭의 칸(.menu_item)을 주고, 하위 메뉴는 그 칸 폭 안에서만 표시 → 옆 메뉴와 겹치지 않음
+   - 긴 하위 메뉴명은 2줄로 줄바꿈 */
+.main_menu {gap:0 !important; }
+.menu_item {width:140px; text-align:center; }
+.depth2_menu {left:0 !important; transform:none !important; width:100% !important; padding:0 8px !important; }
+.depth2_menu li {padding:9px 0 !important; }
+.depth2_menu li a {font-size:14px !important; line-height:1.3 !important; white-space:normal !important; word-break:keep-all; }
+#gnb.open .depth2_menu {max-height:400px !important; }
+#gnb.open .gnb_bg {height:400px !important; }
+
+@media all and (max-width:1500px){
+    header {padding:0 28px; }
+    header h1.logo img {width:170px; }
+    .menu_item {width:130px; }
+    .depth1_title {font-size:17px !important; }
+}
+
+@media all and (max-width:1350px){
+    header {padding:0 20px; }
+    header h1.logo img {width:150px; }
+    .menu_item {width:122px; }
+    .depth1_title {font-size:16px !important; }
+    .depth2_menu li a {font-size:13px !important; }
+    header .right_btn {gap:6px; }
+    header .right_btn a {font-size:15px; }
+}
+
+/* 좁은 PC : 오른쪽 버튼은 아이콘만 표시 (언어는 코드만) */
+@media all and (max-width:1260px){
+    .menu_item {width:128px; }
+    header .right_btn a {padding:6px; }
+    header .right_btn a img {margin-right:0; }
+    header .right_btn a span {display:none; }
+    .language_selector {min-width:auto; }
+    header .right_btn .ham_btn {margin-left:4px; }
+}
+
+/* 좁은 PC 에서만 언어 코드(EN/VN) 표시 (모바일은 style_ko.css 의 30px 버튼 사용) */
+@media all and (min-width:768px) and (max-width:1260px){
+    .language_selector a .mo_ver {display:block !important; padding:0 6px 0 4px; font-weight:700; }
+}

@@ -25072,7 +25072,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     if (!$(this).val()) {
       var date = dayjs__WEBPACK_IMPORTED_MODULE_0___default()().format(options.format);
       date += !options.singleMode ? " ~ " + dayjs__WEBPACK_IMPORTED_MODULE_0___default()().add(1, "month").format(options.format) : "";
-      $(this).val(date);
+      //$(this).val(date);
     }
     new (litepicker__WEBPACK_IMPORTED_MODULE_1___default())(_objectSpread({
       element: this

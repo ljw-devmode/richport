@@ -13,8 +13,8 @@ class NoticeFiles extends Model
     
     protected $fillable = [
         'notice_idx',
-    	'ori_name',
-    	'up_name',
+    	'ori_name',     // 원본 파일명 (다운로드 시 원본 파일명으로 복원 후 다운로드 필요)
+    	'up_name',      // 중복 방지를 위해 변경된 파일명
     	'file_ext',
     	'file_size',
     	'orderby',
@@ -23,6 +23,11 @@ class NoticeFiles extends Model
     	'updated_by',
     	'updated_at',
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];	
     
     protected $appends = ['url'];
     

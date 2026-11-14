@@ -13,7 +13,7 @@ class InquireTypes extends Model
     protected $fillable = [
     	'subject',
         'subject_en',
-        'subject_cn',
+        'subject_vn',
     ];
     
     public function inquire()

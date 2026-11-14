@@ -1,0 +1,15 @@
+■ 화면: 1,주요특징_메인 (PC / Mobile)
+■ 원본 파일: 1,주요특징_메인_PC.png / 1,주요특징_메인_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠 메인 화면)
+
+[PC / Mobile 공통]
+- 메인 타이틀 1: 수출의 판단을
+- 메인 타이틀 2: 데이터로 바꿉니다
+- 본문 설명: R.I.P.S는 판매·재고·시장 데이터를 연결해 폐기를 줄이고, 잠재 매출기회 손실을 낮추며, 적정발주와 신제품 제안으로 수출 성장을 지원합니다.
+
+■ 유지 대상 (사진·오브젝트·UI 내부 글자 — 이미지에 그대로 유지됨)
+- 데이터 대시보드 UI 내부: SALES / INVENTORY / MARKET / EXPORT GROWTH / DEMAND FORECAST / OPTIMAL ORDER / NEW PRODUCT / LESS WASTE / MORE GROWTH / GLOBAL K-FOOD EXPORT
+- 모바일 대시보드 UI 내부: DATA / INSIGHT / GLOBAL GROWTH / K-FOOD EXPORT
+- 상품 패키지 라벨 (K-라면, K-김, 김치, 고추장, K-만두, K-DRINK, 유자차, 떡볶이, 좋은 음식이 더 가까운 세상을 만듭니다 등)
+- 배경 물류/선박 문구: K-FOOD GLOBAL TASTE A BRIGHTER TOMORROW / K-FOOD CONNECTS THE WORLD / K-FOOD 세계로 / K-FOOD FOR A BRIGHTER TOMORROW

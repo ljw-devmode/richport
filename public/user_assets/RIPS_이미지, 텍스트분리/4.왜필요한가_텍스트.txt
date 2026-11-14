@@ -1,0 +1,19 @@
+■ 화면: 4.왜필요한가 (PC / Mobile)
+■ 원본 파일: 4.왜필요한가_PC.png / 4.왜필요한가_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠)
+
+[PC]
+- 상단 슬로건: 판매·재고·발주를 연결하는 실행형 수출 플랫폼
+- 메인 타이틀: 왜 R.I.P.S가 필요한가?
+- 본문 설명: 현지 판매데이터를 기반으로 폐기와 과재고를 줄이고, 매출 기회를 지키며, 수출 확대의 근거를 만듭니다.
+- 우측 세로 텍스트 목록: K-FOOD / DATA / LOGISTICS / GLOBAL / GROWTH
+
+[Mobile]
+- 메인 타이틀: 왜 R.I.P.S가 필요한가?
+- 본문 설명: 현지 판매데이터를 기반으로 폐기와 과재고를 줄이고, 매출 기회를 지키며, 수출 확대의 근거를 만듭니다.
+- 중앙 서브 슬로건: 판매·재고·발주를 연결하는 실행형 수출 플랫폼
+
+■ 유지 대상 (사진·오브젝트·UI 내부 글자 — 이미지에 그대로 유지됨)
+- PC: 그래픽 박스 내부 K-FOOD / GLOBEA EXPORT, SALES, INVENTORY, EXPORT, 물류창고 빌보드 K-FOOD KOREA TO THE WORLD, 선박 K-FOOD TO THE WORLD, 워터마크 GOOD FOOD A BRIGHTER TOMORROW
+- M: GLOBAL SALES +42%, DEMAND FORECAST, EXPORT +68%, 빌보드 K-FOOD TO THE WORLD / K-FOOD·GLOBAL·GROWTH, 선박 K-FOOD TO A BRIGHTER TOMORROW

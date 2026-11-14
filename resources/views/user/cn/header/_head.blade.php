@@ -103,7 +103,7 @@
 
     <title>{{ $meta['title'] }}</title>
     <link rel="canonical" href="{{ $meta['canonical'] }}">
-    <link rel="icon" href="{{ asset('user_assets/img/favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('user_assets/img/favicon.ico') }}" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('user_assets/img/appleicon.png') }}">
 
     <meta name="Keywords" content="太阳能、屋顶租赁、RPS（电力销售）、可再生能源配额制发电、RE100、停车场、建筑支持、住宅支持、金融支持、财政支持、碳中和" />

@@ -17,6 +17,9 @@ return [
 
     'default' => env('CACHE_STORE', 'database'),
 
+    // throttle(설문 답변 등) 카운터 저장소 : DB 에 cache 테이블이 없어도 동작하도록 파일 사용
+    'limiter' => 'file',
+
     /*
     |--------------------------------------------------------------------------
     | Cache Stores

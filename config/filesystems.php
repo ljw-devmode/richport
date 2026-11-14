@@ -60,6 +60,13 @@ return [
             'report' => false,
         ],
 
+        'synology' => [
+            'driver' => 'webdav',
+            'baseUri' => 'https://solarteqnas.synology.me:5006/webService/', // SSL 미설정 시 5005(HTTP) 권장
+            'userName' => 'jw.lee',
+            'password' => 'Dnflqhqo79*',
+        ],        
+
     ],
 
     /*

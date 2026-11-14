@@ -11,7 +11,7 @@ class AdminPermissions extends Model
     public $timestamps = false;
 
     protected $fillable = [
-    	'admin_idx',
-        'permission_key',
+    	'admin_idx',        // admin.idx
+        'permission_key',   // 접근 권한 (config > permission.php)
     ];
 }

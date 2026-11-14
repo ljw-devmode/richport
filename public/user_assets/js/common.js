@@ -86,10 +86,6 @@ const topMove = () =>{
     },1500)
 }*/
 
-function formatNumber(num) {
-  return Number(num).toLocaleString("en-US");
-}
-
 const calculatorBtn = (item) => {
     const $rightBox = $(item).closest('.right_box');
     const $calBox   = $rightBox.find('.cal_box');
@@ -109,17 +105,17 @@ const calculatorBtn = (item) => {
     let base = Math.round((pyung / 3) * 100) / 100; // 소수 둘째 자리 반올림
 
     // 3) 각 수식 계산 (최종 결과는 모두 정수로 반올림)
-    // 1. 건물 수입: (입력평 / 3) * 4 * 20 * 10 (천 -> 만단위 표시용)
-    const income = Math.round(base * 4 * 20 * 10); // 만원 단위 총수입
+    // 1. 건물 수입: (입력평 / 3) * 4 * 20
+    const income = Math.round(base * 4 * 20); // 만원 단위 총수입
 
     // 2. 발전용량: (입력평 / 3)
     const capacity = Math.round(base); // kW / 년
 
-    // 3. 임대료: (입력평 / 3) * 4 * 10 (천 -> 만단위 표시용)
-    const rent = Math.round(base * 4 * 10); // 만원
+    // 3. 임대료: (입력평 / 3) * 4
+    const rent = Math.round(base * 4); // 만원
 
-    // 4. 탄소저감: (입력평 / 3) * 하루 3.5시간 * 365일 * 탄소저감계수 0.45941 / 30년 소나무 1년 흡수량 6.6kg
-    const carbon = Math.round(base * 3.5 * 365 * 0.45941 / 6.6); // 그루
+    // 4. 탄소저감: (입력평 / 3) * 92
+    const carbon = Math.round(base * 3.6 * 365 * 0.45941 / 6.6); // 그루
 
     // 4) .count 요소들에 target 값 세팅 (순서대로)
     const $counts = $calBox.find('.count');
@@ -141,7 +137,7 @@ const calculatorBtn = (item) => {
         // 6) 숫자 애니메이션 실행
         $counts.each(function () {
             let num = $(this).data('num');
-            animateNumber($(this), num, 4000);
+            animateNumber($(this), num, 5000);
         });
     }, 1500);
 };
@@ -161,16 +157,21 @@ const calModalToggle = ()=>{
     });
 }
 
+const popupModalToggle = ()=>{
+    alert(1);
+    $('.popup_modal').fadeToggle();
+}
+
 const animateNumber = ($element, endValue, duration)=>{
     var startValue = 0;
     $({ counter: startValue }).animate({ counter: endValue }, {
         duration: duration,
         easing: 'swing', // 부드럽게
         step: function(now) {
-            $element.text(formatNumber(Math.floor(now)));
+            $element.text(Math.floor(now).toLocaleString());
         },
         complete: function() {
-            $element.text(formatNumber(endValue));
+            $element.text(endValue.toLocaleString());
         }
     });
 }

@@ -16,13 +16,17 @@ class Admin extends Authenticatable
     protected $fillable = [
     	'idx',
     	'id',
-        'pw',
+        'pw',           // 비밀번호 확인 미적용
         'name',
         'hp',
         'email',
-        'level',
+        'level',        // 등급 1은 전체 관리자 (DB에서 수정필요), 관리자는 등록시 기본 2로 설정됨
         'created_at',
         'created_by'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
     ];
     
     public function getAuthPassword()

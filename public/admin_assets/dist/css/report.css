@@ -94,11 +94,12 @@ textarea { width:100%; height:80px; }
 /* 목록 */
 .table-wrap { overflow: auto; max-height: 500px; }
 .table { width: 100%; border-collapse: collapse; border-spacing: 0; }
-.table thead th { position: sticky; top: 0; border: 1px solid #e5e7eb; font-size: 18px; color: #374151; text-align: left; padding: 10px 5px; background: #fafafa; white-space: nowrap; text-align: center; }
+.table thead th { position: sticky; top: 0; border: 1px solid #e5e7eb; font-size: 16px; color: #374151; text-align: left; padding: 10px 5px; background: #fafafa; white-space: nowrap; text-align: center; }
 .table tbody td,
 .table tfoot th,
-.table tfoot td { border: 1px solid #e5e7eb; padding: 8px 5px; font-size: 16px; vertical-align: middle; text-align: center; word-break: keep-all; }
-.table tbody td.kwh-cell {font-size:13px;}
+.table tfoot td { border: 1px solid #e5e7eb; padding: 8px 5px; font-size: 14px; vertical-align: middle; text-align: center; word-break: keep-all; }
+.table tbody td.left {text-align: left !important; }
+.table tbody td.detail-cell {font-size:14px;}
 .table tfoot th { background:#fbff0a; }
 .table tbody tr:hover { background: #f9fafb; }
 .tablemodalfont { font-size:13px; }

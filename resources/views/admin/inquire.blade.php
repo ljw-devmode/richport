@@ -1,6 +1,6 @@
 @php 
 	$header_skip = false; 
-	$depth1_num = '4'; 
+	$depth1_num = '5'; 
 	$depth2_num = '1'; 
 @endphp 
 @include('admin.header._header')
@@ -96,8 +96,8 @@
 						>
 							<td>{{ $number }}</td>
 							<td>{{ optional($item->types)->subject ?? '-' }}</td>
-							<td>{{ $item->inquire_company }} {{ $item->inquire_name }}</td>
-							<td>{{ $item->inquire_hp }}</td>
+							<td>{{ $item->inquire_company }} {{ \App\Support\Privacy::name($item->inquire_name) }}</td>
+							<td>{{ \App\Support\Privacy::phone($item->inquire_hp) }}</td>
 							<td>{{ $item->inquire_address }}</td>
 							<td>{{ $item->inquire_date }}</td>
 							<td>{{ $item->status_kr }}</td>

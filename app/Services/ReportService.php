@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use App\Models\Company;
+use App\Models\CompanyGroup;
 use App\Models\CompanyKwh;
+use App\Models\CompanyManage;
+use App\Models\CompanyRec;
 use App\Models\CompanyReportMonthly;
 use App\Models\CompanySales;
+use App\Models\CompanySmp;
 use App\Models\CompanyYearKwh;
 use App\Models\CompanyYearKwhHours;
 use App\Models\KmaObv;
@@ -22,10 +27,7 @@ class ReportService
     public function generateCompanyMonthly($company)
     {
         $start = Carbon::parse($company->start_date)->startOfMonth();
-        $end   = Carbon::now()->startOfMonth();
-        
-        // 단위 변환 참고: ASOS 일사량(합계일사)은 보통 MJ/m²로 제공되는 경우가 많습니다.
-        // 필요하면 kWh/m²로 변환: 1 MJ/m² = 0.277784755950055 kWh/m²
+        $end   = Carbon::now()->subMonth()->startOfMonth();
         $mjToKwh = 0.277784755950055;
 
         while ($start <= $end) {
@@ -40,7 +42,7 @@ class ReportService
             $days = $start->daysInMonth;
 
             // =========================
-            // 1 발전량
+            // 발전량
             // =========================
             $act_kwh = CompanyKwh::where('comp_idx', $company->idx)
                 ->where('year', $year)
@@ -48,7 +50,7 @@ class ReportService
                 ->value('act_kwh') ?? 0;
 
             // =========================
-            // 2 목표 시간
+            // 목표 시간
             // =========================
             $tgt_hours = CompanyYearKwhHours::where('comp_idx', $company->idx)
                 ->where('year', $year)
@@ -56,26 +58,79 @@ class ReportService
                 ->value('tgt_hours') ?? 0;
 
             // =========================
-            // 3 목표 발전량 (발전시간 * 용량 * 해당월 일수)
+            // 목표 발전량 (발전시간 * 용량 * 해당월 일수)
             // =========================
             $tgt_kwh = $tgt_hours * $company->volume * $days;
 
             // =========================
-            // 4 년차별 년간 목표 발전량
+            // 년차별 년간 목표 발전량
             // =========================
             $tgt_yearkwh = CompanyYearKwh::where('comp_idx', $company->idx)
                 ->where('period', $period)
                 ->value('year_kwh') ?? 0;          
 
             // =========================
-            // 5 실제 시간 (실제 발전량 / 용량 / 해당월 일수)
+            // 실제 시간 (실제 발전량 / 용량 / 해당월 일수)
             // =========================
             $act_hours = $company->volume > 0
                 ? $act_kwh / $company->volume / $days
                 : 0;
 
             // =========================
-            // 6 일사량
+            // SMP 매출
+            // =========================
+            $smp = CompanySmp::where('comp_idx', $company->idx)
+                ->where('year', $year)
+                ->where('month', $month)
+                ->value('smp') ?? 0;
+
+            $smp_amount = ($smp > 0 && $act_kwh > 0) ? $smp * $act_kwh : 0;
+
+            // =========================
+            // REC 매출
+            // =========================
+            $rec = CompanyRec::where('comp_idx', $company->idx)
+                ->where('year', $year)
+                ->where('month', $month)
+                ->value('rec') ?? 0;
+
+            $rec_amount = ($rec > 0 && $act_kwh > 0) ? $rec * $act_kwh : 0;
+            
+            // =========================
+            // 해당 월까지 SMP, REC 누적 매출
+            // =========================
+            $summary = DB::table('company_kwh as kwh')
+                ->leftJoin('company_smp as smp', function ($join) {
+                    $join->on('kwh.comp_idx', '=', 'smp.comp_idx')
+                        ->on('kwh.year', '=', 'smp.year')
+                        ->on('kwh.month', '=', 'smp.month');
+                })
+                ->leftJoin('company_rec as rec', function ($join) {
+                    $join->on('kwh.comp_idx', '=', 'rec.comp_idx')
+                        ->on('kwh.year', '=', 'rec.year')
+                        ->on('kwh.month', '=', 'rec.month');
+                })
+                // 해당 년도 1월부터 선택 월까지
+                ->where(function ($query) use ($year, $month) {
+                    $query->where('kwh.year', $year)
+                        ->where('kwh.month', '<=', $month);
+                })
+                // 대상 발전소
+                ->where('kwh.comp_idx', $company->idx)
+
+                // SMP, REC 누적 합계
+                ->select(
+                    DB::raw('SUM(kwh.act_kwh * IFNULL(smp.smp, 0)) as total_smp_amount'),
+                    DB::raw('SUM(kwh.act_kwh * IFNULL(rec.rec, 0)) as total_rec_amount')
+                )
+                ->first();
+
+            // 각각의 변수에 할당 (결과가 없으면 0)
+            $total_smp_amount = $summary->total_smp_amount ?? 0;
+            $total_rec_amount = $summary->total_rec_amount ?? 0;
+
+            // =========================
+            // 일사량
             // =========================
             $cur_month_kma = $this->getMonthlyKma($company->kma_idx, $year, $month);
 
@@ -85,7 +140,7 @@ class ReportService
             $pre_year_kma = $this->getMonthlyKma($company->kma_idx, $year - 1, $month);
 
             // =========================
-            // 7 효율
+            // 효율
             // =========================
             $total_rate = ($cur_month_kma > 0 && $company->volume > 0 && $act_kwh > 0)
                 ? $act_kwh / ($cur_month_kma * $company->volume * $mjToKwh)
@@ -96,7 +151,7 @@ class ReportService
                      : 0;
 
             // =========================
-            // 8 매출
+            // 매출
             // =========================
             $sales = CompanySales::where('comp_idx', $company->idx)
                 ->where('tgt_year', $year)
@@ -109,7 +164,7 @@ class ReportService
             $man_sales   = $sales->where('type', '운영비')->sum('sales');
 
             // =========================
-            // 9 저장 (핵심)
+            // 저장
             // =========================
             CompanyReportMonthly::updateOrCreate(
                 [
@@ -140,6 +195,11 @@ class ReportService
                     'smp_sales' => $smp_sales,
                     'rec_sales' => $rec_sales,
                     'man_sales' => $man_sales,
+
+                    'smp_amount' => $smp_amount,
+                    'rec_amount' => $rec_amount,
+                    'total_smp_amount' => $total_smp_amount,
+                    'total_rec_amount' => $total_rec_amount,
 
                     'updated_at' => now(),
                 ]

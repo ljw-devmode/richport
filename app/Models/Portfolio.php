@@ -2,74 +2,55 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasLocalizedFields;
 use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
+    use HasLocalizedFields;
+
     protected $table = 'portfolio';
     protected $primaryKey = 'idx';
     public $timestamps = false;
 
     protected $fillable = [
-    		'types_idx',
-    		'form_idx',
-    		'regions_idx',
-    		'cities_idx',
-    		'year',
-    		'station_name',
+    		'types_idx',			// 대형,소형마트, 편의점, 로컬
+    		'cities_idx',			// 시
+    		'districts_idx',		// 구.군
+    		'station_name',			// 업체명
     		'station_name_en',
-    		'station_name_cn',
-    		'volume',
-    		'price',
-    		'price_en',
-    		'price_cn',
-    		'completion_date',
-    		'url',
-    		'blog',
-    		'pc_ori_name',
+    		'station_name_vn',
+			'contents',
+			'contents_en',
+			'contents_vn',
+    		'pc_ori_name',			// PC 용 썸네일
     		'pc_up_name',
     		'pc_file_ext',
     		'pc_file_size',
-    		'fo_ori_name',
+    		'fo_ori_name',			// Fold 용 썸네일
     		'fo_up_name',
     		'fo_file_ext',
     		'fo_file_size',
-    		'mo_ori_name',
+    		'mo_ori_name',			// Mobile 용 썸네일
     		'mo_up_name',
     		'mo_file_ext',
     		'mo_file_size',
-    		'youtube_iframe',
-    		'youtube_subject',
-    		'youtube_subject_en',
-    		'youtube_subject_cn',
-    		'youtube_contents',
-    		'youtube_contents_en',
-    		'youtube_contents_cn',
-    		'blog_contents',
-    		'blog_contents_en',
-    		'blog_contents_cn',
-    		'home_recommend',
-    		'introduce_recommend',
-    		'portfolio_recommend',
+    		'home_recommend',		// 홈 화면 노출
+    		'portfolio_recommend',	// 포트폴리오 화면 노출
     		'created_by',
     		'created_at',
     		'updated_by',
     		'updated_at'
     ];
-    
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];	
+	
     public function types()
     {
     	return $this->belongsTo(Types::class, 'types_idx','idx');
-    }
-    
-    public function formTypes()
-    {
-    	return $this->belongsTo(FormTypes::class, 'form_idx','idx');
-    }
-    
-    public function regions()
-    {
-    	return $this->belongsTo(Regions::class, 'regions_idx', 'idx');
     }
     
     public function cities()
@@ -77,7 +58,12 @@ class Portfolio extends Model
     	return $this->belongsTo(Cities::class, 'cities_idx', 'idx');
     }
     
-    public function files()
+    public function districts()
+    {
+    	return $this->belongsTo(Districts::class, 'districts_idx', 'idx');
+    }
+
+	public function files()
     {
     	return $this->hasMany(PortfolioFiles::class, 'portfolio_idx', 'idx');
     }

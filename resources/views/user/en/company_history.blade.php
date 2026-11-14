@@ -2,9 +2,10 @@
 <body>
 	@include('user.en.header._header')
     <main id="wrap">
-        <div class="sub_banner history_banner">
+        <div class="sub_banner history_banner ">
             <div class="sub_inner">
-                <p class="effect delay_1">The trust and credibility built through accumulated experience and technology define SOLARTEQ’s journey.</p>
+                <h4 class="effects">History</h4>
+                <p class="historyp effect delay_1" >Our journey of bringing Korean brands to Vietnam</br>through local execution and data.</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
         </div>
@@ -38,7 +39,7 @@
 				                <div class="item">
 				                    <dl data-aos="fade-up">
 				                        <dt>{{ (int)$row->month }}</dt>
-				                        <dd><p>{{ $row->subject_en }}</p></dd>
+				                        <dd><p>{{ $row->tr('subject') }}</p></dd>
 				                    </dl>
 				                </div>
 				            @endforeach

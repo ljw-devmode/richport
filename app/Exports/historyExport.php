@@ -2,8 +2,8 @@
 
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use App\Models\History;
 
@@ -38,7 +38,7 @@ class historyExport implements FromCollection, WithHeadings
     				'월'   		=> $item->month,
     				'제목(ko)' 		=> $item->subject,
 					'제목(en)' 		=> $item->subject_en,
-					'제목(cn)' 		=> $item->subject_cn,
+					'제목(vn)' 		=> $item->subject_vn,
     				'등록일'	=> $item->created_at
     		];
     	});
@@ -52,7 +52,7 @@ class historyExport implements FromCollection, WithHeadings
     			'월',
     			'제목(ko)',
 				'제목(en)',
-				'제목(cn)',
+				'제목(vn)',
     			'등록일'
     	];
     }

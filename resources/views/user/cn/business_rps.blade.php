@@ -333,7 +333,7 @@
             }
 
             // 2) 기본값: (입력평 / 3, 소숫점 2자리 반올림)
-            let base = Math.round((pyung / 3) * 100) / 100; // 소수 둘째 자리 반올림
+            let base = pyung; // 소수 둘째 자리 반올림
 
             // 3) 건물/토지 구분
             const isBuilding = ($radio.attr('id') === 'cal_1'); // cal_1: 건물, cal_2: 토지

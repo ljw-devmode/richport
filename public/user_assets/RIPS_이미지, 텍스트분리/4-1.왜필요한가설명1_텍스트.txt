@@ -1,0 +1,29 @@
+■ 화면: 4-1.왜필요한가설명1 (PC / Mobile)
+■ 원본 파일: 4-1.왜필요한가설명1_PC.png / 4-1.왜필요한가설명1_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠)
+
+[PC]
+- 페이지 메인 타이틀: 왜 필요한가?
+- 서브 카피: RIPS는 현지 데이터 부족으로 생기는 수출 운영의 비효율을 줄입니다.
+- 우측 상단 필기체 타이틀: K-Food가 더 멀리, 더 크게
+- 우측 상단 소형 영문 텍스트: K-FOOD CONNECTS THE WORLD
+- 카드 4개:
+  1. 현지 데이터 부족 — 감이 아닌 데이터가 필요합니다.
+  2. 폐기·과재고 발생 — 재고 리스크를 줄여야 합니다.
+  3. 잠재 매출 손실 — 품절과 로스 없이 기회를 지켜야 합니다.
+  4. 신제품 제안 한계 — 판매 기반으로 다음 상품을 제안해야 합니다.
+
+[Mobile]
+- 최상단 영문 텍스트: DATA DRIVES A BIGGER K-FOOD TOMORROW
+- 페이지 메인 타이틀: 왜 필요한가?
+- 서브 카피: RIPS는 현지 데이터 부족으로 생기는 수출 운영의 비효율을 줄입니다.
+- 카드 4개 (PC와 동일):
+  1. 현지 데이터 부족 — 감이 아닌 데이터가 필요합니다.
+  2. 폐기·과재고 발생 — 재고 리스크를 줄여야 합니다.
+  3. 잠재 매출 손실 — 품절과 로스 없이 기회를 지켜야 합니다.
+  4. 신제품 제안 한계 — 판매 기반으로 다음 상품을 제안해야 합니다.
+
+■ 유지 대상 (사진·오브젝트·패키지 내부 글자 — 이미지에 그대로 유지됨)
+- PC: 좌측 벽면 GOOD FOOD BRIGHTER TOMORROW, 辛라면(신라면)/K-FOOD, 한국김 K-SEAWEED, K DRINK PEACH, K-FOOD 스파클링, 선박 K-FOOD TO THE WORLD, 목재 박스 K-Food Goes Further
+- M: 컨테이너 박스 K-FOOD KOREAN TASTE GLOBAL TOMORROW, 신라면 SHIN RAMYUN, 한국김 KOREAN SEAWEED, 비비고 왕교자 K-FOOD DUMPLINGS, 복숭아 PEACH DRINK, K-FOOD CONNECTS THE WORLD

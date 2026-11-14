@@ -8,7 +8,7 @@
     <link href="{{ asset('admin_assets/dist/images/favicon.svg') }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SOLARTEQ ADMIN</title>
+    <title>RICHPORT ADMIN</title>
 
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ asset('admin_assets/dist/css/pretendard.css') }}" />
@@ -25,7 +25,7 @@
 
 <!-- ** 페이지 로딩 ** -->
 <div id="loadingContainer">
-    <svg width="20" viewBox="0 0 135 135" xmlns="http://www.w3.org/2000/svg" fill="rgb(236,100,41)" class="w-20 h-20 opacity-80">
+    <svg width="20" viewBox="0 0 135 135" xmlns="http://www.w3.org/2000/svg" fill="#4C8498" class="w-20 h-20 opacity-80">
         <path d="M67.447 58c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm9.448 9.447c0 5.523 4.477 10 10 10 5.522 0 10-4.477 10-10s-4.478-10-10-10c-5.523 0-10 4.477-10 10zm-9.448 9.448c-5.523 0-10 4.477-10 10 0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zM58 67.447c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10z">
             <animateTransform attributeName="transform" type="rotate" from="0 67 67" to="-360 67 67" dur="2.5s" repeatCount="indefinite"></animateTransform>
         </path>

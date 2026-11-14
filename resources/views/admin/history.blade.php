@@ -61,7 +61,7 @@
 						<th class="whitespace-nowrap">월</th>
 						<th class="whitespace-nowrap">제목(ko)</th>
 						<th class="whitespace-nowrap">제목(en)</th>
-						<th class="whitespace-nowrap">제목(cn)</th>
+						<th class="whitespace-nowrap">제목(vn)</th>
 						<th class="whitespace-nowrap">등록일</th>
 					</tr>
 				</thead>
@@ -76,12 +76,12 @@
 							<td>{{ $item->month }}</td>
 							<td>{{ $item->subject }}</td>
 							<td>{{ $item->subject_en }}</td>
-							<td>{{ $item->subject_cn }}</td>
-							<td>{{ $item->created_at }}</td>
+							<td>{{ $item->subject_vn }}</td>
+							<td>{{ $item->created_at?->format('Y-m-d') }}</td>
 						</tr>
 					@empty
 					<tr>
-						<td colspan="5" class="text-center">등록된 콘텐츠가 없습니다.</td>
+						<td colspan="7" class="text-center">등록된 콘텐츠가 없습니다.</td>
 					</tr>
 					@endforelse
 				</tbody>
@@ -163,8 +163,8 @@
 						<input type="text" id="regist_subject_en" name="regist_subject_en" class="form-control" placeholder="제목을 입력해주세요">
 					</div>
 					<div class=" mt-3">
-						<p class="mb-1 font-medium ">제목(cn) <span class="text-danger">*</span></p>
-						<input type="text" id="regist_subject_cn" name="regist_subject_cn" class="form-control" placeholder="제목을 입력해주세요">
+						<p class="mb-1 font-medium ">제목(vn) <span class="text-danger">*</span></p>
+						<input type="text" id="regist_subject_vn" name="regist_subject_vn" class="form-control" placeholder="제목을 입력해주세요">
 					</div>
 
 				</div>
@@ -216,8 +216,8 @@
 						<input type="text" id="modify_subject_en" name="modify_subject_en" class="form-control" placeholder="제목을 입력해주세요" value="">
 					</div>
 					<div class=" mt-3">
-						<p class="mb-1 font-medium ">제목(cn) <span class="text-danger">*</span></p>
-						<input type="text" id="modify_subject_cn" name="modify_subject_cn" class="form-control" placeholder="제목을 입력해주세요" value="">
+						<p class="mb-1 font-medium ">제목(vn) <span class="text-danger">*</span></p>
+						<input type="text" id="modify_subject_vn" name="modify_subject_vn" class="form-control" placeholder="제목을 입력해주세요" value="">
 					</div>
 
 					<input type="hidden" id="modify_idx" name="modify_idx" value="">
@@ -246,18 +246,18 @@ function regist() {
   	const month		= $('#regist_month').val();
   	const subject	= $('#regist_subject').val().trim();
 	const subject_en	= $('#regist_subject_en').val().trim();
-	const subject_cn	= $('#regist_subject_cn').val().trim();
+	const subject_vn	= $('#regist_subject_vn').val().trim();
 
   	if (!year)		return showToast('년도를 선택해주세요.','error');
   	if (!month)		return showToast('월을 선택해주세요.','error');  
 	if (!subject)	return showToast('제목(ko)을 입력해주세요.','error');
 	if (!subject_en)	return showToast('제목(en)을 입력해주세요.','error');
-	if (!subject_cn)	return showToast('제목(cn)을 입력해주세요.','error');
+	if (!subject_vn)	return showToast('제목(cn)을 입력해주세요.','error');
 	
 	const fd = new FormData();
 	fd.append('subject', subject);
 	fd.append('subject_en', subject_en);
-	fd.append('subject_cn', subject_cn);
+	fd.append('subject_vn', subject_vn);
 	fd.append('year', year);
 	fd.append('month', month);
 	
@@ -296,7 +296,7 @@ function setModifyForm(idx) {
             if (res.status === 'success') {
 				$('#modify_subject').val(res.data.subject);
 				$('#modify_subject_en').val(res.data.subject_en);
-				$('#modify_subject_cn').val(res.data.subject_cn);
+				$('#modify_subject_vn').val(res.data.subject_vn);
 				$('#modify_year').val(res.data.year);
 				$('#modify_month').val(res.data.month);
 				$('#modify_idx').val(res.data.idx);
@@ -320,20 +320,20 @@ function modify() {
   	const month		= $('#modify_month').val();
   	const subject	= $('#modify_subject').val().trim();
   	const subject_en	= $('#modify_subject_en').val().trim();
-  	const subject_cn	= $('#modify_subject_cn').val().trim();
+  	const subject_vn	= $('#modify_subject_vn').val().trim();
 
   	if (!idx)		return showToast('오류가 발생하였습니다.','error');
   	if (!year)		return showToast('년도를 선택해주세요.','error');
   	if (!month)		return showToast('월을 선택해주세요.','error');  
 	if (!subject)	return showToast('제목(ko)을 입력해주세요.','error');
 	if (!subject_en)	return showToast('제목(en)을 입력해주세요.','error');
-	if (!subject_cn)	return showToast('제목(cn)을 입력해주세요.','error');
+	if (!subject_vn)	return showToast('제목(vn)을 입력해주세요.','error');
 	
 	
 	const fd = new FormData();
 	fd.append('subject', subject);
 	fd.append('subject_en', subject_en);
-	fd.append('subject_cn', subject_cn);
+	fd.append('subject_vn', subject_vn);
 	fd.append('year', year);
 	fd.append('month', month);
 

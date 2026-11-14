@@ -1,0 +1,29 @@
+■ 화면: 4-2.왜필요한가설명2 (PC / Mobile) — 최고 전문가들의 만남
+■ 원본 파일: 4-2.왜필요한가설명2_PC.png / 4-2.왜필요한가설명2_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠)
+
+[PC]
+- 메인 타이틀: 최고 전문가들의 만남
+- 메인 서브 타이틀: 데이터, 유통, 소싱, 현지 실행이 하나로 연결됩니다.
+- 카드 4개 (타이틀+설명):
+  1. 가치 연결 — 한국 브랜드와 베트남 시장을 연결
+  2. 트렌드 조사 — 소비자 반응과 판매 데이터를 분석
+  3. 현지 전문가 — 현지 MD·유통 실무 기반 실행
+  4. 글로벌 서비스 — 수출 운영부터 확장 전략까지 지원
+- 하단 푸터: 좋은 K-브랜드가, 더 멀리, 더 크게 성장할 수 있도록 / TO A MORE CONNECTED TOMORROW
+
+[Mobile]
+- 상단 슬로건: K-FOOD가 더 넓은 세상으로
+- 메인 타이틀: 최고 전문가들의 만남
+- 메인 서브 타이틀: 데이터, 유통, 소싱, 현지 실행이 하나로 연결됩니다.
+- 세로 패널 4개 (PC와 동일 타이틀/설명):
+  1. 가치 연결 — 한국 브랜드와 베트남 시장을 연결
+  2. 트렌드 조사 — 소비자 반응과 판매 데이터를 분석
+  3. 현지 전문가 — 현지 MD·유통 실무 기반 실행
+  4. 글로벌 서비스 — 수출 운영부터 확장 전략까지 지원
+- 하단 푸터 슬로건: K-FOOD, A BRIGHTER TOMORROW TOGETHER
+
+■ 유지 대상 (사진·오브젝트·그래픽 내부 글자 — 이미지에 그대로 유지됨)
+- PC: 상단 슬로건 EXPERTS FOR A BIGGER TOMORROW(사진/그래픽 내), 캘리그래피 K-푸드가 더 큰 세상으로, 배경 K-FOOD 간판 TASTE KOREA SHARE THE WORLD, 카드 하단 이미지 문구(K-BRAND/VIETNAM/FROM KOREA TO VIETNAM, CONSUMER INSIGHT, GOOD FOOD BRIGHTER TOMORROW, LOCAL EXPERTISE/GLOBAL OPPORTUNITY)
+- M: 배경 K-FOOD GLOBAL BUSINESS TOGETHER, K-FOOD BRINGS A BETTER TOMORROW, 캘리그래피 좋은 브랜드가 더 멀리, 더 오래, 패널 우측 영문(BRANDS TO MARKETS, CONSUMER INSIGHT, DATA DRIVES OPPORTUNITY, K-FOOD Ngon hơn mỗi ngày, LOCAL EXPERTISE REAL RESULTS, BEYOND EXPORT A BIGGER TOMORROW)

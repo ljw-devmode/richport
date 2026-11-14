@@ -43,7 +43,15 @@ return [
     	'admin' => [ // 관리자용
     		'driver' => 'session',
     		'provider' => 'admins',
-    	],
+    	],  
+        'outcompany' => [
+            'driver' => 'session',
+            'provider' => 'out_companies',
+        ],
+        'rips' => [ // RIPS 이용 업체(파트너)
+            'driver' => 'session',
+            'provider' => 'rips_partners',
+        ],
     ],
 
     /*
@@ -70,9 +78,17 @@ return [
         ],
 
     	'admins' => [
-    			'driver' => 'eloquent',
-    			'model' => App\Models\Admin::class,
-    	],
+    		'driver' => 'eloquent',
+    		'model' => App\Models\Admin::class,
+    	],  
+        'out_companies' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\OutCompany::class,
+        ],
+        'rips_partners' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Partner::class,
+        ],
     ],
 
     /*

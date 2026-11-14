@@ -2,9 +2,10 @@
 <body>
 	@include('user.ko.header._header')
     <main id="wrap">
-        <div class="sub_banner history_banner">
+        <div class="sub_banner history_banner ">
             <div class="sub_inner">
-                <p class="effect delay_1">축적된 경험과 기술로 쌓아온 믿음과 신뢰는<br/>솔라테크의 발자취 입니다.</p>
+                <h4 class="effects">연혁</h4>
+                <p class="historyp effect delay_1" >현지 실행력과 데이터로 한국 브랜드의</br>베트남 진출을 만들어온 팀의 여정입니다.</p>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
         </div>
@@ -38,7 +39,7 @@
 				                <div class="item">
 				                    <dl data-aos="fade-up">
 				                        <dt>{{ (int)$row->month }}</dt>
-				                        <dd><p>{{ $row->subject }}</p></dd>
+				                        <dd><p>{{ $row->tr('subject') }}</p></dd>
 				                    </dl>
 				                </div>
 				            @endforeach

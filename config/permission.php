@@ -10,14 +10,6 @@ return [
             'history.delete'    => '삭제',
             'history.excel'     => '엑셀',
         ],
-
-        '회사소식' => [
-            'notice.view'   => '조회',
-            'notice.create' => '등록',
-            'notice.update' => '수정',
-            'notice.delete' => '삭제',
-            'notice.excel'  => '엑셀',
-        ],
     ],
 
     '사업관리' => [
@@ -30,92 +22,99 @@ return [
             'portfolio.detail' => '상세',
         ],
 
-        '발전소 관리' => [
-            'company.view'      => '조회',
-            'company.create'    => '등록',
-            'company.update'    => '수정',
-            'company.delete'    => '삭제',
-            'company.excel'     => '엑셀',
-            'company.detail'    => '상세',
-            'company.report'    => '리포트 생성',
-        ],
-        
-        '발전소 상세 - 매출' => [
-            'company.saleview'      => '조회',
-            'company.salecreate'    => '등록',
-            'company.saleupdate'    => '수정',
-            'company.saledelete'    => '삭제',
+        '파트너' => [
+            'partner.view'   => '조회',
+            'partner.create' => '등록',
+            'partner.update' => '수정',
+            'partner.delete' => '삭제',
+            'partner.excel'  => '엑셀',
+            'partner.detail' => '상세',
         ],
 
-        '발전소 상세 - 발전량' => [
-            'company.kwhview'      => '조회',
-            'company.kwhcreate'    => '등록',
-            'company.kwhupdate'    => '수정',
-            'company.kwhdelete'    => '삭제',
+        '상품' => [
+            'product.view'   => '조회',
+            'product.create' => '등록',
+            'product.update' => '수정',
+            'product.delete' => '삭제',
+            'product.excel'  => '엑셀',
+            'product.detail' => '상세',
         ],
 
-        '발전소 상세 - 목표 발전량' => [
-            'company.yearkwhview'      => '조회',
-            'company.yearkwhcreate'    => '등록',
-            'company.yearkwhupdate'    => '수정',
-            'company.yearkwhdelete'    => '삭제',
+        '카테고리 관리' => [
+            'formCategory.view'   => '조회',
+            'formCategory.create' => '등록',
+            'formCategory.update' => '수정',
+            'formCategory.delete' => '삭제',
         ],
 
-        '발전소 상세 - 목표 발전시간' => [
-            'company.yearkwhhoursview'      => '조회',
-            'company.yearkwhhourscreate'    => '등록',
-            'company.yearkwhhoursupdate'    => '수정',
-            'company.yearkwhhoursdelete'    => '삭제',
+        '설문조사 관리' => [
+            'checklist.view'    => '조회',
+            'checklist.create'  => '등록',
+            'checklist.update'  => '수정',
+            'checklist.copy'    => '복사',
+            'checklist.delete'  => '삭제',
         ],
 
-        '발전소 상세 - 정기 점검' => [
-            'company.checkview'      => '조회',
-            'company.checkcreate'    => '등록',
-            'company.checkupdate'    => '수정',
-            'company.checkdelete'    => '삭제',
+        '설문조사 결과 관리' => [
+            'checkresult.view'      => '설문결과',
+        ],
+    ],
+
+    'RIPS 관리' => [
+        'RIPS 업체' => [
+            'rips.view'     => '조회',
+            'rips.create'   => '업체 등록',
+            'rips.update'   => '업체 정보·매핑·발주금액 수정',
         ],
 
-        '발전소 상세 - 긴급 출동' => [
-            'company.emergencyview'     => '조회',
-            'company.emergencycreate'   => '등록',
-            'company.emergencyupdate'   => '수정',
-            'company.emergencydelete'   => '삭제',
+        '판매 관리' => [
+            'ripsSales.view'    => '조회',
         ],
 
-        '발전소 상세 - 소모품 교체' => [
-            'company.changeview'     => '조회',
-            'company.changecreate'   => '등록',
-            'company.changeupdate'   => '수정',
-            'company.changedelete'   => '삭제',
+        'AI 연동' => [
+            'aiApi.view'    => '조회',
+            'aiApi.update'  => '설정 · 인증키 재발급',
         ],
 
-        '발전소 상세 - 이슈' => [
-            'company.issueview'      => '조회',
-            'company.issuecreate'    => '등록',
-            'company.issueupdate'    => '수정',
-            'company.issuedelete'    => '삭제',
-        ],
-                
-        'SPC 리포트' => [
-            'spc_report.view'   => '조회',
-            'spc_report.detail' => '리포트 보기',
+        '발주 관리' => [
+            'ripsOrder.view'    => '조회',
+            'ripsOrder.update'  => '상태·일정·발주정보 수정',
         ],
 
-        '일사량 전년·전월 비교' => [
-            'kma_monthly.view'  => '조회',
-            'kma_monthly.excel' => '엑셀',
+        // 권한 키는 기존(inquireRips.*) 그대로 사용, 메뉴만 RIPS 관리로 이동
+        'RIPS 이용신청' => [
+            'inquireRips.view'      => '조회',
+            'inquireRips.save'      => '저장',
+            'inquireRips.excel'     => '엑셀',
         ],
 
-        '일사량 기간 조회' => [
-            'kma_db.view'   => '조회',
-            'kma_db.excel'  => '엑셀',
+        '통관 이슈' => [
+            'customsIssue.view'     => '조회',
+            'customsIssue.create'   => '등록',
+            'customsIssue.update'   => '수정',
+            'customsIssue.delete'   => '삭제',
         ],
     ],
 
     '고객문의' => [
-        'inquire.view'      => '조회',
-        'inquire.save'      => '저장',
-        'inquire.excel'     => '엑셀',
+        '고객문의' => [
+            'inquire.view'      => '조회',
+            'inquire.save'      => '저장',
+            'inquire.excel'     => '엑셀',
+        ],
+
+        '테스트베드 신청' => [
+            'inquireTestbed.view'      => '조회',
+            'inquireTestbed.save'      => '저장',
+            'inquireTestbed.excel'     => '엑셀',
+        ],
+
+        'FAQ' => [
+            'faq.view'      => '조회',
+            'faq.create'    => '등록',
+            'faq.update'    => '수정',
+            'faq.delete'    => '삭제',
+        ],
     ],
 
     '서비스관리' => [
@@ -124,22 +123,11 @@ return [
             'user.create'   => '등록',
             'user.update'   => '수정',
             'user.delete'   => '삭제',
-           
         ],
 
-        'SPC 관리' => [
-            'spc.view'      => '조회',
-            'spc.create'    => '등록',
-            'spc.update'    => '수정',
-            'spc.delete'    => '삭제',
+        '관리자 로그' => [
+            'adminLog.view' => '조회',
         ],
-
-        '체크 항목 관리' => [
-            'check.view'    => '조회',
-            'check.create'  => '등록',
-            'check.update'  => '수정',
-            'check.delete'  => '삭제',
-            'check.excel'   => '엑셀',
-        ],
+    
     ],    
 ];

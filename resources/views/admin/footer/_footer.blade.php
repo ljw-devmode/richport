@@ -80,6 +80,7 @@
         <script src="{{ asset('admin_assets/dist/js/jquery-1.12.4.js') }}"></script>
         <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
         <script src="{{ asset('admin_assets/dist/js/custom.js') }}"></script>
+        <script src="{{ asset('admin_assets/dist/js/sortable.js') }}"></script>
         <!-- 파일업로드 -->
         <script src="{{ asset('admin_assets/dist/js/filepond.min.js') }}"></script>
         <script src="{{ asset('admin_assets/dist/js/filepond-plugin-image-preview.min.js') }}"></script>
@@ -163,6 +164,16 @@
                 }
             });
         }
+
+        // 글로벌 AJAX 에러 핸들링 - 419 CSRF 토큰 만료 시 로그인 페이지로 리다이렉트
+        $(document).ajaxError(function(event, xhr, settings, thrownError) {
+            if (xhr.status === 419) {
+                showToast('세션이 만료되었습니다. 로그인 페이지로 이동합니다.', 'error');
+                setTimeout(function() {
+                    window.location.href = '/admin/login';
+                }, 2000);
+            }
+        });
         </script>
         <!-- END: JS Assets-->
     </body>

@@ -12,13 +12,13 @@ class Inquire extends Model
 
     protected $fillable = [
     		'status',
-    		'types_idx',
+    		'types_idx',			// 타입 (types.php)
     		'inquire_date',
     		'inquire_company',
     		'inquire_hp',
     		'inquire_address',
-    		'inquire_contents',
-    		'response_contents',
+    		'inquire_contents',		// 문의 사항
+    		'response_contents',	// 답변 내용
     		'response_by',
     		'response_at',
     		'complete_at'

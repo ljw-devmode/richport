@@ -1,7 +1,7 @@
 @php 
 	$header_skip = false; 
-	$depth1_num = '5'; 
-	$depth2_num = '11'; 
+	$depth1_num = '6'; 
+	$depth2_num = '1'; 
 @endphp 
 @include('admin.header._header')
 
@@ -74,10 +74,10 @@
 						>
 							<td>{{ $item->idx }}</td>
 							<td>{{ $item->id }}</td>
-							<td>{{ $item->name }}</td>
-							<td>{{ $item->hp }}</td>
-							<td>{{ $item->email }}</td>
-							<td>{{ $item->created_at }}</td>
+							<td>{{ \App\Support\Privacy::name($item->name) }}</td>
+							<td>{{ \App\Support\Privacy::phone($item->hp) }}</td>
+							<td>{{ \App\Support\Privacy::email($item->email) }}</td>
+							<td>{{ $item->created_at?->format('Y-m-d') }}</td>
 						</tr>
 					@empty
 					<tr>
@@ -357,8 +357,6 @@ function regist() {
 	// 권한 배열을 JSON 문자열로 보내거나 개별 append
     permissions.forEach(p => fd.append('permissions[]', p));
 
-	console.log(permissions);
-	
 	if (!confirm('사용자를 등록하시겠습니까?')) return;
 
     $.ajax({

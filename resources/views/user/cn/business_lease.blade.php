@@ -425,7 +425,7 @@
             }
 
             // 2) 기본 평수 변환: (입력평 / 3, 소숫점 둘째 자리 반올림)
-            let base = Math.round((pyung / 3) * 100) / 100;
+            let base = pyung;
 
             // -----------------------------
             // [A] 전기료 절감액 테이블
@@ -433,12 +433,16 @@
 
             // 1~8년차 + 20년차 "총 절감액" 계수 (만원 단위)
             const totalCoeffs = [1.91, 2.07, 2.24, 2.41, 2.58, 2.75, 2.93, 3.12, 5.61];
+            const totalrates = [99.00, 98.60, 98.20, 97.80, 97.40, 97.00, 96.60, 96.20, 91.40];
 
             // 각 연도별 절감액 (만원, 정수로 반올림)
-            const yearSavings = totalCoeffs.map(c => Math.round(base * c));
+            const yearSavings = totalCoeffs.map((c, index) => {
+                const rate = totalrates[index];
+                return Math.round((base * c * rate) / 100);
+            });
 
-         	// 20년 총 절감액: 73만원 * base
-            const totalSaving20 = Math.round(base * 73);  // 단위: 만원
+         	// 20년 총 절감액: 69만원 * base
+            const totalSaving20 = Math.round(base * 69);  // 단위: 만원
 
             // 첫 번째 table_box (전기료 절감액)
             const $electricBox       = $calBox.find('.table_box').eq(0);

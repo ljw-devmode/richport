@@ -5,8 +5,8 @@
         <!-- 포트폴리오 -->
         <div class="sub_banner portfolio_banner">
             <div class="sub_inner type02">
-                <p class="effect">포트폴리오</p>
-                <span class="effect delay_1">친환경 에너지와 스마트 팩토리에서<br/>솔라테크가 만들어온 성과를 실적으로 보여드립니다</span>
+                <p class="effect">도입사례</p>
+                <span class="effect delay_1">설명문구1 <br/>설명문구2</span>
             </div>
             <div id="scroll_down"><p>Scroll down</p></div>
         </div>
@@ -15,14 +15,8 @@
             <div class="w1700">
                 <div class="sub_tit">
                     <span data-aos="fade-up">PORTFOLIO</span>
-                    <h3 data-aos="fade-up" data-aos-delay="150"><b>실적으로 증명</b>하는<br/> 솔라테크에 대한 믿음</h3>
+                    <h3 data-aos="fade-up" data-aos-delay="150"><b>다양한 기업들이 증명</b>하는<br/> 리치포트 서비스</h3>
                 </div>
-				<!--
-                <div class="portfolio_tab" data-aos="fade-up">
-                    <a href="javascript:;" class="active">신재생 에너지</a>
-                    <a href="javascript:alert('준비중입니다')">스마트 팩토리</a>
-                </div>
-				-->
             </div>
 
             <div class="portfolio_box">
@@ -32,11 +26,11 @@
 	                        <div class="category">
 	                        	<input type="radio" id="form_idx_all" name="form_idx"  value="" {{ request('form_idx') === null || request('form_idx') === '' ? 'checked' : '' }}><label for="form_idx_all">전체보기</label>
 	                        	@foreach ($types as $item)
-		                            <input type="radio" id="form_idx_{{$item->idx}}" name="form_idx" value="{{$item->idx}}" {{ request('form_idx') == $item->idx ? 'checked' : '' }}><label for="form_idx_{{$item->idx}}">{{$item->subject}}</label>
+		                            <input type="radio" id="form_idx_{{$item->idx}}" name="form_idx" value="{{$item->idx}}" {{ request('form_idx') == $item->idx ? 'checked' : '' }}><label for="form_idx_{{$item->idx}}">{{$item->tr('subject')}}</label>
 	                            @endforeach
 	                        </div>
 	                        <div class="search">
-	                            <input type="text" id="station_name" name="station_name" placeholder="발전소 명으로 검색해 주세요." value="{{ request('station_name') }}">
+	                            <input type="text" id="station_name" name="station_name" placeholder="업체명으로 검색해 주세요." value="{{ request('station_name') }}">
 	                            <button><img src="{{ asset('user_assets/img/icon/search.svg') }}" alt=""></button>
 	                        </div>
 	                    </div>
@@ -45,29 +39,27 @@
                         <ul>
                         	@forelse ($data as $index => $item)
                             <li>
-                            	<a href="/ko/portfolio/detail/{{ $item->idx }}">
-	                                <div class="img_box">
-	                                	<span>{{ $item->formTypes->subject ?? '' }}</span>
-	                                	<img src="{{ Storage::disk('public')->url($item->pc_up_name) }}" alt="">
-	                                </div>
-	                                <div class="txt_box">
-	                                    <div class="top">
-	                                        <span>{{ $item->regions->name_kr ?? '' }} {{ $item->cities->name_kr ?? '' }}</span>
-	                                        <b>{{number_format($item->volume)}}kW</b>
-	                                    </div>
-	                                    <div class="tit">
-	                                        <p>{{$item->station_name}}</p>
-	                                        <div class="link_box">
-	                                        	@if($item->url)
-	                                            <a href="{{$item->url}}" target="_blank"><img src="{{ asset('user_assets/img/sub/solarteq/youtube.svg') }}" alt=""></a>
-	                                            @endif
-	                                            @if($item->blog)
-	                                            <a href="{{$item->blog}}" target="_blank"><img src="{{ asset('user_assets/img/sub/solarteq/blog.svg') }}" alt=""></a>
-	                                            @endif
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </a>
+								<div class="img_box">
+									<span>{{ $item->formTypes?->tr('subject') ?? '' }}</span>
+									<img src="{{ Storage::disk('public')->url($item->pc_up_name) }}" alt="">
+								</div>
+								<div class="txt_box">
+									<div class="top">
+										<span>{{ $item->regions?->tr('name') ?? '' }} {{ $item->cities?->tr('name') ?? '' }}</span>
+										<b>{{number_format($item->volume)}}kW</b>
+									</div>
+									<div class="tit">
+										<p>{{$item->tr('station_name')}}</p>
+										<div class="link_box">
+											@if($item->url)
+											<a href="{{$item->url}}" target="_blank"><img src="{{ asset('user_assets/img/icon/youtube.svg') }}" alt=""></a>
+											@endif
+											@if($item->blog)
+											<a href="{{$item->blog}}" target="_blank"><img src="{{ asset('user_assets/img/icon/blog.svg') }}" alt=""></a>
+											@endif
+										</div>
+									</div>
+								</div>
                             </li>
                             @empty
                             	<li class="empty">등록된 포트폴리오가 없습니다.</li>

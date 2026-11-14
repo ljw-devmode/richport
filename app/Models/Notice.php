@@ -13,18 +13,23 @@ class Notice extends Model
     protected $fillable = [
     		'subject',
     		'subject_en',
-    		'subject_cn',
+    		'subject_vn',
     		'gubun',
     		'contents',
     		'contents_en',
-    		'contents_cn',
+    		'contents_vn',
     		'writed_at',
     		'created_by',
     		'created_at',
     		'updated_by',
     		'updated_at'
     ];
-    
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];	
+
     public function files()
     {
     	return $this->hasMany(NoticeFiles::class, 'idx', 'notice_idx');

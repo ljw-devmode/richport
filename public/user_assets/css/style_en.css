@@ -7,8 +7,8 @@ html {
 :root {
     color-scheme: light only; /* 시스템 설정과 관계없이 밝은 테마 강제 적용 */
 
-    --color-primary:#EC6429;
-    --swiper-theme-color: #EC6429;
+    --color-primary:#4C8498;
+    --swiper-theme-color: #4C8498;
 
     --default-duration:0.8s;
     --fullpage-delay:0.8s;

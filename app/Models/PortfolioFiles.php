@@ -22,8 +22,13 @@ class PortfolioFiles extends Model
     	'updated_by',
     	'updated_at',
     ];
-    
-    public function portfolio()
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];	
+
+	public function portfolio()
     {
     	return $this->belongsTo(Portfolio::class, 'portfolio_idx', 'idx');
     }

@@ -18,7 +18,7 @@ class GoogleSheetService
         $client->setScopes([Sheets::SPREADSHEETS_READONLY]);
 
         $this->sheets = new Sheets($client);
-        $this->spreadsheetId = env('GOOGLE_SHEET_ID');
+        $this->spreadsheetId = env('GOOGLE_SHEET_ID');  // .env 파일 하단에 설정
     }
 
     public function getRange(string $range): array

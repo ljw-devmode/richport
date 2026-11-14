@@ -18,15 +18,15 @@ class CheckLanguageCookie
         // 쿠키에서 선택된 언어 확인
         $selectedLang = $request->cookie('selectedLang');
         
-        // 유효한 언어 코드 (저장값)
-        $validStorageLangs = ['ko', 'en', 'zh-cn'];
-        $validUrlLangs = ['ko', 'en', 'cn'];
-        
+        // 유효한 언어 코드 (저장값 : 사용자 화면 언어 선택에서 저장하는 쿠키 값)
+        $validStorageLangs = ['ko', 'en', 'vn'];
+        $validUrlLangs = ['ko', 'en', 'vn'];
+
         // 저장값 → URL 코드 매핑
         $langMap = [
             'ko' => 'ko',
             'en' => 'en',
-            'zh-cn' => 'cn'
+            'vn' => 'vn'
         ];
         
         // 쿠키에 유효한 언어가 저장되어 있으면

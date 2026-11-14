@@ -1,0 +1,29 @@
+■ 화면: 5.가격정책 (PC / Mobile)
+■ 원본 파일: 5.가격정책_PC.png / 5.가격정책_M.png
+
+■ 제거 대상 (이미지에서 제거 + 웹 텍스트로 재구현할 콘텐츠)
+
+[PC]
+- 메인 타이틀: 가격정책
+- 메인 서브카피: 정식 통관과 합리적 유통구조로 경쟁력 있는 가격을 만듭니다.
+- 상세 설명: 원산지 증명서와 현지 상품등록을 기반으로 안전하게 통관하고, 가치사슬 참여자 모두의 적정마진을 설계합니다.
+- 특징 카드 4개:
+  1. 투명한 통관 — 정식 서류·규정 준수
+  2. 숨은 비용 절감 — 효율적인 유통구조
+  3. 안정적인 공급 — 지속 가능한 파트너십
+  4. 공정한 가격 — 모두를 위한 적정마진
+
+[Mobile]
+- 최상단 슬로건: 신뢰로 이어지는 더 큰 내일
+- 메인 타이틀: 가격정책
+- 메인 서브카피: 정식 통관과 합리적 유통구조로 경쟁력 있는 가격을 만듭니다.
+- 상세 설명: 원산지 증명서와 현지 상품등록을 기반으로 안전하게 통관하고, 가치사슬 참여자 모두의 적정마진을 설계합니다.
+- 특징 카드 4개 (Mobile 문구):
+  1. 투명한 통관 — 정식 절차, 신뢰할 수 있는 거래
+  2. 숨은 비용 최소화 — 효율적 유통구조
+  3. 안정적인 공급 — 지속 가능한 파트너십
+  4. 모두를 위한 합리적 가격 — 함께 성장하는 가치사슬
+
+■ 유지 대상 (사진·오브젝트·배경 내부 글자 — 이미지에 그대로 유지됨)
+- PC 배경 영문: CLEAN TRADE / FAIR PRICE / BRIGHTER TOMORROW / TRUSTED TRADE / SUSTAINABLE GROWTH / BETTER TOMORROW / KOREA / VIETNAM / CONNECTING KOREA & VIETNAM FOR A BRIGHTER TOMORROW
+- M 배경: 선박 KOREA ⇔ VIETNAM, 컨테이너 박스 GOOD TRADE | BRIGHTER TOMORROW / KOREA·VIETNAM·TO A SUSTAINABLE FUTURE, 건물 외벽 PEOPLE·PRODUCTS·PARTNERSHIP·A BRIGHTER TOMORROW
